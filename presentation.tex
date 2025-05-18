@@ -876,7 +876,7 @@
                 \item \textbf{Black vertical lines} for \textbf{header} and \textbf{bottom} only (1.5~pt) 
                 \item \textbf{Grey vertical lines} (1~pt) for the \textbf{rest}
                 \item \footnotesize \textbf{Avoid horizontal lines} (unless necessary)
-                \item \footnotesize \textbf{Use gray!20} as \textbf{background} for \textbf{odd-numbered rows}
+                \item \footnotesize \textbf{Use gray!20} as \textbf{background} for \textbf{odd rows}
             \end{tugitemize}
         \end{coloredblock}
         \begin{coloredblock}[yellow][\centering\faIcon{glasses}~~~Data Readability][\footnotesize]
@@ -885,6 +885,7 @@
                 \item \footnotesize \textbf{Align numbers by decimal separator} for better readability
                 \item \footnotesize \textbf{Show only meaningful decimals} – no clutter!
                 \item \footnotesize \textbf{Use consistent units} and place them in the header when possible
+                \item \footnotesize \textbf{Highlight} the numbers you want to emphasizes
             \end{tugitemize}
         \end{coloredblock}
     \end{minipage}
@@ -908,6 +909,8 @@
                   row{odd}={grey!20}, % Background color odd rows
                   % row{even}={white}, % Background color even rows
                   row{1}={white,font=\bfseries}, % Bold font for header
+                  cell{4}{2}={yellowLight, cmd=\textbf}, % Highlight cell (has to be after row{odd}={grey!20})
+                  cell{4}{3}={yellowLight, cmd=\textbf}, % Highlight cell (has to be after row{odd}={grey!20})
                 }
                 \textbf{Power Plant Type} & \textbf{2022} & \textbf{2023} & \textbf{2024} & \textbf{2025} \\
                 Coal           & 25.3 & 20.6 & 15.9 & 10.5 \\
@@ -962,7 +965,7 @@
 
     \insertfadedpicture{15.98cm}{figures/iee_besprechung.png}{Source: Institute of Electricity Economics and Energy Innovation/TU Graz}
 
-    \vspace{-0.3cm}
+    \vspace{-0.8cm}
     \begin{minipage}[t]{0.75\textwidth}
         \begin{coloredblock}[blue][\centering \faIcon{image}~~~Faded Image]
             \begin{itemize}
