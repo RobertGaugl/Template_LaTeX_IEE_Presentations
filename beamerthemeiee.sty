@@ -1,0 +1,1130 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeiee}[IEE presentation theme for LaTeX Beamer]
+% Author: Robert Gaugl
+% Based on the TU Graz LaTeX template by Maria Eichlseder.
+
+\mode<presentation>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   USEPACKAGES   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{ocg-p} % to hide POI markup in print
+\RequirePackage{eso-pic}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{lmodern}
+\RequirePackage{ifthen}
+\RequirePackage{exscale}
+\RequirePackage{newtxmath}
+\RequirePackage{xparse}
+\RequirePackage{xstring}
+\RequirePackage{iflang}
+\RequirePackage{tikz}
+\usetikzlibrary{calc,fit}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   OPTIONS   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Slide Layouts
+\DeclareOption{minimal}{}
+
+% Notes
+\newif\iftugraz@notes
+\tugraz@notesfalse
+\DeclareOption{notes}{\tugraz@notestrue}
+
+% Title layout
+\newif\iftwolinetitle
+\twolinetitlefalse % or \twolinetitletrue to activate
+
+% Language macro
+\newcommand{\germanenglish}[2]{\IfLanguageName{ngerman}{#1}{#2}\null}
+
+% Optional package themes
+\newif\iftugraz@biblatex
+\DeclareOption{nobiblatex}{\tugraz@biblatexfalse} % default
+\DeclareOption{biblatex}{\tugraz@biblatextrue}
+
+\newif\iftugraz@hyperref
+\DeclareOption{nohyperref}{\tugraz@hyperreffalse}
+\DeclareOption{hyperref}{\tugraz@hyperreftrue} % default
+
+% Other options
+\newif\iftugraz@plainsectionpages
+\tugraz@plainsectionpagesfalse
+\DeclareOption{plainsectionpages}{\tugraz@plainsectionpagestrue}
+
+\newif\iftugraz@files
+\newif\iftugraz@logo
+\tugraz@filestrue
+\tugraz@logotrue
+\DeclareOption{nofiles}{\tugraz@filesfalse}
+\DeclareOption{nologo}{\tugraz@logofalse}
+
+% Unknown options warning
+\DeclareOption*{
+    \PackageWarning{beamerthemeiee}{Unknown option '\CurrentOption'}
+}
+
+% Default options
+\ProcessOptions\relax
+
+% Adapt options
+\beamer@paperwidth 35.94cm%
+\beamer@paperheight 20.32cm%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   METADATA   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\date{}
+
+\def\insertlogobar{}
+\newcommand{\logobar}[1]{\def\insertlogobar{#1}}
+
+\def\inserttitlefigure{beamerthemeiee/background_top_16-9}
+\newcommand{\titlefigure}[1]{%
+    \setbeamertemplate{titleslide page top}[figure]%
+    \setbeamertemplate{poi page top}[figure]%
+    \def\inserttitlefigure{#1}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   COLOR THEME   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usecolortheme{default}
+
+% TU Graz Colors
+\definecolor{tug}{HTML}{F70146}
+
+% IEE Color
+\definecolor{iee}{HTML}{008080}
+\colorlet{main}{iee}
+
+% PowerPoint Palette
+\definecolor{fore}{HTML}{0F0F0F}
+\definecolor{back}{HTML}{FFFFFF}
+\definecolor{dark}{HTML}{3B5A70}
+\definecolor{lite}{HTML}{A6A6A6}
+\definecolor{head}{HTML}{245B78}
+\definecolor{body}{HTML}{E2E9ED}
+\definecolor{urlA}{HTML}{0066D8}
+\definecolor{urlB}{HTML}{6C2F91}
+\colorlet{colA}{iee}
+\colorlet{colB}{tug}
+\definecolor{colC}{HTML}{6BA3A3}
+\definecolor{colD}{HTML}{2E4172}
+\definecolor{colE}{HTML}{78BE73}
+\definecolor{colF}{HTML}{D58E00}
+\colorlet{grey}{lite}
+\colorlet{default}{dark}
+
+% Alternate color names
+\colorlet{blue}{dark}
+\colorlet{turquoise}{colC}
+\colorlet{green}{colE}
+\colorlet{yellow}{colF}
+\colorlet{red}{colB}
+
+% Light Shades
+\definecolor{greyLight}{HTML}{EDEDED}
+\definecolor{blueLight}{HTML}{D3DFE8}
+\definecolor{ieeLight}{HTML}{E1EDED}
+\definecolor{redLight}{HTML}{FFCBDA}
+\definecolor{turquoiseLight}{HTML}{E1EDED}
+\definecolor{greenLight}{HTML}{E4F2E3}
+\definecolor{yellowLight}{HTML}{FFEBC4}
+
+% Dark Shades
+\definecolor{greyDark}{HTML}{0F0F0F}
+\definecolor{blueDark}{HTML}{1D2D38}
+\definecolor{ieeDark}{HTML}{004040}
+\definecolor{redDark}{HTML}{7C0023}
+\definecolor{turquoiseDark}{HTML}{345353}
+\definecolor{greenDark}{HTML}{346830}
+\definecolor{yellowDark}{HTML}{6A4700}
+
+% Power Plant Colors
+\definecolor{oilColor}{RGB}{16, 47, 64}
+\definecolor{coalColor}{RGB}{127, 127, 127}
+\definecolor{gasColor}{RGB}{191, 191, 191}
+\definecolor{otherNonResColor}{RGB}{221, 110, 56}
+\definecolor{nuclearColor}{RGB}{236, 96, 95}
+\definecolor{biomassColor}{RGB}{198, 70, 59}
+\definecolor{rorColor}{RGB}{0, 176, 240}
+\definecolor{pvColor}{RGB}{255, 192, 0}
+\definecolor{windColor}{RGB}{146, 208, 80}
+\definecolor{windOffColor}{RGB}{30, 143, 79}
+\definecolor{otherResColor}{RGB}{185, 207, 222}
+\definecolor{storageHydroColor}{RGB}{75, 172, 198}
+\definecolor{pumpedStorageColor}{RGB}{59, 90, 112}
+\definecolor{bessColor}{RGB}{112, 48, 160}
+\definecolor{otherStorageColor}{RGB}{76, 133, 123}
+
+% Beamercolor Copies
+\setbeamercolor{grey}            {fg=white, bg=grey}
+\setbeamercolor{blue}            {fg=white, bg=blue}
+\setbeamercolor{iee}             {fg=white, bg=iee}
+\setbeamercolor{red}             {fg=white, bg=red}
+\setbeamercolor{turquoise}       {fg=white, bg=turquoise}
+\setbeamercolor{green}           {fg=white, bg=green}
+\setbeamercolor{yellow}          {fg=white, bg=yellow}
+
+\setbeamercolor{greyLight}       {fg=greyDark, bg=greyLight}
+\setbeamercolor{blueLight}       {fg=blueDark, bg=blueLight}
+\setbeamercolor{ieeLight}        {fg=ieeDark, bg=ieeLight}
+\setbeamercolor{redLight}        {fg=redDark, bg=redLight}
+\setbeamercolor{turquoiseLight}  {fg=turquoiseDark, bg=turquoiseLight}
+\setbeamercolor{greenLight}      {fg=greenDark, bg=greenLight}
+\setbeamercolor{yellowLight}     {fg=yellowDark, bg=yellowLight}
+
+\setbeamercolor{greyDark}        {fg=white, bg=greyDark}
+\setbeamercolor{blueDark}        {fg=white, bg=blueDark}
+\setbeamercolor{ieeDark}         {fg=white, bg=ieeDark}
+\setbeamercolor{redDark}         {fg=white, bg=redDark}
+\setbeamercolor{turquoiseDark}   {fg=white, bg=turquoiseDark}
+\setbeamercolor{greenDark}       {fg=white, bg=greenDark}
+\setbeamercolor{yellowDark}      {fg=white, bg=yellowDark}
+
+
+%%%   THEME COLORS   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Structure of the presentation
+%       Global definitions, Highlighting
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{structure}{fg=black}
+\setbeamercolor{alerted text}{fg=colB}
+\setbeamercolor{titlelike}{parent=structure}
+\setbeamercolor{separation line}{parent=normal text}
+
+%       Title page
+\setbeamercolor{title}{parent=titlelike}
+\setbeamercolor{subtitle}{parent=normal text}
+\setbeamercolor{author}{parent=normal text}
+\setbeamercolor{institute}{parent=normal text}
+\setbeamercolor{date}{parent=normal text}
+\setbeamercolor{titleslide page top}{fg=white,bg=black}
+
+%       Part, section, subsection pages
+\setbeamercolor{part page}{parent=normal text}
+
+%       Table of contents
+\setbeamercolor{section in toc}{parent=normal text}
+
+%       Bibliography
+\setbeamercolor{bibliography item}{fg=structure.fg}
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography entry title}{fg=black}
+\setbeamercolor{bibliography entry location}{fg=black!50}
+\setbeamercolor{bibliography entry note}{fg=black!50}
+
+%%% Structure of a frame
+%       Headlines and footlines
+\setbeamercolor{headline}{parent=normal text}
+\setbeamercolor{footline}{parent=normal text,bg=black}
+\setbeamercolor{page number in head/foot}{fg=black,bg=tug}
+\setbeamercolor{author in head/foot}{parent=normal text}
+\setbeamercolor{title in head/foot}{parent=normal text}
+\setbeamercolor{date in head/foot}{parent=normal text}
+\setbeamercolor{institute in head/foot}{parent=normal text}
+\setbeamercolor{section in head/foot}{parent=normal text}
+
+%       Elements of a frame
+\setbeamercolor{frametitle}{parent=normal text}
+\setbeamercolor{framesubtitle}{}
+\setbeamercolor{button}{fg=colB}
+\setbeamercolor{item}{fg=black}
+\setbeamercolor{subitem}{fg=black}
+\setbeamercolor{subsubitem}{fg=black!50}
+\setbeamercolor{item projected}{fg=white,bg=main}
+\setbeamercolor{subitem projected}{fg=white,bg=black}
+\setbeamercolor{subsubitem projected}{fg=white,bg=black!50}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   FONT THEME   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usefonttheme{default}
+\usefonttheme[onlymath]{serif} % Serif font for equations
+
+% Font size definitions
+\newcommand{\myFootnotesize}{\fontsize{10pt}{12pt}\selectfont}
+\newcommand\thefontsize[2][]{{#2 #1 \f@size pt\par}}
+\newcommand{\maxsize}{\fontsize{48}{52}\selectfont}
+
+% Avoid bug in TeX Live 2019 / KOMA-script
+\RequirePackage{scrextend}
+\changefontsizes{24.88pt}
+
+\RequirePackage[default,tabular,semibold]{sourcesanspro}
+\RequirePackage[T1]{fontenc}
+
+% Font settings for elements
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{subtitle}{size=\normalsize,series=\mdseries}
+\setbeamerfont{author}{size=\footnotesize,series=\bfseries}
+\setbeamerfont{date}{size=\scriptsize}
+\setbeamerfont{part page}{size=\LARGE}
+\setbeamerfont{headline}{size=\scriptsize}
+\setbeamerfont{footline}{size=\myFootnotesize}
+\setbeamerfont{page number in head/foot}{size=\myFootnotesize}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\normalsize,series=\mdseries}
+\setbeamerfont{itemize/enumerate body}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subbody}{size=\footnotesize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\footnotesize}
+
+% Bibliography fonts
+\setbeamerfont{bibliography entry author}{parent=normal text,series=\mdseries}
+\setbeamerfont{bibliography entry title}{parent=normal text,series=\bfseries}
+\setbeamerfont{bibliography entry location}{parent=normal text,series=\mdseries}
+\setbeamerfont{bibliography entry note}{parent=normal text,series=\mdseries}
+\setbeamerfont{bibliography item}{parent=normal text,series=\mdseries}
+
+% Figures and tables
+\setbeamerfont{caption}{size=\scriptsize, shape=\itshape}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   INNER THEME   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useinnertheme[]{rectangles}
+\setbeamercovered{transparent}
+
+%%%   LISTS   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\colbox}[2][tug]{%
+    \tikz[baseline=-.7ex]{\node[fill=#1, draw=#1, draw, inner sep=0pt, minimum size=1em, text=white, name={n}] at (0,0) {#2};}%
+}
+
+% Standard beamer itemize spacing, tug items
+\defbeamertemplate{itemize item}{tugitem}{{\raisebox{0.2ex}{\tiny$\blacksquare$}}}
+\defbeamertemplate{itemize subitem}{tugitem}{{\raisebox{0.2ex}{\tiny$\blacksquare$}}}
+\defbeamertemplate{itemize subsubitem}{tugitem}{{\raisebox{0.2ex}{\tiny$\blacksquare$}}}
+
+% Enumerate items with label styles
+\defbeamertemplate{enumerate item}{tugnum}{\usebeamercolor[fg]{item}\insertenumlabel.}
+\defbeamertemplate{enumerate subitem}{tugnum}{\usebeamercolor[fg]{subitem}\alph{enumii}.}
+\defbeamertemplate{enumerate subsubitem}{tugnum}{\usebeamercolor[fg]{subsubitem}\roman{enumiii}.}
+
+% Enumerate items in color boxes
+\defbeamertemplate{enumerate item}{tugbox}{\usebeamercolor{item projected}\colbox[bg]{\color{fg}\insertenumlabel}}
+\defbeamertemplate{enumerate subitem}{tugbox}{\usebeamercolor{subitem projected}\colbox[bg]{\color{fg}\alph{enumii}}}
+\defbeamertemplate{enumerate subsubitem}{tugbox}{\usebeamercolor{subsubitem projected}\colbox[bg]{\color{fg}\Roman{enumiii}}}
+
+% Fixed-width left-aligned labels
+\newcommand{\tugraz@labelwidth}{7mm}
+\defbeamertemplate{itemize item}{fixitem}{%
+    \makebox[\tugraz@labelwidth][l]{\raisebox{0.2ex}{\tiny$\blacksquare$}}%
+}
+\defbeamertemplate{itemize subitem}{fixitem}{%
+    \makebox[\tugraz@labelwidth][l]{\raisebox{0.2ex}{\tiny$\blacksquare$}}%
+}
+\defbeamertemplate{itemize subsubitem}{fixitem}{%
+    \makebox[\tugraz@labelwidth][l]{\raisebox{0.2ex}{\tiny$\blacksquare$}}%
+}
+
+\defbeamertemplate{enumerate item}{fixitem}{\makebox[\tugraz@labelwidth][l]{\insertenumlabel.}}
+\defbeamertemplate{enumerate subitem}{fixitem}{\makebox[\tugraz@labelwidth][l]{\alph{enumii}.}}
+\defbeamertemplate{enumerate subsubitem}{fixitem}{\makebox[\tugraz@labelwidth][l]{\roman{enumiii}.}}
+
+% Default: left-aligned tug itemize
+\setbeamertemplate{itemize item}[fixitem]
+\setbeamertemplate{itemize subitem}[fixitem]
+\setbeamertemplate{itemize subsubitem}[fixitem]
+\setbeamertemplate{enumerate item}[fixitem]
+\setbeamertemplate{enumerate subitem}[fixitem]
+\setbeamertemplate{enumerate subsubitem}[fixitem]
+
+% Boxed enumerate environment
+\newenvironment{boxenumerate}{%
+    \enumerate%
+    \setbeamertemplate{enumerate item}[tugbox]
+    \setbeamertemplate{enumerate subitem}[tugbox]
+    \setbeamertemplate{enumerate subsubitem}[tugbox]
+}{\endenumerate}
+
+% Indentation and spacing control
+\setbeamertemplate{itemize/enumerate body begin}{
+    \setlength{\leftmargini}{\tugraz@labelwidth}
+    \addtolength{\leftmargini}{1.25\labelsep}
+    \setlength{\leftmarginii}{\tugraz@labelwidth}
+    \addtolength{\leftmarginii}{1.25\labelsep}
+    \setlength{\leftmarginiii}{\tugraz@labelwidth}
+    \addtolength{\leftmarginiii}{1.25\labelsep}
+}
+
+\defbeamertemplate{itemize/enumerate body begin}{tug spacing}{
+    \setlength{\leftmargini}{\tugraz@labelwidth}
+    \addtolength{\leftmargini}{1.25\labelsep}
+    \setlength{\leftmarginii}{\tugraz@labelwidth}
+    \addtolength{\leftmarginii}{1.25\labelsep}
+    \setlength{\leftmarginiii}{\tugraz@labelwidth}
+    \addtolength{\leftmarginiii}{1.25\labelsep}
+    \let\this@beamer@cramped\beamer@cramped
+    \renewcommand{\beamer@cramped}{
+        \this@beamer@cramped
+        \setlength{\itemsep}{0\p@\@plus\p@}%
+        \setlength{\parskip}{0\p@\@plus\p@}%
+        \setlength{\parsep}{0\p@\@plus\p@}%
+        \setlength{\topsep}{0\p@\@plus\p@}%
+        \setlength{\partopsep}{0\p@\@plus\p@}%
+    }%
+    \vspace*{-.85ex}%
+}
+\defbeamertemplate{itemize/enumerate body end}{tug spacing}{
+    \let\beamer@cramped\this@beamer@cramped
+}
+
+% Compact environments
+\newenvironment{tugitemize}{%
+    \setbeamertemplate{itemize/enumerate body begin}[tug spacing]
+    \setbeamertemplate{itemize/enumerate body end}[tug spacing]
+    \setbeamertemplate{itemize item}[fixitem]
+    \setbeamertemplate{itemize subitem}[fixitem]
+    \setbeamertemplate{itemize subsubitem}[fixitem]
+    \itemize%
+}{\enditemize}
+
+\newenvironment{tugenumerate}{%
+    \setbeamertemplate{itemize/enumerate body begin}[tug spacing]
+    \setbeamertemplate{itemize/enumerate body end}[tug spacing]
+    \setbeamertemplate{enumerate item}[fixitem]
+    \setbeamertemplate{enumerate subitem}[fixitem]
+    \setbeamertemplate{enumerate subsubitem}[fixitem]
+    \enumerate%
+}{\endenumerate}
+
+% Timetable environments
+\defbeamertemplate{description item}{align left}{\insertdescriptionitem\hfill}
+
+\newenvironment{tugtimetable}[1][2cm]{%
+    \setlength{\leftmargini}{#1}
+    \beamer@descriptionwidth=#1
+    \setbeamercolor*{description item}{fg=description body.fg}
+    \setbeamertemplate{description item}[align left]
+    \scriptsize
+    \description%
+}{\enddescription}
+
+\newenvironment{tugtimetabletwocolumn}[1][1cm]{%
+    \columnsep=32pt%
+    \columnseprule=.4pt%
+    \setbeamerfont{description item}{series=\bfseries}
+    \begin{multicols}{2}%
+    \tugtimetable[#1]%
+}{\endtugtimetable\end{multicols}\vskip-.75ex}
+
+% Patch ToC for vertical fill
+\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vfill}{}{}
+
+
+%%%   BLOCKS   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength{\tugraz@blocksep}
+\setlength{\tugraz@blocksep}{1ex} % alternative: 0.8ex
+
+\newcommand{\tugraz@block}[1]{
+    \par\vskip\medskipamount%
+    \setlength{\parskip}{0pt}%
+    \begin{beamercolorbox}[sep=\dimexpr\tugraz@blocksep\relax]{block title#1}%
+        \usebeamerfont*{block title#1}%
+        \vphantom{()}%
+        \insertblocktitle%
+        \vphantom{()}%
+    \end{beamercolorbox}%
+    \nointerlineskip%
+    \begin{beamercolorbox}[sep=\dimexpr\tugraz@blocksep\relax,vmode]{block body#1}%
+        \usebeamerfont{block body#1}%
+}
+\setbeamertemplate{block begin}{\tugraz@block{}}
+\setbeamertemplate{block end}{\end{beamercolorbox}}
+
+
+% Colored Block
+\NewDocumentEnvironment{coloredblock}{O{blue} o O{\normalsize} O{}}{%
+    % Set colors
+    \setbeamercolor{block body}{fg=#1Dark,bg=#1Light}%
+    \setbeamerfont{block body}{}%
+
+    \setbeamercolor{item}{fg=#1Dark}%
+    \setbeamercolor{subitem}{fg=#1Dark}%
+    \setbeamercolor{subsubitem}{fg=#1Dark}%
+    \setbeamercolor{item projected}{fg=white,bg=#1Dark}%
+    \setbeamercolor{subitem projected}{fg=white,bg=#1Dark}%
+    \setbeamercolor{subsubitem projected}{fg=white,bg=#1Dark}%
+
+    \IfNoValueTF{#2}{%
+        % no optional title → no title block
+        \vspace{0.2cm}%
+        \begin{beamercolorbox}[wd=\textwidth,sep=1ex]{block body}%
+            \begin{minipage}[t][#4]{0.93\textwidth}%
+    }{%
+        % #2 present (maybe empty)
+        \IfStrEq{#2}{}{%
+            % empty title → no title block
+            \vspace{0.2cm}%
+            \begin{beamercolorbox}[wd=\textwidth,sep=1ex]{block body}%
+                \begin{minipage}[t][#4]{0.93\textwidth}%
+        }{%
+            % non-empty title → full block with variable font size for title (#3)
+            \setbeamercolor{block title}{fg=white,bg=#1}%
+            \setbeamerfont{block title}{series=\bfseries,size=#3}%
+            \begin{block}{#2}%
+                \begin{minipage}[t][#4]{0.93\textwidth}%
+        }%
+    }%
+}{%
+    \end{minipage}%
+    \IfNoValueTF{#2}{%
+        \end{beamercolorbox}%
+    }{%
+        \IfStrEq{#2}{}{%
+            \end{beamercolorbox}%
+        }{%
+            \end{block}%
+        }%
+    }%
+}
+
+% Colored block dark
+\NewDocumentEnvironment{coloredblockdark}{O{blue} o O{\normalsize} O{}}{%
+    \setbeamercolor{block body}{fg=white,bg=#1}%
+    \setbeamerfont{block body}{}%
+
+    \setbeamercolor{item}{fg=white}%
+    \setbeamercolor{subitem}{fg=white}%
+    \setbeamercolor{subsubitem}{fg=white}%
+    \setbeamercolor{item projected}{fg=white,bg=white}%
+    \setbeamercolor{subitem projected}{fg=white,bg=white}%
+    \setbeamercolor{subsubitem projected}{fg=white,bg=white}%
+
+    \IfNoValueTF{#2}{%
+        % no optional title → no title block
+        \vspace{0.2cm}%
+        \begin{beamercolorbox}[wd=\textwidth,sep=1ex]{block body}%
+            \begin{minipage}[t][#4]{0.93\textwidth}%
+    }{%
+        % #2 present (maybe empty)
+        \IfStrEq{#2}{}{%
+            % empty title → no title block
+            \vspace{0.2cm}%
+            \begin{beamercolorbox}[wd=\textwidth,sep=1ex]{block body}%
+                \begin{minipage}[t][#4]{0.93\textwidth}%
+        }{%
+            % non-empty title → full block
+            \setbeamercolor{block title}{fg=white,bg=#1Dark}%
+            \setbeamerfont{block title}{series=\bfseries,size=#3}%
+            \begin{block}{#2}%
+                \begin{minipage}[t][#4]{0.93\textwidth}%
+        }%
+    }%
+}{%
+    \end{minipage}%
+    \IfNoValueTF{#2}{%
+        \end{beamercolorbox}%
+    }{%
+        \IfStrEq{#2}{}{%
+            \end{beamercolorbox}%
+        }{%
+            \end{block}%
+        }%
+    }%
+}
+
+%%%   Insert Faded Picture   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define \insertfadedpicture command
+\newcommand{\insertfadedpicture}[3]{%
+    % #1 = inset from right (e.g., 15.98cm)
+    % #2 = image path
+    % #3 = caption text
+    \vspace{-3.15cm}
+    \tikzset{every picture/.style={remember picture,overlay}}
+
+    % Main image
+    \begin{tikzpicture}[xshift=0cm,yshift=0cm]
+        \node[anchor=north west, inner sep=0pt] at ($(current page.north east) + (-#1,0)$) {
+            \includegraphics[height=1.041\textheight]{#2}
+        };
+    \end{tikzpicture}
+
+    % Fade overlay
+    \begin{tikzpicture}[xshift=0cm,yshift=0cm]
+        \node[anchor=north east, inner sep=0pt] at (current page.north east) {
+            \includegraphics[height=1.048\textheight, width=#1]{beamerthemeiee/FadeToWhite.png}
+        };
+    \end{tikzpicture}
+
+    % Caption in bottom right
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=south east, xshift=-0.5cm, yshift=0.6cm] at (current page.south east) {
+            {\myFootnotesize #3}
+        };
+    \end{tikzpicture}
+}
+
+
+%%%   AGENDA   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define \agenda command
+\newcommand{\agenda}[3][currentsection]{%
+    \frametitle{#2}%
+    \framesubtitle{#3}%
+
+    \insertfadedpicture{15.98cm}{beamerthemeiee/estee-janssens-aQfhbxailCs-unsplash.jpg}{Source: Photo by Estée Janssens on Unsplash}%
+
+    \tableofcontents[#1]%
+}
+
+%%%   CLOSING SLIDE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define \closingslide command
+\newcommand{\closingslide}[2]{%
+    \frametitle{#1}%
+    \framesubtitle{#2}%
+
+    \vfill
+
+    \textbf{\insertshortauthor}\\
+    \vspace{0.1cm}
+    \tiny 
+    \academictitlesauthor
+
+    \vspace{0.4cm}
+    \scriptsize
+    \university
+
+    \vspace{0.4cm}
+    \insertinstitute\\
+    \street\\
+    \postalcode~\city\ifdefempty{\country}{}{, \country}
+
+    \ifdefempty{\phone}{}{
+        \vspace{0.4cm}
+        {\germanenglish{%
+            Telefon: }{%
+            Phone: }}\phone
+    }
+
+    \vspace{0.4cm}
+    \ifdefempty{\mailauthor}{}{
+        Mail: \href{mailto:\mailauthor}{\mailauthor}\\
+    }
+    \ifdefempty{\urlinstitute}{}{
+        Web: \href{https://\urlinstitute}{\urlinstitute}
+    }
+
+    % Instagram logo and link
+    \ifdefempty{\urlinstagram}{}{%
+        \tikzset{every picture/.style={remember picture,overlay}}%
+        \begin{tikzpicture}[xshift=0cm,yshift=0cm]
+            \node[anchor=south west, inner sep=0pt] at ($(current page.south west) + (0.77,4)$) {
+                \includegraphics[height=1cm]{beamerthemeiee/Instagram_logo.png}
+            };
+        \end{tikzpicture}
+        \begin{tikzpicture}[xshift=0cm,yshift=0cm]
+            \node[anchor=south west, inner sep=0pt] at ($(current page.south west) + (2.0,4.2)$) {
+                \href{https://\urlinstagram}{\urlinstagram}
+            };
+        \end{tikzpicture}
+    }
+
+    % LinkedIn logo and link
+    \ifdefempty{\urllinkedin}{}{%
+        \tikzset{every picture/.style={remember picture,overlay}}%
+        \begin{tikzpicture}[xshift=0cm,yshift=0cm]
+            \node[anchor=south west, inner sep=0pt] at ($(current page.south west) + (0.77,2.5)$) {
+                \includegraphics[height=1cm]{beamerthemeiee/LinkedIn_logo.png}
+            };
+        \end{tikzpicture}
+        \begin{tikzpicture}[xshift=0cm,yshift=0cm]
+            \node[anchor=south west, inner sep=0pt] at ($(current page.south west) + (2.0,2.7)$) {
+                \href{https://\urllinkedin}{\urllinkedin}
+            };
+        \end{tikzpicture}
+    }
+
+    \vfill
+
+    % Background image
+    \tikzset{every picture/.style={remember picture,overlay}}%
+    \begin{tikzpicture}[xshift=0cm,yshift=0cm]
+        \node[anchor=north east, inner sep=0pt] at ($(current page.north east) - (0.77,2.3)$) {
+            \includegraphics[height=0.9\textheight]{beamerthemeiee/IEE_Titelbild.jpg}
+        };
+    \end{tikzpicture}
+}
+
+
+%%%   FULLSCREEN   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\fullscreenfigure}[1]{%
+    \begin{frame}[plain]
+        \begin{tikzpicture}[remember picture,overlay]
+            \node at (current page.center) {\includegraphics[height=\paperheight,keepaspectratio]{#1}};
+        \end{tikzpicture}
+    \end{frame}
+}
+\newcommand{\fullscreengraphic}[1]{% for some compatibility with 2013
+    \fullscreenfigure{1}%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   OUTER THEME   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\useoutertheme{default}
+
+\tikzset{
+    tugtheme/.style={
+        remember picture,
+        overlay,
+        every node/.style={
+            inner sep=0pt,
+            text depth=0pt,
+            anchor=base west,
+            align=left
+        },
+        line width=0pt
+    },
+    copyright/.style={
+        white,
+        inner sep=4pt,
+        font=\Tiny
+    }
+}
+
+%%%   GENERAL SETTINGS   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{background}{}
+
+\beamer@centeredfalse
+
+\newcommand{\tugraz@footheight}{0.81}
+\newcommand{\tugraz@indent}{0.77}
+\newcommand{\tugraz@rightindent}{0.77} % previously: 0.4
+\newcommand{\tugraz@textwidth}{34.42cm}
+\newcommand{\tugraz@textwidthalt}{13.8cm}
+
+\setbeamersize{
+    text margin left=\tugraz@indent cm,
+    text margin right=\tugraz@rightindent cm,
+    sidebar width left=0cm
+}
+
+\newcommand{\tugraz@logosize}{20.8mm}
+\newcommand{\tugraz@logosizemed}{3.94cm} % titleslide title
+\newcommand{\tugraz@logosizesmall}{3.7cm}
+
+%%%   FRAMETITLE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{frametitle}{
+    \vskip-10pt%
+    \ifx\insertframesubtitle\empty
+        \begin{minipage}{.9\paperwidth}
+            \vspace{1.9mm}
+            \strut\raggedright\insertframetitle\par
+            {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\par}
+            \vspace{-0.2cm}
+        \end{minipage}
+    \else
+        \begin{minipage}{.9\paperwidth}
+            \vspace{.2cm}
+            \strut\raggedright\insertframetitle\par
+            {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\par}
+            %\vspace{-0.2cm}
+        \end{minipage}
+    \fi
+}
+
+%%%   HEADER   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}[text line]{
+    \rule{0pt}{18pt}
+    \begin{tikzpicture}[tugtheme]
+        \draw (current page.north east) ++(-\tugraz@indent,-\tugraz@rightindent) 
+            node[anchor=base east,font=\usebeamerfont{date}] {
+                {www.tugraz.at}~\tikz{\fill[tug] (0,0) rectangle ++(1ex,1ex);}
+            };
+    \end{tikzpicture}
+}
+
+%%%   FRAME NUMBER   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\tugraz@instheight}{0.75}
+\newcommand{\tugraz@insttrim}{0}
+
+\defbeamertemplate{frame number block}{minimal}{
+    \begin{tikzpicture}[tugtheme]
+        %\fill[main] (current page.south west) rectangle +(\tugraz@footheight,\tugraz@footheight);
+        \draw (current page.south east) +(-1.5*\tugraz@indent,.5*\tugraz@footheight) 
+            node[anchor=east,font={\usebeamercolor[fg]{page number in head/foot}}] {\insertframenumber};
+    \end{tikzpicture}
+}
+
+%%%   FOOTER   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{footline}[text line]{
+    \rule{0pt}{\tugraz@footheight cm}
+    \usebeamerfont{footline}
+    \begin{tikzpicture}[tugtheme]
+        %\draw[line width=0.5pt, footline.fg] (current page.south west) rectangle +(\paperwidth,\tugraz@footheight);
+
+        \draw[line width=0.5pt, footline.fg] 
+            ($(current page.south west) + (\tugraz@indent,\tugraz@footheight)$) -- 
+            ($(current page.south east) + (-\tugraz@indent,\tugraz@footheight)$);
+
+        \begin{tikzpicture}[tugtheme]
+            %\fill[main] (current page.south west) rectangle +(\tugraz@footheight,\tugraz@footheight);
+            \draw (current page.south west) + (1.5*\tugraz@indent,.5*\tugraz@footheight) 
+                node[anchor=west] {
+                    \insertshortauthor\ifx\insertinstitute\empty\else, \insertshortinstitute\fi
+                };
+        \end{tikzpicture}
+    \end{tikzpicture}
+    \usebeamertemplate{frame number block}
+}%
+
+%%%   Title Slide   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\tugraz@titleslidebarheight}{3.49cm}
+\newcommand{\tugraz@titleslidebaroffset}{-2.8}
+\newcommand{\tugraz@topmargin}{0.87cm}
+
+\newcommand{\loadcoordinates}{
+    \tugraz@loadcoordinatestitleslide
+    \tugraz@loadcoordinatesderived
+}
+
+\newcommand{\tugraz@loadcoordinatestitleslide}{
+    \draw (current page.west) ++(0,\tugraz@titleslidebaroffset) coordinate (barSW)
+        ++(0,\tugraz@titleslidebarheight) coordinate (barNW);
+    \draw (current page.south west) ++(0,0) coordinate (footNW);
+}
+
+\newcommand{\tugraz@loadcoordinatesderived}{
+    \draw (barSW) ++(\paperwidth,0) coordinate (barSE)
+          (barNW) ++(\paperwidth,0) coordinate (barNE);
+    \draw (current page.north west) coordinate (topNW)
+          (current page.north east) coordinate (topNE)
+          (barNW) coordinate (topSW)
+          (barNE) coordinate (topSE);
+    \draw (footNW) ++(\paperwidth,0) coordinate (footNE)
+          (current page.south west) coordinate (footSW)
+          (current page.south east) coordinate (footSE);
+    \draw (barSW) coordinate (botNW)
+          (barSE) coordinate (botNE)
+          (footNW) coordinate (botSW)
+          (footNE) coordinate (botSE);
+
+    \draw (topNW) ++(\tugraz@indent,-\tugraz@topmargin) coordinate (toptextNW)
+          (topNE) ++(-\tugraz@rightindent,-\tugraz@topmargin) coordinate (toptextNE)
+          (topSW) ++(\tugraz@indent,.6) coordinate (toptextSW)
+          (topSE) ++(-\tugraz@rightindent,.6) coordinate (toptextSE)
+          (topNE) ++(-\tugraz@indent,-\tugraz@topmargin) coordinate (toptextaltNE)
+          (topSE) ++(-\tugraz@indent,.6) coordinate (toptextaltSE);
+    \draw (botNW) ++(2.47cm,-.4) coordinate (bottextNW)
+          (botNE) ++(-\tugraz@rightindent,-.2) coordinate (bottextNE)
+          (botSW) ++(\tugraz@indent,.3) coordinate (bottextSW)
+          (botSE) ++(-\tugraz@rightindent,.3) coordinate (bottextSE)
+          (botNE) ++(-\tugraz@indent,-.2) coordinate (bottextaltNE)
+          (botSE) ++(-\tugraz@indent,.3) coordinate (bottextaltSE);
+    \draw (barNW) ++(\tugraz@indent,-.2) coordinate (bartextNW)
+          (barNE) ++(-\tugraz@rightindent,-.2) coordinate (bartextNE)
+          (barSW) ++(2.47cm,1.35) coordinate (bartextSW)
+          (barSE) ++(-\tugraz@rightindent,.2) coordinate (bartextSE);
+    \draw (footNW) ++(\tugraz@indent,-.2) coordinate (foottextNW)
+          (footNE) ++(-\tugraz@rightindent,-.2) coordinate (foottextNE)
+          (footSW) ++(\tugraz@indent,.2) coordinate (foottextSW)
+          (footSE) ++(-\tugraz@rightindent,.2) coordinate (foottextSE);
+    \draw (current page.center|-toptextNW) coordinate (toptextN)
+          (current page.center|-toptextSW) coordinate (toptextS)
+          (current page.center|-bottextNW) coordinate (bottextN)
+          (current page.center|-bottextSW) coordinate (bottextS);
+
+    \draw (barSE-|bartextSE) coordinate (toprightlogoSE);
+    \draw (barNE-|bartextNE) coordinate (topcopyrightSE);
+}
+
+\newcommand{\makelogo}{
+    \iftugraz@logo
+        \begin{tikzpicture}[tugtheme]
+            \loadcoordinates
+            \draw (toptextNE) node[below left] (tuglogo) {\tuglogoscaled[\tugraz@logosizemed]};
+        \end{tikzpicture}
+    \fi
+}
+
+\defbeamertemplate{titleslide page top}{plain}{
+    \setbeamercolor{titleslide page top}{fg=black}
+    \makelogo%
+}
+\defbeamertemplate{titleslide page top}{fill}{
+    % NOTE: maybe default to
+    %\setbeamercolor{tuglogo}{fg=white}
+    \begin{tikzpicture}[tugtheme]
+        \loadcoordinates
+        \usebeamercolor{titleslide page top}
+        \fill[bg] (topNW) rectangle (topSE);
+    \end{tikzpicture}%
+    \makelogo%
+}
+\defbeamertemplate{titleslide page top}{figure}{
+    \iftugraz@files
+        \ifx\inserttitlefigure\empty\else%
+            \begin{tikzpicture}[tugtheme]
+                \loadcoordinates
+                \node[above right] at (topSW) {\includegraphics[width=\paperwidth]{\inserttitlefigure}};
+            \end{tikzpicture}
+        \fi
+    \fi
+    \makelogo%
+}
+\defbeamertemplate{titleslide page top}{shade}{
+    \setbeamercolor{titleslide page top}{fg=black}
+    \begin{tikzpicture}[tugtheme]
+        \loadcoordinates
+        \node[fit=(topSW) (topNE), bottom color=black!45, top color=black!5] {};
+    \end{tikzpicture}%
+    \makelogo%
+}
+\setbeamertemplate{titleslide page top}[figure]
+% NOTE: finetune subtitle placement for wide/nonwide titleslide/poi
+
+\defbeamertemplate{poi page top}{shade}{
+    \setbeamertemplate{titleslide page top}[shade]
+    \usebeamertemplate{titleslide page top}
+}
+\setbeamertemplate{poi page top}[shade]
+
+\setbeamertemplate{titleslide}{
+    % background
+    \usebeamertemplate{titleslide page top}
+
+    \begin{tikzpicture}[tugtheme]
+        \loadcoordinates
+
+        \filldraw[main] (barSW) rectangle (barNE);
+
+        % foreground
+        {\germanenglish{%
+            \draw (topNW) +(\tugraz@rightindent,-0.87) node[below right] 
+                {\includegraphics[height=1.41cm]{beamerthemeiee/Logo_IEE_DE.png}};
+        }{%
+            \draw (topNW) +(\tugraz@rightindent,-0.87) node[below right] 
+                {\includegraphics[height=1.41cm]{beamerthemeiee/Logo_IEE_EN.png}};
+        }}
+
+        % Draw title depending on switch twolinetitle
+        \iftwolinetitle
+            \draw (bartextSW) +(0.0,0.9) node[above right,white,font=\usebeamerfont{title},text width=0.9\paperwidth,align=left ] {\inserttitle};
+        \else
+            \draw (bartextSW) node[above right,white,font=\usebeamerfont{title}] {\inserttitle};
+        \fi
+
+        \draw (bottextSW) node[text width=\tugraz@textwidth, above right,font=\usebeamerfont{footline}] {\strut\insertlogobar};
+
+        \draw (bottextNW) node[below right,font=\usebeamerfont{subtitle}] {\strut\insertsubtitle};
+        \draw (bottextNW) +(0,-2.0) node[below right,font=\usebeamerfont{author}] {\strut\insertauthor\ifdefempty{\coauthors}{}{, \coauthors}};
+        \draw (bottextNW) +(0,-2.9) node[below right,font=\usebeamerfont{author}] {\strut\insertinstitute};
+        \draw (bottextNW) +(0,-5.0) node[below right,font=\usebeamerfont{date}] {\strut\insertdate};
+
+    \end{tikzpicture}
+}
+
+\defbeamertemplate{title page}{titleslide}{
+    \usebeamertemplate{titleslide}
+}
+
+\newcommand{\maketitleslide}{
+    \setbeamertemplate{title page}[titleslide]
+    \maketitle
+    \setbeamertemplate{titlepage}[presentation]
+}
+
+
+%%%   TUGRAZ LOGO   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\tugsq}{\raisebox{0.5ex}{\tikz{\fill (0,0) rectangle (0.5ex,0.5ex);}}}
+
+% integrated logo version {{{
+\setbeamercolor{tuglogo}{fg=black,bg=tug}
+\newcommand{\tuglogo}{%
+  %\tikzsetnextfilename{tugrazlogo}%
+  \begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-1.000000, xscale=1.000000, inner sep=0pt, outer sep=0pt]
+  \usebeamercolor{tuglogo}
+  \begin{scope}[cm={{1.25,0.0,0.0,-1.25,(0.0,53.75)}}]
+    \begin{scope}[scale=0.100]
+      \path[fill=bg,nonzero rule] (1.0820,112.0390) -- (208.5310,112.0390) --
+        (208.5310,319.4960) -- (1.0820,319.4960) -- (1.0820,112.0390) -- cycle;
+
+      \path[fill=bg,nonzero rule] (229.2730,112.0390) -- (436.7340,112.0390) --
+        (436.7340,319.4960) -- (229.2730,319.4960) -- (229.2730,112.0390) -- cycle;
+
+      \path[fill=bg,nonzero rule] (457.4880,112.0390) -- (664.9290,112.0390) --
+        (664.9290,319.4960) -- (457.4880,319.4960) -- (457.4880,112.0390) -- cycle;
+
+      \path[fill=bg,nonzero rule] (104.8050,8.3086) -- (312.2740,8.3086) --
+        (312.2740,215.7656) -- (104.8050,215.7656) -- (104.8050,8.3086) -- cycle;
+
+      \path[fill=bg,nonzero rule] (353.7580,215.7660) -- (561.1990,215.7660) --
+        (561.1990,423.2270) -- (353.7580,423.2270) -- (353.7580,215.7660) -- cycle;
+
+      \path[fill=fg,nonzero rule] (752.1170,286.2190) -- (685.7030,286.2190) --
+        (685.7030,319.4140) -- (856.8950,319.4140) -- (856.8950,286.2190) --
+        (790.4840,286.2190) -- (790.4840,112.4770) -- (752.1170,112.4770) --
+        (752.1170,286.2190);
+
+      \path[fill=fg,nonzero rule] (1049.3600,188.5160) .. controls
+        (1049.3600,176.0550) and (1047.1300,164.8050) .. (1042.6400,154.7700) ..
+        controls (1038.1600,144.7340) and (1032.0500,136.2110) .. (1024.3000,129.2070)
+        .. controls (1016.5400,122.1760) and (1007.3900,116.7850) ..
+        (996.7850,112.9960) .. controls (986.1880,109.1880) and (974.6760,107.2930) ..
+        (962.2340,107.2930) .. controls (949.8120,107.2930) and (938.3010,109.1880) ..
+        (927.6910,112.9960) .. controls (917.0900,116.7850) and (907.8590,122.1760) ..
+        (900.0270,129.2070) .. controls (892.1760,136.2110) and (886.0550,144.7340) ..
+        (881.6880,154.7700) .. controls (877.2930,164.8050) and (875.1130,176.0550) ..
+        (875.1130,188.5160) -- (875.1130,319.4140) -- (913.4960,319.4140) --
+        (913.4960,189.8360) .. controls (913.4960,184.7810) and (914.2970,179.4770) ..
+        (915.9380,173.9300) .. controls (917.5660,168.3870) and (920.2700,163.2730) ..
+        (924.0620,158.6020) .. controls (927.8400,153.9340) and (932.8520,150.0900) ..
+        (939.0900,147.0780) .. controls (945.3120,144.0700) and (953.0230,142.5590) ..
+        (962.2340,142.5590) .. controls (971.4340,142.5590) and (979.1560,144.0700) ..
+        (985.3910,147.0780) .. controls (991.6210,150.0900) and (996.6410,153.9340) ..
+        (1000.4200,158.6020) .. controls (1004.2000,163.2730) and (1006.9000,168.3870)
+        .. (1008.5400,173.9300) .. controls (1010.1800,179.4770) and
+        (1011.0000,184.7810) .. (1011.0000,189.8360) -- (1011.0000,319.4140) --
+        (1049.3600,319.4140) -- (1049.3600,188.5160);
+
+      \path[fill=fg,nonzero rule] (833.6480,83.9727) .. controls
+        (826.0430,87.2539) and (816.1880,88.8281) .. (808.3090,88.8281) .. controls
+        (785.3790,88.8281) and (772.7030,74.4023) .. (772.7030,55.6523) .. controls
+        (772.7030,37.0391) and (785.0980,23.0156) .. (806.0550,23.0156) .. controls
+        (811.4020,23.0156) and (815.6450,23.5430) .. (819.0120,24.3242) --
+        (819.0120,48.1836) -- (798.1840,48.1836) -- (798.1840,62.6055) --
+        (837.8710,62.6055) -- (837.8710,13.3086) .. controls (827.4610,10.6914) and
+        (816.6090,8.5938) .. (806.0550,8.5938) .. controls (774.2460,8.5938) and
+        (752.1450,23.4062) .. (752.1450,54.3438) .. controls (752.1450,85.6836) and
+        (772.7030,103.2500) .. (806.0550,103.2500) .. controls (817.4610,103.2500) and
+        (826.4650,101.8050) .. (834.9100,99.4414) -- (833.6480,83.9727);
+
+      \path[fill=fg,nonzero rule] (857.2810,77.6836) -- (874.0430,77.6836) --
+        (874.0430,62.3438) -- (874.3240,62.3438) .. controls (875.1640,68.6406) and
+        (882.8980,79.2578) .. (894.1560,79.2578) .. controls (895.9960,79.2578) and
+        (897.9770,79.2578) .. (899.9300,78.7266) -- (899.9300,61.0234) .. controls
+        (898.2500,61.9414) and (894.8710,62.4688) .. (891.4800,62.4688) .. controls
+        (876.1480,62.4688) and (876.1480,44.6367) .. (876.1480,34.9492) --
+        (876.1480,10.1641) -- (857.2810,10.1641) -- (857.2810,77.6836);
+
+      \path[fill=fg,nonzero rule] (914.8440,74.1406) .. controls
+        (922.1560,77.2930) and (932.0200,79.2578) .. (940.0470,79.2578) .. controls
+        (962.1370,79.2578) and (971.2890,70.7305) .. (971.2890,50.8008) --
+        (971.2890,42.1445) .. controls (971.2890,35.3398) and (971.4340,30.2227) ..
+        (971.5700,25.2422) .. controls (971.7190,20.1250) and (971.9880,15.4062) ..
+        (972.4220,10.1641) -- (955.8090,10.1641) .. controls (955.1050,13.6992) and
+        (955.1050,18.1641) .. (954.9690,20.2617) -- (954.6760,20.2617) .. controls
+        (950.3200,12.7930) and (940.8790,8.5938) .. (932.3050,8.5938) .. controls
+        (919.5000,8.5938) and (906.9610,15.8008) .. (906.9610,28.6484) .. controls
+        (906.9610,38.7383) and (912.1680,44.6367) .. (919.3520,47.9180) .. controls
+        (926.5430,51.1992) and (935.8160,51.8516) .. (943.7110,51.8516) --
+        (954.1210,51.8516) .. controls (954.1210,62.7305) and (948.9140,66.4023) ..
+        (937.7930,66.4023) .. controls (929.7730,66.4023) and (921.7460,63.5234) ..
+        (915.4180,59.0703) -- (914.8440,74.1406) -- cycle(936.9530,21.4336) ..
+        controls (942.7230,21.4336) and (947.2270,23.7969) .. (950.1760,27.4688) ..
+        controls (953.2700,31.2695) and (954.1210,36.1211) .. (954.1210,41.3633) --
+        (945.9570,41.3633) .. controls (937.5200,41.3633) and (924.9880,40.0586) ..
+        (924.9880,29.6953) .. controls (924.9880,23.9336) and (930.1910,21.4336) ..
+        (936.9530,21.4336);
+
+      \path[fill=fg,nonzero rule] (986.7730,77.6836) -- (1044.2000,77.6836) --
+        (1044.2000,63.2617) -- (1008.1500,23.7969) -- (1045.4700,23.7969) --
+        (1045.4700,10.1641) -- (985.2230,10.1641) -- (985.2230,24.4609) --
+        (1021.9500,64.0508) -- (986.7730,64.0508) -- (986.7730,77.6836);
+
+      \path[fill=bg,nonzero rule] (1060.7300,8.3086) -- (1129.8433,8.3086) --
+        (1129.8433,77.4219) -- (1060.7300,77.4219) -- (1060.7300,8.3086) -- cycle;
+    \end{scope}
+  \end{scope}
+  \end{tikzpicture}%
+}
+%}}}
+
+\newcommand{\tuglogoscaled}[1][12.1mm]{\resizebox{#1}{!}{\tuglogo}}
+
+
+%%%   SELECT STYLE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{frame number block}[minimal]
+
+
+%%%   NOTES ON SECOND SCREEN   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\iftugraz@notes
+    \RequirePackage{pgfpages}
+    \setbeameroption{show notes on second screen}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   STRUCTURE, PARTS   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%   CUSTOM SECTIONPAGE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\sectionheader}[2][\empty]{
+    \iftugraz@plainsectionpages
+        \begin{frame}[plain]
+            \usebeamerfont{part page}\usebeamercolor[fg]{part page}
+            \begin{tikzpicture}[tugtheme]
+                \draw (current page.center) ++(0,.2) node[above,align=center] {\strut #2};
+                \draw (current page.center) ++(0,-.5) node[below,align=center,font=\normalsize] {\strut #1};
+            \end{tikzpicture}
+        \end{frame}
+    \else
+        \section*{}
+        \begin{frame}
+            \usebeamerfont{part page}\usebeamercolor[fg]{part page}
+            \begin{tikzpicture}[tugtheme]
+                \draw (current page.center) ++(0,.2) node[above,align=center] {\strut #2};
+                \draw (current page.center) ++(0,-.5) node[below,align=center,font=\normalsize] {\strut #1};
+            \end{tikzpicture}
+        \end{frame}
+        %\section{#2}
+    \fi
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   OPTIONAL PACKAGE THEMES   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%   PGFPLOTS (DIAGRAMS)   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtEndPreamble{
+    \@ifpackageloaded{pgfplots}{
+        \pgfplotscreateplotcyclelist{tug}{ {colA}, {colB}, {colC}, {colD}, {colE}, {colF}, {mach}, {math}, {bauw}, {etec}, {chem}, {arch}, {info}}
+        \pgfplotscreateplotcyclelist{tugfill}{ {colA,fill}, {colB,fill}, {colC,fill}, {colD,fill}, {colE,fill}, {colF,fill}, {mach,fill}, {math,fill}, {bauw,fill}, {etec,fill}, {chem,fill}, {arch,fill}, {info,fill}}
+    }{}
+}
+
+%%%   BIB(LA)TEX (BIBLIOGRAPHY)   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{bibliography item}[text]
+\AtEndPreamble{
+    \iftugraz@biblatex
+        \@ifpackageloaded{biblatex}{}{\RequirePackage[style=alphabetic]{biblatex}}
+    \fi
+
+    \@ifpackageloaded{biblatex}{
+        \renewcommand*{\bibfont}{\footnotesize}
+        \DeclareFieldFormat[inproceedings]{booktitle}{\usebeamercolor[fg]{bibliography entry note}#1}
+        \DeclareFieldFormat*{title}{\textbf{#1}}
+        %\renewcommand*{\newunitpunct}{}
+        \renewbibmacro{in:}{}
+    }{}
+}
+
+%%%   HYPERREF   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtEndPreamble{
+    \iftugraz@hyperref
+        \@ifpackageloaded{hyperref}{}{\RequirePackage{hyperref}}
+    \fi
+
+    \@ifpackageloaded{hyperref}{
+        \hypersetup{
+            colorlinks=true,
+            allcolors=,
+            urlcolor=urlA,
+        }
+    }{}
+}
+
+\mode<all>
+% EOF
