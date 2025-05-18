@@ -24,8 +24,18 @@ The template includes:
 
 ## Features
 
-- Clear hierarchical slide structure using `\framesubtitle` and colored blocks.
-- Ready-to-use components like `coloredblock` and `insertfadedpicture` a nice background effect on slides.
+- Use the `\begin{coloredblock}` environment to easily create visually distinct boxes—with or without a title.
+- Add subtle background effects with `\insertfadedpicture` to enhance visual appeal.
+- Conveniently place source references in the bottom left corner using the `\addsource` command.
+- Create consistent title and closing slides with `\maketitleslide` and `\closingslide`. These commands automatically adapt to the selected language.
 
 ## Release Notes
-- **2025-05-18:** First upload
+- **2025-05-18:**
+   - Fix showing `\begin{coloredblock}{turquoise}` on slide Dark Boxes with Title instead of `\begin{coloredblockdark}{turquoise}`.
+   - Add highlight to table.
+   - Add description that caption text of `\insertfadedpicture` is optional.
+   - Deactivate "Sponsored by" on title page.
+   - Add function `\addsource` to easily add a source text to the bottom right corner of the slide.
+   - Add attribution for fontawesome icons.
+- **2025-05-18:**
+   - First upload
