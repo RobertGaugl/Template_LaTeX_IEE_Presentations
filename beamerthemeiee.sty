@@ -531,6 +531,17 @@
     }%
 }
 
+
+%%%   SOURCE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\addsource}[1]{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=south east, xshift=-0.5cm, yshift=0.65cm] at (current page.south east) {%
+            \parbox[b]{0.9\paperwidth}{\raggedleft\myFootnotesize #1}%
+        };
+    \end{tikzpicture}%
+}
+
 %%%   Insert Faded Picture   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define \insertfadedpicture command
 \newcommand{\insertfadedpicture}[3]{%
@@ -554,12 +565,8 @@
         };
     \end{tikzpicture}
 
-    % Caption in bottom right
-    \begin{tikzpicture}[remember picture, overlay]
-        \node[anchor=south east, xshift=-0.5cm, yshift=0.6cm] at (current page.south east) {
-            {\myFootnotesize #3}
-        };
-    \end{tikzpicture}
+    % Add caption
+    \addsource{#3}
 }
 
 
@@ -573,6 +580,7 @@
 
     \tableofcontents[#1]%
 }
+
 
 %%%   CLOSING SLIDE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define \closingslide command
@@ -643,11 +651,10 @@
 
     \vfill
 
-    % Background image
     \tikzset{every picture/.style={remember picture,overlay}}%
     \begin{tikzpicture}[xshift=0cm,yshift=0cm]
         \node[anchor=north east, inner sep=0pt] at ($(current page.north east) - (0.77,2.3)$) {
-            \includegraphics[height=0.9\textheight]{beamerthemeiee/IEE_Titelbild.jpg}
+            \includegraphics[height=0.89\textheight]{beamerthemeiee/IEE_Titelbild.jpg}
         };
     \end{tikzpicture}
 }
@@ -910,7 +917,7 @@
 
         % Draw title depending on switch twolinetitle
         \iftwolinetitle
-            \draw (bartextSW) +(0.0,0.9) node[above right,white,font=\usebeamerfont{title},text width=0.9\paperwidth,align=left ] {\inserttitle};
+            \draw (bartextSW) +(0.0,0.9) node[above right,white,font=\usebeamerfont{title},text width=0.9\paperwidth,align=left] {\inserttitle};
         \else
             \draw (bartextSW) node[above right,white,font=\usebeamerfont{title}] {\inserttitle};
         \fi

@@ -106,7 +106,7 @@
 \begin{frame}{Template}
     \framesubtitle{Footnote and Language}
 
-    % Insert a Faded picture (ALWAYS FIRST OR LAST THING IN A FRAME)
+    % Insert a Faded picture (ALWAYS FIRST THING IN A FRAME)
     \insertfadedpicture{15.98cm}{figures/iee_besprechung.png}{Source: Institute of Electricity Economics and Energy Innovation/TU Graz}
     
     \begin{minipage}{0.8\textwidth}  % 80% of the slide width
@@ -129,7 +129,7 @@
             \vspace{-0.5\topsep}
             \begin{itemize}
                 \item Ensure that the \textcolor{iee}{\textbf{language}} used throughout the presentation \textcolor{iee}{\textbf{remains consistent}}
-                \item For presentations in \textcolor{iee}{\textbf{German}}, set \textcolor{iee}{\textbf{language to DE}} in the metadata section.
+                \item For presentations in \textcolor{iee}{\textbf{German}}, set \textcolor{iee}{\textbf{language pack to german}} in the metadata section.
                 \item The \textcolor{iee}{\textbf{footnote text}} must \textcolor{iee}{\textbf{match}} the \textcolor{iee}{\textbf{language}} of the presentation
             \end{itemize}
         \end{itemize}
@@ -138,6 +138,8 @@
 
 \begin{frame}{Color palette}
     \framesubtitle{Make use of the the Defined Colors}
+    \label{frame:color_palette}
+    
     \vspace{1cm}
     \begin{columns}[t]
         \column{.25\textwidth}
@@ -196,10 +198,10 @@
     % Bottom blocks (side-by-side)
     \begin{minipage}[t]{0.49\textwidth}
         \begin{coloredblock}[blue][\centering\faIcon{palette}~~~Designing Boxes][][6cm]
-                \begin{itemize}
-                    \item \textbf{Title Bar}: You can choose between boxes with or without a title bar.
-                    \item \textbf{Itemization}: Creating itemized lists inside a box requires a bit of extra effort, but this example shows how it's done.
-                \end{itemize}
+            \begin{itemize}
+                \item \textbf{Title Bar}: You can choose between boxes with or without a title bar.
+                \item \textbf{Itemization}: Placing itemized lists inside a box can enhance structure and improve clarity.
+            \end{itemize}
         \end{coloredblock}
     \end{minipage}
     \hfill
@@ -555,11 +557,8 @@
             \label{fig:installed_capacity}
         \end{figure}
     \end{minipage}
-    \begin{tikzpicture}[remember picture, overlay]
-     \node[anchor=south east, xshift=-0.5cm, yshift=0.6cm] at (current page.south east) {
-       {\myFootnotesize Source: Energy Report, Statistik Wakanda, 2023}
-     };
-   \end{tikzpicture}
+
+    \addsource{Source: Energy Report, Statistics Wakanda, 2023}
 \end{frame}
 
 
@@ -685,11 +684,8 @@
             \label{fig:demand}
         \end{figure}
     \end{minipage}
-    \begin{tikzpicture}[remember picture, overlay]
-     \node[anchor=south east, xshift=-0.5cm, yshift=0.6cm] at (current page.south east) {
-       {\myFootnotesize Source: Energy Report, Statistik Wakanda, 2023}
-     };
-   \end{tikzpicture}
+
+    \addsource{Source: Energy Report, Statistics Wakanda, 2023}
 \end{frame}
 
 \begin{frame}{Plots}
@@ -795,11 +791,8 @@
             \label{fig:installed_capacity_2023}
         \end{figure}
     \end{minipage}
-    \begin{tikzpicture}[remember picture, overlay]
-     \node[anchor=south east, xshift=-0.5cm, yshift=0.6cm] at (current page.south east) {
-       {\myFootnotesize Source: Energy Report, Statistik Wakanda, 2023}
-     };
-   \end{tikzpicture}
+
+    \addsource{Source: Energy Report, Statistics Wakanda, 2023}
 \end{frame}
 
 
@@ -923,6 +916,8 @@
             \caption{\centering Installed capacity per power plant type in Wakanda from 2022--2025 in MW.}
         \end{table}
     \end{minipage}
+
+    \addsource{Source: Energy Report, Statistics Wakanda, 2023}
     
 \end{frame}
 
@@ -942,7 +937,7 @@
     \begin{coloredblock}[iee][\centering\faIcon{dog}~~~Icon]
         \begin{itemize}
             \item Incorporate \textbf{icons} to enhance \textbf{visual clarity and aid }quick \textbf{comprehension}
-            \item The \textbf{recommended option} in \LaTeX~is to use icons from the \textbf{awesomefont package}. You can find all \textbf{available icons} in the \href{https://mirror.easyname.at/ctan/fonts/fontawesome5/doc/fontawesome5.pdf}{\textbf{docs}}
+            \item The \textbf{recommended option} in \LaTeX~is to use icons from the \textbf{awesomefont package}. You can find all \textbf{available icons} in the \href{https://mirror.easyname.at/ctan/fonts/fontawesome5/doc/fontawesome5.pdf}{\textbf{docs}}. Add an attribution on the final slide.
             \item When using \textbf{third-party icons}:
             \vspace{-0.5\topsep}
             \begin{itemize}
@@ -1546,11 +1541,8 @@
         
     \end{coloredblock}
 
-    \begin{tikzpicture}[remember picture, overlay]
-     \node[anchor=south east, xshift=-0.5cm, yshift=0.6cm] at (current page.south east) {
-       {\myFootnotesize \textsuperscript{1} If more than two lessons are missed without an adequate excuse, you can no longer successfully complete the course.}
-     };
-   \end{tikzpicture}
+    \addsource{\textsuperscript{1} If more than two lessons are missed without an adequate excuse, you can no longer successfully complete the course.}
+
 \end{frame}
 
 
@@ -1626,11 +1618,8 @@
         
     \end{coloredblock}
 
-    \begin{tikzpicture}[remember picture, overlay]
-     \node[anchor=south east, xshift=-0.5cm, yshift=0.6cm] at (current page.south east) {
-       {\myFootnotesize \textsuperscript{1} If more than two lessons are missed without an adequate excuse, you can no longer successfully complete the course.}
-     };
-   \end{tikzpicture}
+    \addsource{\textsuperscript{1} If more than two lessons are missed without an adequate excuse, you can no longer successfully complete the course.}
+    
 \end{frame}
 
 \begin{frame}{Classification}
@@ -1847,6 +1836,7 @@
         \end{coloredblock}
         
     \end{minipage}
+
 \end{frame}
 
 
@@ -1910,8 +1900,9 @@
                 \item \scriptsize Class Labels: "Spam" or "Not Spam"
             \end{itemize}
         \end{coloredblock}
-        
+
     \end{minipage}
+
 \end{frame}
 
 
@@ -1922,6 +1913,8 @@
 \begin{frame}
     % Insert closing slide
     \closingslide{Thank You!}{} % frametitle and subframetitle
+
+    \addsource{Icons from \textbf{Font Awesome} (\url{https://fontawesome.com}), licensed under \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}.}
 \end{frame}
 
 
