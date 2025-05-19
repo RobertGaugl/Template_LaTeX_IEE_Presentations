@@ -31,6 +31,7 @@ The template includes:
 
 ## Release Notes
 - **2025-05-19:**
+   - Optionally display Beamer navigation buttons in the lower left corner (can be enabled in the Options section).
    - Include new list styles (romanenumerate, tugromanenumerate (tighter spacing), boxromanenumerate)
    - Include a section on Overlays to explain how to reveal content step-by-step.
    - Update attribution text for picture used in agenda slide to inlcude links.

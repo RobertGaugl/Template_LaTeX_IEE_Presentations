@@ -36,7 +36,9 @@
 
 % Title layout
 \newif\iftwolinetitle
-\twolinetitlefalse % or \twolinetitletrue to activate
+
+% Navigation buttons
+\newif\ifactivatenavigationbuttons
 
 % Language macro
 \newcommand{\germanenglish}[2]{\IfLanguageName{ngerman}{#1}{#2}\null}
@@ -343,8 +345,6 @@
 \defbeamertemplate{enumerate item}{numroman}{\usebeamercolor[fg]{item}\Roman{enumi}}
 \defbeamertemplate{enumerate subitem}{numroman}{\usebeamercolor[fg]{subitem}\roman{enumii}}
 \defbeamertemplate{enumerate subsubitem}{numroman}{\usebeamercolor[fg]{subsubitem}\roman{enumiii}}
-
-
 
 
 % Default: left-aligned tug itemize
@@ -744,7 +744,6 @@
 }
 
 %%%   GENERAL SETTINGS   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{background}{}
 
 \beamer@centeredfalse
@@ -831,6 +830,29 @@
     \end{tikzpicture}
     \usebeamertemplate{frame number block}
 }%
+
+\AtBeginDocument{%
+  \ifactivatenavigationbuttons
+    \addtobeamertemplate{footline}{
+      \leavevmode%
+      \raisebox{-4.5ex}[0pt][0pt]{%
+        \hbox{%
+          \begin{beamercolorbox}[wd=\paperwidth,right,rightskip=5.5em]{}%
+            \usebeamercolor[grey]{navigation symbols}%
+            \scalebox{3}{%
+              \insertslidenavigationsymbol%
+              \insertframenavigationsymbol%
+              \insertsectionnavigationsymbol%
+              \insertbackfindforwardnavigationsymbol%
+            }%
+          \end{beamercolorbox}%
+        }%
+      }%
+    }{}
+    \setbeamercolor{navigation symbols}{bg=grey}
+  \fi
+}
+
 
 %%%   Title Slide   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\tugraz@titleslidebarheight}{3.49cm}
@@ -1147,6 +1169,7 @@
         \pgfplotscreateplotcyclelist{tugfill}{ {colA,fill}, {colB,fill}, {colC,fill}, {colD,fill}, {colE,fill}, {colF,fill}, {mach,fill}, {math,fill}, {bauw,fill}, {etec,fill}, {chem,fill}, {arch,fill}, {info,fill}}
     }{}
 }
+
 
 %%%   BIB(LA)TEX (BIBLIOGRAPHY)   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setbeamertemplate{bibliography item}[text]
