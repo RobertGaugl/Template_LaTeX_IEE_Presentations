@@ -31,6 +31,7 @@ The template includes:
 
 ## Release Notes
 - **2025-05-19:**
+   - Include a section on Overlays to explain how to reveal content step-by-step.
    - Update attribution text for picture used in agenda slide to inlcude links.
    - Set UrlFont to use normal font instead of monospaced font.
 - **2025-05-18:**

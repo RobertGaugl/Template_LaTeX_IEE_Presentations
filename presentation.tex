@@ -57,9 +57,13 @@
 % \logobar{Supported by: \includegraphics[height=1cm]{beamerthemeiee/Logo_IEE_DE.png}} % titlepage sponsors or funding agency
 
 %% -------------------------------------------------------------------
-%% Formatting
+%% Options
 %% -------------------------------------------------------------------
+% Set globally whether paused content appears transparent or is completely hidden.
+% This setting can also be changed locally within individual slides to mix styles.
+\setbeamercovered{transparent} % options: transparent or invisible
 
+% Change how numbers appear when using \SI{}{}
 \germanenglish{%
     \sisetup{
         output-decimal-marker = {,},  % use comma as decimal separator
@@ -175,6 +179,7 @@
             \begin{beamercolorbox}[center,colsep*=4pt]{yellowDark}yellowDark\strut\end{beamercolorbox}
     \end{columns}
 \end{frame}
+
 
 %% -------------------------------------------------------------------
 %% Leverage Boxes to Organize Content
@@ -440,6 +445,58 @@
     \vfill
 \end{frame}
 
+
+%% -------------------------------------------------------------------
+%% Visualize your Numbers with Plots
+\section{Reveal your content step-by-step with \textbf{Overlays}}
+
+\begin{frame}
+    \agenda{Agenda}{} % No subtitle and highlights currentvsection
+    %\agenda[sections=all]{Agenda}{Overview of lecture structure} % With subtitle and all sections highlighted
+\end{frame}
+
+\begin{frame}{Overlay}
+    \framesubtitle{Reveal your content step-by-step}
+
+    \begin{coloredblock}[yellow]
+        \begin{itemize}
+            \item \footnotesize Enhance your presentation by \textbf{revealing} content \textbf{step by step} to \textbf{guide audience attention}.
+            \item \footnotesize \textbf{No need to duplicate slides} — \textbf{overlays} handle it, and the slide number stays the same.
+        \end{itemize}
+    \end{coloredblock}
+
+    \pause
+    \vspace{-0.5cm}
+    \begin{minipage}[t]{0.49\textwidth}
+        \begin{coloredblock}[turquoise][\centering \faIcon{pause}~~~Pause Command][\small][9.3cm]
+            \begin{itemize}
+                \item \footnotesize Insert \textbf{\texttt{\textbackslash pause}} at the point where you want the next item to appear.
+                \item \footnotesize Everything \textbf{before} \texttt{\textbackslash pause} is shown on the current slide.
+                \item \footnotesize Everything \textbf{after} \texttt{\textbackslash pause} is shown only on the next reveal step.
+                \item \footnotesize You can use \textbf{multiple \texttt{\textbackslash pause}} commands in one frame to reveal items one at a time.
+            \end{itemize}
+        \end{coloredblock}
+    \end{minipage}
+    \hfill
+    \setbeamercovered{invisible}
+    \pause
+    \begin{minipage}[t]{0.49\textwidth}
+        \begin{coloredblock}[green][\centering \faIcon{code-branch}~~~Transparent or Invisible][\small][9.3cm]
+            \begin{itemize}
+               \item \footnotesize Unrevealed content can either be \textbf{transparent} or \textbf{invisible} until it is revealed.
+                \item \footnotesize You control this using 
+                \begin{itemize}
+                    \item \texttt{\textbackslash setbeamercovered\{transparent\}} or
+                    \item \texttt{\textbackslash setbeamercovered\{invisible\}}.
+                \end{itemize}
+                \item \footnotesize \textbf{Change} the \textbf{setting} in the \textbf{preamble} to \textbf{apply globally}, or \textbf{use them inside a frame} to \textbf{apply} only to \textbf{specific content}.
+            \end{itemize}
+        \end{coloredblock}
+    \end{minipage}
+
+\end{frame}
+
+
 %% -------------------------------------------------------------------
 %% Visualize your Numbers with Plots
 \section{Visualize your Numbers with \textbf{Plots}}
@@ -481,7 +538,7 @@
                 \end{minipage}%
             }
         \end{coloredblock}
-   
+
         \begin{coloredblock}[grey][][][1.5cm]
             \makebox[\textwidth]{%
                 \begin{minipage}[c][1.5cm][c]{0.1\textwidth}
@@ -848,6 +905,7 @@
 
 \end{frame}
 
+
 %% -------------------------------------------------------------------
 %% Structure your Data with Clear Tables
 \section{\textbf{Structure} your \textbf{Data} with Clear \textbf{Tables}}
@@ -1080,6 +1138,7 @@
   \end{coloredblock}
 
 \end{frame}
+
 
 %% -------------------------------------------------------------------
 %% Visualize your Numbers with Plots
