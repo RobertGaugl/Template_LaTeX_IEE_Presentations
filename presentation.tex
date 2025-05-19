@@ -19,9 +19,18 @@
 \UseTblrLibrary{booktabs} % Optional, for better lines in tables
 \UseTblrLibrary{siunitx}
 
-\usepackage[style=ieee,backend=biber]{biblatex} % Bibliography
+\usepackage[
+  backend      = biber,
+  style        = ieee,
+  minnames     = 1,
+  maxcitenames = 2,
+  maxbibnames  = 3,
+]{biblatex}
 \addbibresource{references.bib}
 
+\DefineBibliographyStrings{german}{
+  andothers = {et al.}
+}
 
 %% -------------------------------------------------------------------
 %% Metadata
@@ -35,7 +44,7 @@
 \subtitle{for \LaTeX~Presentations}
 
 \author{Robert Gaugl}
-\newcommand{\academictitlesauthor}{Ass.Prof. Dipl.Ing. Dr.techn.}
+\newcommand{\academictitlesauthor}{Ass.Prof. Dipl.-Ing. Dr.techn.}
 \newcommand{\coauthors}{}
 
 \date{Presentation Date}
@@ -43,7 +52,7 @@
 \newcommand{\university}{Graz University of Technology}
 \institute{Institute of Electricity Economics and Energy Innovation}
 \newcommand{\street}{Inffeldgasse 18}
-\newcommand{\postalcode}{8020}
+\newcommand{\postalcode}{8010}
 \newcommand{\city}{Graz}
 \newcommand{\country}{Austria}
 
@@ -62,6 +71,7 @@
 % Set globally whether paused content appears transparent or is completely hidden.
 % This setting can also be changed locally within individual slides to mix styles.
 \setbeamercovered{transparent} % options: transparent or invisible
+
 
 % Change how numbers appear when using \SI{}{}
 \germanenglish{%
@@ -1147,14 +1157,14 @@
       ”\textit{In the middle of every difficulty lies opportunity.}“
       
       \vspace{0.7cm}
-      \scriptsize \textcite{Einstein2018}
+      \scriptsize A. Einstein \cite{einstein2018}
   \end{coloredblock}
 
   \begin{coloredblock}[blue][\centering\texttt{\textbackslash textcite\{\}}]
       If you want to include the authors, use \texttt{\textbackslash textcite\{\}}.
 
       \vspace{0.5cm}
-      In their study, \textbf{\textcite{gaugl2023}} demonstrate that rising CO2 prices result in higher electricity prices in Austria.
+      In their study, \textbf{\textcite{gaugl2023}} demonstrate that rising CO\textsubscript{2} prices result in higher electricity prices in Austria.
   \end{coloredblock}
 
   \begin{coloredblock}[yellow][\centering\texttt{\textbackslash cite\{\}}]

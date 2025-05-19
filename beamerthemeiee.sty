@@ -1106,9 +1106,11 @@
 
 %%%   BIB(LA)TEX (BIBLIOGRAPHY)   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setbeamertemplate{bibliography item}[text]
+
 \AtEndPreamble{
     \iftugraz@biblatex
         \@ifpackageloaded{biblatex}{}{\RequirePackage[style=alphabetic]{biblatex}}
+
     \fi
 
     \@ifpackageloaded{biblatex}{
@@ -1119,6 +1121,7 @@
         \renewbibmacro{in:}{}
     }{}
 }
+
 
 %%%   HYPERREF   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \AtEndPreamble{
