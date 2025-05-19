@@ -283,6 +283,9 @@
 \setbeamerfont{bibliography entry note}{parent=normal text,series=\mdseries}
 \setbeamerfont{bibliography item}{parent=normal text,series=\mdseries}
 
+% URL font from the hyperref package to use normal font instead of monospace
+\renewcommand{\UrlFont}{\normalfont}
+
 % Figures and tables
 \setbeamerfont{caption}{size=\scriptsize, shape=\itshape}
 
@@ -576,7 +579,8 @@
     \frametitle{#2}%
     \framesubtitle{#3}%
 
-    \insertfadedpicture{15.98cm}{beamerthemeiee/estee-janssens-aQfhbxailCs-unsplash.jpg}{Source: Photo by Estée Janssens on Unsplash}%
+    \insertfadedpicture{15.98cm}{beamerthemeiee/estee-janssens-aQfhbxailCs-unsplash.jpg}{Source: Photo by \href{https://unsplash.com/@esteejanssens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash}{Estée Janssens} on \href{https://unsplash.com/photos/white-ceramic-mug-with-coffee-on-top-of-a-planner-aQfhbxailCs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash}{Unsplash}
+}%
 
     \tableofcontents[#1]%
 }

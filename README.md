@@ -30,6 +30,9 @@ The template includes:
 - Create consistent title and closing slides with `\maketitleslide` and `\closingslide`. These commands automatically adapt to the selected language.
 
 ## Release Notes
+- **2025-05-19:**
+   - Update attribution text for picture used in agenda slide to inlcude links.
+   - Set UrlFont to use normal font instead of monospaced font.
 - **2025-05-18:**
    - Fix showing `\begin{coloredblock}{turquoise}` on slide Dark Boxes with Title instead of `\begin{coloredblockdark}{turquoise}`.
    - Add highlight to table.
