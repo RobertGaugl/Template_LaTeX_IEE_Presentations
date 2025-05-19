@@ -1082,9 +1082,11 @@
         There are \textbf{different styles} of \textbf{lists} that you can choose from.
     \end{coloredblock}
 
+    \vspace{-0.5cm}
+
     % Bottom blocks (side-by-side)
     \begin{minipage}[t]{0.49\textwidth}
-        \begin{coloredblock}[blue][\centering\texttt{\textbf{\textbackslash begin\{itemize\}}}:][][3.7cm]
+        \begin{coloredblock}[blue][\centering\texttt{\textbf{\textbackslash begin\{itemize\}}}:][\small][3.7cm]
             \begin{itemize}
                 \item Item level 1
                 \begin{itemize}
@@ -1096,7 +1098,7 @@
             \end{itemize}
         \end{coloredblock}
 
-        \begin{coloredblock}[iee][\centering\texttt{\textbf{\textbackslash begin\{enumerate\}}}:][][3.7cm]
+        \begin{coloredblock}[iee][\centering\texttt{\textbf{\textbackslash begin\{enumerate\}}}:][\small][3.7cm]
             \begin{enumerate}
             \item Item level 1
                 \begin{enumerate}
@@ -1111,7 +1113,7 @@
     \end{minipage}
     \hfill
     \begin{minipage}[t]{0.49\textwidth}
-        \begin{coloredblock}[green][\centering\texttt{\textbackslash begin\{tugitemize\}} (tighter spacing):][][3.7cm]
+        \begin{coloredblock}[green][\centering\texttt{\textbackslash begin\{tugitemize\}} (tighter spacing):][\small][3.7cm]
             \vspace{0.5cm}
             \begin{tugitemize}
                 \item Item level 1
@@ -1124,16 +1126,84 @@
             \end{tugitemize}
         \end{coloredblock}
 
-        \begin{coloredblock}[grey][\centering\texttt{\textbackslash begin\{boxenumerate\}}:][][3.7cm]
+        \begin{coloredblock}[grey][\centering\texttt{\textbackslash begin\{tugenumerate\}} (tighter spacing):][\small][3.7cm]
+            \vspace{0.5cm}
+            \begin{tugenumerate}
+                \item Item level 1
+                \begin{tugenumerate}
+                    \item Item level 2
+                    \begin{tugenumerate}
+                        \item Item level 3
+                    \end{tugenumerate}
+                \end{tugenumerate}
+            \end{tugenumerate}
+        \end{coloredblock}
+    \end{minipage}
+\end{frame}
+
+
+\begin{frame}{Lists}
+    \framesubtitle{Different Styles of Lists}
+
+    \begin{coloredblock}[yellow]
+        \centering
+        There are \textbf{different styles} of \textbf{lists} that you can choose from.
+    \end{coloredblock}
+
+    \vspace{-0.5cm}
+
+    % Bottom blocks (side-by-side)
+    \begin{minipage}[t]{0.49\textwidth}
+        \begin{coloredblock}[turquoise][\centering\texttt{\textbf{\textbackslash begin\{romanenumerate\}}}:][\small][3.7cm]
+            \begin{romanenumerate}
+                \item Item level 1
+                \begin{romanenumerate}
+                    \item Item level 2
+                    \begin{romanenumerate}
+                        \item Item level 3
+                    \end{romanenumerate}
+                \end{romanenumerate}
+            \end{romanenumerate}
+        \end{coloredblock}
+
+        \begin{coloredblock}[yellow][\centering\texttt{\textbf{\textbackslash begin\{boxenumerate\}}}:][\small][3.7cm]
+            \begin{boxenumerate}
+            \item Item level 1
                 \begin{boxenumerate}
-                    \item Item level 1
+                    \item Item level 2
                     \begin{boxenumerate}
-                        \item Item level 2
-                        \begin{boxenumerate}
-                            \item Item level 3
-                        \end{boxenumerate}
+                        \item Item level 3
                     \end{boxenumerate}
                 \end{boxenumerate}
+            \end{boxenumerate}
+        \end{coloredblock}
+        
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.49\textwidth}
+        \begin{coloredblock}[blue][\centering\texttt{\textbackslash begin\{tugromanenumerate\}} (tighter spacing):][\small][3.7cm]
+            \vspace{0.5cm}
+            \begin{tugromanenumerate}
+                \item Item level 1
+                \begin{tugromanenumerate}
+                    \item Item level 2
+                    \begin{tugromanenumerate}
+                        \item Item level 3
+                    \end{tugromanenumerate}
+                \end{tugromanenumerate}
+            \end{tugromanenumerate}
+        \end{coloredblock}
+
+        \begin{coloredblock}[red][\centering\texttt{\textbackslash begin\{boxromanenumerate\}}:][\small][3.7cm]
+                \begin{boxromanenumerate}
+                    \item Item level 1
+                    \begin{boxromanenumerate}
+                        \item Item level 2
+                        \begin{boxromanenumerate}
+                            \item Item level 3
+                        \end{boxromanenumerate}
+                    \end{boxromanenumerate}
+                \end{boxromanenumerate}
         \end{coloredblock}
     \end{minipage}
 \end{frame}

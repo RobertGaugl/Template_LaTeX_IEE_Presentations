@@ -313,6 +313,11 @@
 \defbeamertemplate{enumerate subitem}{tugbox}{\usebeamercolor{subitem projected}\colbox[bg]{\color{fg}\alph{enumii}}}
 \defbeamertemplate{enumerate subsubitem}{tugbox}{\usebeamercolor{subsubitem projected}\colbox[bg]{\color{fg}\Roman{enumiii}}}
 
+% Roman Enumerate items in color boxes
+\defbeamertemplate{enumerate item}{tugboxroman}{\usebeamercolor{item projected}\colbox[bg]{\color{fg}\scriptsize\Roman{enumi}}}
+\defbeamertemplate{enumerate subitem}{tugboxroman}{\usebeamercolor{subitem projected}\colbox[bg]{\color{fg}\scriptsize\roman{enumiii}}}
+\defbeamertemplate{enumerate subsubitem}{tugboxroman}{\usebeamercolor{subsubitem projected}\colbox[bg]{\color{fg}\scriptsize\roman{enumiii}}}
+
 % Fixed-width left-aligned labels
 \newcommand{\tugraz@labelwidth}{7mm}
 \defbeamertemplate{itemize item}{fixitem}{%
@@ -329,6 +334,19 @@
 \defbeamertemplate{enumerate subitem}{fixitem}{\makebox[\tugraz@labelwidth][l]{\alph{enumii}.}}
 \defbeamertemplate{enumerate subsubitem}{fixitem}{\makebox[\tugraz@labelwidth][l]{\roman{enumiii}.}}
 
+\defbeamertemplate{enumerate item}{tugromannum}{\makebox[\tugraz@labelwidth][l]{\Roman{enumi}}}
+\defbeamertemplate{enumerate subitem}{tugromannum}{\makebox[\tugraz@labelwidth][l]{\roman{enumii}}}
+\defbeamertemplate{enumerate subsubitem}{tugromannum}{\makebox[\tugraz@labelwidth][l]{\roman{enumiii}.}}
+
+
+% Enumerate items with roman numerals
+\defbeamertemplate{enumerate item}{numroman}{\usebeamercolor[fg]{item}\Roman{enumi}}
+\defbeamertemplate{enumerate subitem}{numroman}{\usebeamercolor[fg]{subitem}\roman{enumii}}
+\defbeamertemplate{enumerate subsubitem}{numroman}{\usebeamercolor[fg]{subsubitem}\roman{enumiii}}
+
+
+
+
 % Default: left-aligned tug itemize
 \setbeamertemplate{itemize item}[fixitem]
 \setbeamertemplate{itemize subitem}[fixitem]
@@ -343,6 +361,14 @@
     \setbeamertemplate{enumerate item}[tugbox]
     \setbeamertemplate{enumerate subitem}[tugbox]
     \setbeamertemplate{enumerate subsubitem}[tugbox]
+}{\endenumerate}
+
+% Boxed roman enumerate environment
+\newenvironment{boxromanenumerate}{%
+    \enumerate%
+    \setbeamertemplate{enumerate item}[tugboxroman]
+    \setbeamertemplate{enumerate subitem}[tugboxroman]
+    \setbeamertemplate{enumerate subsubitem}[tugboxroman]
 }{\endenumerate}
 
 % Indentation and spacing control
@@ -393,6 +419,24 @@
     \setbeamertemplate{enumerate item}[fixitem]
     \setbeamertemplate{enumerate subitem}[fixitem]
     \setbeamertemplate{enumerate subsubitem}[fixitem]
+    \enumerate%
+}{\endenumerate}
+
+\newenvironment{romanenumerate}{%
+    \begin{enumerate}
+        \setbeamertemplate{enumerate item}[numroman]
+        \setbeamertemplate{enumerate subitem}[numroman]
+        \setbeamertemplate{enumerate subsubitem}[numroman]
+    }{%
+    \end{enumerate}
+}
+
+\newenvironment{tugromanenumerate}{%
+    \setbeamertemplate{itemize/enumerate body begin}[tug spacing]
+    \setbeamertemplate{itemize/enumerate body end}[tug spacing]
+    \setbeamertemplate{enumerate item}[tugromannum]
+    \setbeamertemplate{enumerate subitem}[tugromannum]
+    \setbeamertemplate{enumerate subsubitem}[tugromannum]
     \enumerate%
 }{\endenumerate}
 
