@@ -484,12 +484,10 @@
 \setbeamertemplate{block begin}{\tugraz@block{}}
 \setbeamertemplate{block end}{\end{beamercolorbox}}
 
-
-% Colored Block
-\NewDocumentEnvironment{coloredblock}{O{blue} o O{\normalsize} O{}}{%
+% Colored block
+\NewDocumentEnvironment{coloredblock}{O{blue} o O{\normalsize} O{} O{1ex}}{%
     % Set colors
     \setbeamercolor{block body}{fg=#1Dark,bg=#1Light}%
-    \setbeamerfont{block body}{}%
 
     \setbeamercolor{item}{fg=#1Dark}%
     \setbeamercolor{subitem}{fg=#1Dark}%
@@ -501,21 +499,31 @@
     \IfNoValueTF{#2}{%
         % no optional title → no title block
         \vspace{0.2cm}%
-        \begin{beamercolorbox}[wd=\textwidth,sep=1ex]{block body}%
-            \begin{minipage}[t][#4]{0.93\textwidth}%
+        \begin{beamercolorbox}[sep=#5]{block body}%
+            \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
     }{%
         % #2 present (maybe empty)
         \IfStrEq{#2}{}{%
             % empty title → no title block
             \vspace{0.2cm}%
-            \begin{beamercolorbox}[wd=\textwidth,sep=1ex]{block body}%
-                \begin{minipage}[t][#4]{0.93\textwidth}%
+            \begin{beamercolorbox}[sep=#5]{block body}%
+                \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
         }{%
             % non-empty title → full block with variable font size for title (#3)
+            \vspace{0.2cm}%
             \setbeamercolor{block title}{fg=white,bg=#1}%
             \setbeamerfont{block title}{series=\bfseries,size=#3}%
-            \begin{block}{#2}%
-                \begin{minipage}[t][#4]{0.93\textwidth}%
+            \begin{beamercolorbox}[wd=\textwidth,sep=.75ex,rounded=false]{block title}%
+                \usebeamerfont{block title}#2\strut
+            \end{beamercolorbox}%
+            \edef\blocksep{\unexpanded{#5}}%
+            \ifdim\blocksep=0ex
+                \vspace{-1ex}%
+            \else
+                \vspace{-1pt}%
+            \fi
+            \begin{beamercolorbox}[sep=#5]{block body}%%
+                \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
         }%
     }%
 }{%
@@ -526,15 +534,15 @@
         \IfStrEq{#2}{}{%
             \end{beamercolorbox}%
         }{%
-            \end{block}%
+            \end{beamercolorbox}%
         }%
     }%
 }
 
-% Colored block dark
-\NewDocumentEnvironment{coloredblockdark}{O{blue} o O{\normalsize} O{}}{%
+% Colored block
+\NewDocumentEnvironment{coloredblockdark}{O{blue} o O{\normalsize} O{} O{1ex}}{%
+    % Set colors
     \setbeamercolor{block body}{fg=white,bg=#1}%
-    \setbeamerfont{block body}{}%
 
     \setbeamercolor{item}{fg=white}%
     \setbeamercolor{subitem}{fg=white}%
@@ -546,21 +554,31 @@
     \IfNoValueTF{#2}{%
         % no optional title → no title block
         \vspace{0.2cm}%
-        \begin{beamercolorbox}[wd=\textwidth,sep=1ex]{block body}%
-            \begin{minipage}[t][#4]{0.93\textwidth}%
+        \begin{beamercolorbox}[sep=#5]{block body}%
+            \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
     }{%
         % #2 present (maybe empty)
         \IfStrEq{#2}{}{%
             % empty title → no title block
             \vspace{0.2cm}%
-            \begin{beamercolorbox}[wd=\textwidth,sep=1ex]{block body}%
-                \begin{minipage}[t][#4]{0.93\textwidth}%
+            \begin{beamercolorbox}[sep=#5]{block body}%
+                \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
         }{%
-            % non-empty title → full block
+            % non-empty title → full block with variable font size for title (#3)
+            \vspace{0.2cm}
             \setbeamercolor{block title}{fg=white,bg=#1Dark}%
             \setbeamerfont{block title}{series=\bfseries,size=#3}%
-            \begin{block}{#2}%
-                \begin{minipage}[t][#4]{0.93\textwidth}%
+            \begin{beamercolorbox}[wd=\textwidth,sep=1ex,rounded=false]{block title}%
+                \usebeamerfont{block title}#2\strut
+            \end{beamercolorbox}%
+            \edef\blocksep{\unexpanded{#5}}%
+            \ifdim\blocksep=0ex
+                \vspace{-1ex}%
+            \else
+                \vspace{-1pt}%
+            \fi
+            \begin{beamercolorbox}[sep=#5]{block body}%%
+                \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
         }%
     }%
 }{%
@@ -571,7 +589,7 @@
         \IfStrEq{#2}{}{%
             \end{beamercolorbox}%
         }{%
-            \end{block}%
+            \end{beamercolorbox}%
         }%
     }%
 }

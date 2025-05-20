@@ -236,7 +236,7 @@
 \begin{frame}{Boxes}
     \framesubtitle{Standard Boxes with Title}
 
-    \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm]}
+    \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm][Optional:~Padding ex]}
     
     \begin{minipage}[t]{0.49\textwidth}
     
@@ -274,7 +274,7 @@
 \begin{frame}{Boxes}
     \framesubtitle{Standard Boxes without Title}
 
-    \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm]}
+    \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm][Optional:~Padding ex]}
     
     \begin{minipage}[t]{0.49\textwidth}
 
@@ -320,7 +320,7 @@
 \begin{frame}{Boxes}
     \framesubtitle{Dark Boxes with Title}
 
-    \footnotesize\centering\texttt{\textbackslash begin\{coloredblockdark\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm]}
+    \footnotesize\centering\texttt{\textbackslash begin\{coloredblockdark\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm][Optional:~Padding ex]}
     
     \begin{minipage}[t]{0.49\textwidth}
     
@@ -358,7 +358,7 @@
 \begin{frame}{Boxes}
     \framesubtitle{Dark Boxes without Title}
 
-    \footnotesize\centering\texttt{\textbackslash begin\{coloredblockdark\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm]}
+    \footnotesize\centering\texttt{\textbackslash begin\{coloredblockdark\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm][Optional:~Padding ex]}
     
     \begin{minipage}[t]{0.49\textwidth}
 
@@ -422,6 +422,8 @@
         \end{itemize}
     \end{coloredblock}
 
+    \vspace{0.2cm}
+
     \begin{coloredblock}[yellow][\centering\faIcon{fill-drip}~~~Color]
             \begin{itemize}
                 \item Make the most of the \textbf{default colors} available (IEE, blue, yellow, green, red and grey)
@@ -479,7 +481,7 @@
     \end{coloredblock}
 
     \pause
-    \vspace{-0.5cm}
+    \vspace{-0.7cm}
     \begin{minipage}[t]{0.49\textwidth}
         \begin{coloredblock}[turquoise][\centering \faIcon{pause}~~~Pause Command][\small][9.3cm]
             \begin{itemize}
@@ -521,8 +523,9 @@
 
 \begin{frame}{Plots}
     \framesubtitle{Visualize your Numbers}
+
     \begin{minipage}[t]{0.49\textwidth}
-        \vspace{-1cm}
+        \vspace{-1.1cm}
 
         \begin{minipage}[c]{0.14\textwidth}
             \begin{coloredblockdark}[blue][][][1.5cm]
@@ -644,7 +647,7 @@
 \begin{frame}{Plots}
     \framesubtitle{Visualize your Numbers}
     \begin{minipage}[t]{0.49\textwidth}
-        \vspace{-1cm}
+        \vspace{-1.1cm}
         
         \begin{minipage}[c]{0.14\textwidth}
             \begin{coloredblockdark}[blue][][][1.5cm]
@@ -779,7 +782,7 @@
 \begin{frame}{Plots}
     \framesubtitle{Visualize your Numbers}
     \begin{minipage}[t]{0.49\textwidth}
-        \vspace{-1cm}
+        \vspace{-1.1cm}
         
         \begin{minipage}[c]{0.14\textwidth}
             \begin{coloredblockdark}[blue][][][1.5cm]
@@ -970,6 +973,7 @@
                 \item \footnotesize \textbf{Use gray!20} as \textbf{background} for \textbf{odd rows}
             \end{tugitemize}
         \end{coloredblock}
+        \vspace{0.2cm}
         \begin{coloredblock}[yellow][\centering\faIcon{glasses}~~~Data Readability][\footnotesize]
             \vspace{0.2cm}
             \begin{tugitemize}
@@ -1233,12 +1237,16 @@
       \scriptsize A. Einstein \cite{einstein2018}
   \end{coloredblock}
 
+  \vspace{0.1cm}
+
   \begin{coloredblock}[blue][\centering\texttt{\textbackslash textcite\{\}}]
       If you want to include the authors, use \texttt{\textbackslash textcite\{\}}.
 
       \vspace{0.5cm}
       In their study, \textbf{\textcite{gaugl2023}} demonstrate that rising CO\textsubscript{2} prices result in higher electricity prices in Austria.
   \end{coloredblock}
+
+  \vspace{0.1cm}
 
   \begin{coloredblock}[yellow][\centering\texttt{\textbackslash cite\{\}}]
       A simple reference is accomplished with \texttt{\textbackslash cite\{\}}.
@@ -1254,55 +1262,13 @@
 %% Visualize your Numbers with Plots
 \section{Explore \textbf{Design Inspirations} to Spark  your Creativity}
 
-\sectionheader[Colorful \& Monocolor]{Design Inspirations}
+\sectionheader{Design Inspirations}
 
-\begin{frame}{Methodology}
-    \framesubtitle{NTC Model}
- 
-    \begin{itemize}
-        \item \textbf{Objective Function}: Minimize total system costs
-        \vspace{-0.3cm}
-        \item[] \begin{center}
-                \footnotesize$\min \sum_{g,h} c_{g}^{op} \cdot p_g^{h} + \sum_{g} x_g \cdot (c_{g}^{Inv,MW} + c_{g}^{Inv,MWh} \cdot E2P_g)$
-                \end{center}
-        \vspace{-0.15cm}
-        \item \textbf{Constraint 1}: Balance equation
-        \vspace{-0.3cm}
-        \item[] \begin{center}
-                \footnotesize$\sum_{g} p_{gz(g,z),h} - \sum_{g} p_{cs(g,z),h} - \sum_{z \neq y} exp_{z,y,h} + \sum_{z \neq y} imp{z,y,h} = dem_{z,h}$
-                \end{center}
-        \vspace{-0.15cm}
-        \item \textbf{Constraint 2}: NTC limits
-        \vspace{-0.3cm}
-        \item[] \begin{center}
-                \footnotesize$exp_{z,y,h} \leq NTC_{z,y} \cdot bn_{z,y,h}$
-                \end{center}
-        \vspace{-0.15cm}
-        \item \textbf{Constraint 3}: Flow direction
-        \vspace{-0.3cm}
-        \item[] \begin{center}
-                \footnotesize$imp_{z,y,h} \leq NTC_{y,z} \cdot (1-bn_{z,y,h})$
-                \end{center}
-        \vspace{-0.15cm}
-        \item \textbf{Constraint 4}: Export/Import
-        \vspace{-0.3cm}
-        \item[] \begin{center}
-                \footnotesize$exp_{z,y,h} = imp_{y,z,h}$
-                \end{center}
-        \vspace{-0.15cm}
-        \item \textbf{Constraint 5}: Generator Limits
-        \vspace{-0.3cm}
-        \item[] \begin{center}
-                \footnotesize$\underline{p_g} \leq p_{g,h} \leq \overline{p_g}$
-                \end{center}
-    \end{itemize}
-
-\end{frame}
 
 \begin{frame}{Methodology}
     \framesubtitle{NTC Model}
 
-        \vspace{-0.5cm}
+    \vspace{-0.5cm}
     \begin{minipage}[t]{0.2\textwidth}
         \begin{coloredblockdark}[blue][][][1.5cm]
             \makebox[\textwidth]{%
@@ -1435,41 +1401,6 @@
     
 \end{frame}
 
-\begin{frame}{Examined Main Scenarios}
-    \framesubtitle{Analysis of Flexibility Requirements}
-
-    \begin{tugitemize}
-        \item \small\textbf{Base Scenario}
-        \vspace{-0.3cm}
-        \begin{tugitemize}
-            \item \footnotesize STORYLINE: Austria pursues a \textbf{highly ambitious path} to \textbf{decarbonization} and achieves the goal of decarbonization \textbf{by 2040}:
-            \begin{tugitemize}
-                \item \scriptsize Ambitious renewable energy expansion \textbf{aligned with the ÖNIP} (Austrian National Energy and Climate Plan).
-            \end{tugitemize}
-        \end{tugitemize}
-        \item \small\textbf{„Reduced Electricity Transport“ RET}
-        \vspace{-0.3cm}
-        \begin{tugitemize}
-            \item \footnotesize STORYLINE: \textbf{Electricity transmission capacities} are \textbf{lower} than assumed in the base scenario:
-            \begin{tugitemize}
-                \item \scriptsize\textbf{Grid expansion is delayed}
-            \end{tugitemize}
-            \item \footnotesize The analysis examines how the reduced transmission capacities in the transmission network, compared to the baseline scenario, impact controllable electricity generation capacities, storage requirements, additional costs, etc.
-        \end{tugitemize}
-        \item \small\textbf{„Extreme Weather Years“ EWY}
-        \vspace{-0.3cm}
-        \begin{tugitemize}
-            \item \footnotesize STORYLINE: To obtain reliable results, \textbf{variations in the assumed weather data} are \textbf{considered}:
-            \begin{tugitemize}
-                \item \scriptsize An \textbf{extreme event} is simulated, focusing on a winter "\textbf{Dunkelflaute}"
-            \end{tugitemize}
-            \item \footnotesize The analysis examines how the extreme weather event impacts the generation fleet, storage requirements, transmission corridors, and the overall systemic behavior.
-        \end{tugitemize}
-        \centering
-        \textbf{Through the in-depth analysis of the baseline scenario  and the comparison with the extreme scenarios, the research questions are answered.}
-    \end{tugitemize}
-    
-\end{frame}
 
 \begin{frame}{Examined Main Scenarios}
     \framesubtitle{Analysis of Flexibility Requirements}
@@ -1532,110 +1463,6 @@
         and the comparison with the extreme scenarios, the research questions are answered.}
     \end{coloredblock}
 
-\end{frame}
-
-\begin{frame}{Examined Main Scenarios}
-    \framesubtitle{Analysis of Flexibility Requirements}
-
-    \vspace{-0.8cm}
-    \begin{minipage}[t][12.9cm]{\textwidth}
-        \begin{minipage}[t]{0.325\textwidth}
-            \begin{coloredblock}[blue][\centering „Base: Net Zero 2040“\\Base][\footnotesize]
-                \begin{minipage}[t][3cm]{0.9\textwidth} 
-                    \scriptsize STORYLINE: Austria pursues a \textbf{highly ambitious path} to \textbf{decarbonization} and achieves the goal of decarbonization \textbf{by 2040}:
-                \end{minipage}
-                \begin{minipage}[t][2.5cm]{0.9\textwidth}
-                    \begin{itemize}
-                        \item \scriptsize Ambitious renewable energy expansion \textbf{aligned with the ÖNIP} (Austrian National Energy and Climate Plan).
-                    \end{itemize}
-                \end{minipage}
-                \begin{minipage}[t][3.7cm]{0.9\textwidth} 
-                    \scriptsize ~
-                \end{minipage}
-            \end{coloredblock}
-        \end{minipage}
-        \hfill
-        \begin{minipage}[t]{0.325\textwidth}
-            \begin{coloredblock}[blue][\centering „Reduced Electricity Transport“\\RET][\footnotesize]
-                \begin{minipage}[t][3cm]{0.9\textwidth} 
-                    \scriptsize STORYLINE: \textbf{Electricity transmission capacities} are \textbf{lower} than assumed in the base scenario:
-                \end{minipage}
-                \begin{minipage}[t][2.5cm]{0.9\textwidth}
-                    \begin{itemize}
-                        \item \scriptsize \textbf{Grid expansion is delayed}
-                    \end{itemize}
-                \end{minipage}
-                \begin{minipage}[t][3.7cm]{0.9\textwidth} 
-                    \scriptsize \textit{The analysis examines how the reduced transmission capacities in the transmission network, compared to the baseline scenario, impact controllable electricity generation capacities, storage requirements, additional costs, etc.}
-                \end{minipage}
-            \end{coloredblock}
-        \end{minipage}
-        \hfill
-        \begin{minipage}[t]{0.325\textwidth}
-            \begin{coloredblock}[blue][\centering „Extreme Weather Years“\\ EWY][\footnotesize]
-                \begin{minipage}[t][3cm]{0.9\textwidth} 
-                    \scriptsize STORYLINE: To obtain reliable results, \textbf{variations in the assumed weather data} are \textbf{considered}:
-                \end{minipage}
-                \begin{minipage}[t][2.5cm]{0.9\textwidth}
-                    \begin{itemize}
-                        \item \scriptsize An \textbf{extreme event} is simulated, focusing on a winter "\textbf{Dunkelflaute}"
-                    \end{itemize}
-                \end{minipage}
-                \begin{minipage}[t][3.7cm]{0.9\textwidth} 
-                    \scriptsize \textit{The analysis examines how the extreme weather event impacts the generation fleet, storage requirements, transmission corridors, and the overall systemic behavior.}
-                \end{minipage}
-            \end{coloredblock}
-        \end{minipage}
-        
-    \end{minipage}
-
-    \begin{coloredblock}[grey]
-        \centering
-        \footnotesize\textbf{Through the in-depth analysis of the baseline scenario \\
-        and the comparison with the extreme scenarios, the research questions are answered.}
-    \end{coloredblock}
-
-\end{frame}
-
-
-\begin{frame}{Grading}
-    \vspace{-0.5cm}
-        \begin{minipage}[t]{0.49\textwidth}
-            \begin{tugitemize}
-                \item Attendance mandatory
-                \begin{tugitemize}
-                    \item If more than two lessons are missed without an adequate excuse, you can no longer successfully complete the course.
-                \end{tugitemize}
-                \item Participation (50 Points)
-                \begin{tugitemize}
-                    \item Preparatory tasks\\
-                    Short tasks before class like watching a video, reading a text and answering some questions in TeachCenter
-                    \item Exercises during class
-                \end{tugitemize}
-                \item Homework 1 \& 2 (25 Points each)
-                \begin{tugitemize}
-                    \item Exercise\\
-                    Work you have to do at home.
-                    \item Report\\
-                    Comment your code and write a small report
-                \end{tugitemize}
-            \end{tugitemize}
-        \end{minipage}
-        \hfill
-        \begin{minipage}[t]{0.49\textwidth}
-            \begin{tugitemize}
-                \item In each part more than 50\% of the points are required for a positive grade
-                \item Grading scale
-                \begin{tugitemize}
-                    \item \textless50 Points: 5
-                    \item 50 – 62 Points: 4
-                    \item 63 – 75 Points: 3
-                    \item 76 – 88 Points: 2
-                    \item 89 – 100 Points: 1
-                \end{tugitemize}
-            \end{tugitemize}
-        \end{minipage}
-    
 \end{frame}
 
 
@@ -1716,114 +1543,11 @@
 \end{frame}
 
 
-\begin{frame}{Grading}
-    \begin{coloredblock}[blue]
-        \centering\footnotesize\textbf{Attendance mandatory\textsuperscript{1}}
-    \end{coloredblock}
-
-    \vspace{-0.5cm}
-    \begin{minipage}[t][9.5cm]{\textwidth}
-        \begin{minipage}[t]{0.32\textwidth}
-            \begin{coloredblock}[blue][\centering Participation][\footnotesize][5.5cm]
-                \begin{itemize}
-                    \item \footnotesize \textbf{Preparatory tasks}\\
-                    Short tasks before class like watching a video, reading a text and answering some questions in TeachCenter
-                    \item \footnotesize \textbf{Exercises during class}
-                \end{itemize}
-            \end{coloredblock}
-            \centering \footnotesize \textbf{50 Point}
-        \end{minipage}
-        \hfill
-        \begin{minipage}[t]{0.32\textwidth}
-            \begin{coloredblock}[blue][\centering Homework 1][\footnotesize][5.5cm]
-                \begin{itemize}
-                    \item \footnotesize \textbf{Exercise}\\
-                    Work you have to do at home.
-                    \item \footnotesize \textbf{Report}\\
-                    Comment your code and write a small report
-                \end{itemize}
-            \end{coloredblock}
-            \centering \footnotesize \textbf{25 Point}
-        \end{minipage}
-        \hfill
-        \begin{minipage}[t]{0.32\textwidth}
-            \begin{coloredblock}[blue][\centering Homework 2][\footnotesize][5.5cm]
-                \begin{itemize}
-                    \item \footnotesize \textbf{Exercise}\\
-                    Work you have to do at home.
-                    \item \footnotesize \textbf{Report}\\
-                    Comment your code and write a small report
-                \end{itemize}
-            \end{coloredblock}
-            \centering \footnotesize \textbf{25 Point}
-        \end{minipage}
-    \end{minipage}
-    
-    \begin{coloredblock}[blue]
-        \centering\footnotesize\textbf{In each part more than 50\% of the points are required for a positive grade}
-    \end{coloredblock}
-
-    \vspace{0.5cm}
-    \begin{coloredblock}[blue]
-        \begin{minipage}[c]{0.24\textwidth}
-            \centering\footnotesize \textbf{Grading Scale}
-        \end{minipage}
-        \hfill
-        \begin{minipage}[c]{0.24\textwidth}
-            \footnotesize
-            <50 Points:         5\\
-            50 – 62 Points:     4
-        \end{minipage}
-        \hfill
-        \begin{minipage}[c]{0.24\textwidth}
-            \footnotesize
-            63 – 75 Points:     3\\
-            76 – 88 Points:     2
-        \end{minipage}
-        \hfill
-        \begin{minipage}[t]{0.24\textwidth}
-            \footnotesize
-            89 – 100 Points:    1
-        \end{minipage}
-        
-    \end{coloredblock}
-
-    \addsource{\textsuperscript{1} If more than two lessons are missed without an adequate excuse, you can no longer successfully complete the course.}
-    
-\end{frame}
-
-\begin{frame}{Classification}
-    \framesubtitle{Definition}
-    \begin{tugitemize}
-        \item \small\textbf{Classification} is a \textbf{machine learning technique} used to \textbf{predict group membership} for data instances.
-        \item \small Training Data
-        \begin{tugitemize}
-            \item \scriptsize Given a collection of records (training set), each record contains a set of attributes, with one attribute being the class.
-            \item \scriptsize Each sample is characterized by a tuple (X, y), where:
-            \item \scriptsize X: attribute set (predictor, independent variable, input)
-            \item \scriptsize y: class label (response, dependent variable, output)
-        \end{tugitemize}
-        \item \small Task
-        \begin{tugitemize}
-            \item \scriptsize Learn a model that maps each attribute set X to one of the predefined class labels y.
-            \item \scriptsize Find a model for the class attribute as a function of the values of other attributes.
-        \end{tugitemize}
-        \item \small Goal
-        \begin{tugitemize}
-            \item \scriptsize Assign previously unseen records to a class as accurately as possible.
-            \item \scriptsize Use a test set to determine the accuracy of the model.
-            \item \scriptsize Typically, the dataset is divided into training and test sets:
-            \item \scriptsize Training set: Used to build the model
-            \item \scriptsize Test set: Used to validate the model
-        \end{tugitemize}
-    \end{tugitemize}
-\end{frame}
-
 \begin{frame}{Classification}
     \framesubtitle{Definition}
     \small\centering\textbf{Classification} is a \textbf{machine learning technique} used to \textbf{predict group membership} for data instances.
 
-    \vspace{0.2cm}
+    \vspace{0.3cm}
     \begin{coloredblock}[yellow][\faIcon{table}~~~Training Data][\footnotesize]
         \vspace{0.2cm}
         \begin{tugitemize}
@@ -1834,6 +1558,8 @@
         \end{tugitemize}
     \end{coloredblock}
 
+    \vspace{0.3cm}
+
     \begin{coloredblock}[green][\faIcon{tasks}~~~Task][\footnotesize]
         \vspace{0.2cm}
         \begin{tugitemize}
@@ -1842,41 +1568,7 @@
         \end{tugitemize}
     \end{coloredblock}
 
-    \begin{coloredblock}[blue][\faIcon{bullseye}~~~Goal][\footnotesize]
-        \vspace{0.2cm}
-        \begin{tugitemize}
-            \item \scriptsize Assign previously unseen records to a class as accurately as possible.
-            \item \scriptsize Use a test set to determine the accuracy of the model.
-            \item \scriptsize Typically, the dataset is divided into training and test sets:
-            \item \scriptsize Training set: Used to build the model
-            \item \scriptsize Test set: Used to validate the model
-        \end{tugitemize}
-    \end{coloredblock}
-
-\end{frame}
-
-\begin{frame}{Classification}
-    \framesubtitle{Definition}
-    \small\centering\textbf{Classification} is a \textbf{machine learning technique} used to \textbf{predict group membership} for data instances.
-
-    \vspace{0.2cm}
-    \begin{coloredblock}[blue][\faIcon{table}~~~Training Data][\footnotesize]
-        \vspace{0.2cm}
-        \begin{tugitemize}
-            \item \scriptsize Given a collection of records (training set), each record contains a set of attributes, with one attribute being the class.
-            \item \scriptsize Each sample is characterized by a tuple (X, y), where:
-            \item \scriptsize X: attribute set (predictor, independent variable, input)
-            \item \scriptsize y: class label (response, dependent variable, output)
-        \end{tugitemize}
-    \end{coloredblock}
-
-    \begin{coloredblock}[blue][\faIcon{tasks}~~~Task][\footnotesize]
-        \vspace{0.2cm}
-        \begin{tugitemize}
-            \item \scriptsize Learn a model that maps each attribute set X to one of the predefined class labels y.
-            \item \scriptsize Find a model for the class attribute as a function of the values of other attributes.
-        \end{tugitemize}
-    \end{coloredblock}
+    \vspace{0.3cm}
 
     \begin{coloredblock}[blue][\faIcon{bullseye}~~~Goal][\footnotesize]
         \vspace{0.2cm}
@@ -1888,58 +1580,6 @@
             \item \scriptsize Test set: Used to validate the model
         \end{tugitemize}
     \end{coloredblock}
-
-\end{frame}
-
-
-\begin{frame}{Classification}
-    \framesubtitle{Examples}
-
-    \begin{minipage}[t]{.49\textwidth}
-        \begin{tugitemize}
-            \item \small Sentiment Analysis
-            \begin{tugitemize}
-                \item \scriptsize Task: Determine the sentiment of a text (e.g., reviews, social media posts).
-                \item \scriptsize Attributes: Text data (words, phrases).
-                \item \scriptsize Class Labels: "Positive," "Negative," or "Neutral“
-            \end{tugitemize}
-            \item \small Disease Diagnosis
-            \begin{tugitemize}
-                \item \scriptsize Task: Diagnose whether a patient has a particular disease.
-                \item \scriptsize Attributes: Medical history, test results, symptoms.
-                \item \scriptsize Class Labels: "Disease" or "No Disease“
-            \end{tugitemize}
-            \item \small Activity Recognition
-            \begin{tugitemize}
-                \item \scriptsize Task: Determine the activity being performed based on sensor data.
-                \item \scriptsize Attributes: Sensor readings (e.g., from a smartphone or wearable device).
-                \item \scriptsize Class Labels: “Biking," "Running," etc.
-            \end{tugitemize}
-        \end{tugitemize}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{.49\textwidth}
-        \begin{tugitemize}
-            \item \small Image Recognition
-            \begin{tugitemize}
-                \item \scriptsize Task: Identify objects or people in images.
-                \item \scriptsize Attributes: Pixel values, image features.
-                \item \scriptsize Class Labels: "Cat," "Dog," etc.
-            \end{tugitemize}
-            \item \small Language Detection
-            \begin{tugitemize}
-                \item \scriptsize Task: Identify the language of a given text.
-                \item \scriptsize Attributes: Text data (words, characters).
-                \item \scriptsize Class Labels: "English," "Spanish," etc.
-            \end{tugitemize}
-            \item \small Email Spam Detection
-            \begin{tugitemize}
-                \item \scriptsize Task: Classify as "spam" or "not spam."
-                \item \scriptsize Attributes: Email content, sender, etc.
-                \item \scriptsize Class Labels: "Spam" or "Not Spam"
-            \end{tugitemize}
-        \end{tugitemize}
-    \end{minipage}
 
 \end{frame}
 
@@ -1954,10 +1594,10 @@
             \begin{itemize}
                 \item \scriptsize Task: Determine the sentiment of a text (e.g., reviews, social media posts).
                 \item \scriptsize Attributes: Text data (words, phrases).
-                \item \scriptsize Class Labels: "Positive," "Negative," or "Neutral"
+                \item \scriptsize Class Labels: "Pos," "Neg," or "Neutr"
             \end{itemize}
         \end{coloredblock}
-
+        \vspace{0.3cm}
         \begin{coloredblock}[red][\centering\faIcon{image}~~~Image Recognition][\footnotesize][4.8cm]
                 \begin{itemize}
                     \item \scriptsize Task: Identify objects or people in images.
@@ -1976,7 +1616,7 @@
                 \item \scriptsize Class Labels: "Disease" / "No Disease"
             \end{itemize}
         \end{coloredblock}
-
+        \vspace{0.3cm}
         \begin{coloredblock}[turquoise][\centering\faIcon{comments}~~~Language Detection][\footnotesize][4.8cm]
             \begin{itemize}
                 \item \scriptsize Task: Identify the language of a given text.
@@ -1996,7 +1636,7 @@
                 \item \scriptsize Class Labels: “Biking," "Running," etc.
             \end{itemize}
         \end{coloredblock}
-
+        \vspace{0.3cm}
         \begin{coloredblock}[grey][\centering\faIcon{envelope}~~~E-Mail Spam Detection][\footnotesize][4.8cm]
             \begin{itemize}
                 \item \scriptsize Task: Classify as "spam" or "not spam."
@@ -2005,72 +1645,6 @@
             \end{itemize}
         \end{coloredblock}
         
-    \end{minipage}
-
-\end{frame}
-
-
-\begin{frame}{Classification}
-    \framesubtitle{Examples}
-
-    \vspace{-0.8cm}
-    \begin{minipage}[t]{0.32\textwidth}
-    
-        \begin{coloredblock}[blue][\centering\faIcon[regular]{smile-beam}~~~Sentiment Analysis][\footnotesize][4.8cm]
-            \begin{itemize}
-                \item \scriptsize Task: Determine the sentiment of a text (e.g., reviews, social media posts).
-                \item \scriptsize Attributes: Text data (words, phrases).
-                \item \scriptsize Class Labels: "Positive," "Negative," or "Neutral"
-            \end{itemize}
-        \end{coloredblock}
-
-        \begin{coloredblock}[blue][\centering\faIcon{image}~~~Image Recognition][\footnotesize][4.8cm]
-                \begin{itemize}
-                    \item \scriptsize Task: Identify objects or people in images.
-                    \item \scriptsize Attributes: Pixel values, image features, etc.
-                    \item \scriptsize Class Labels: "Cat," "Dog," etc.
-                \end{itemize}
-        \end{coloredblock}
-        
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.32\textwidth}
-        \begin{coloredblock}[blue][\centering\faIcon{stethoscope}~~~Disease Diagnosis][\footnotesize][4.8cm]
-            \begin{itemize}
-                \item \scriptsize Task: Diagnose whether a patient has a particular disease.
-                \item \scriptsize Attributes: Medical history, test results, symptoms.
-                \item \scriptsize Class Labels: "Disease" / "No Disease"
-            \end{itemize}
-        \end{coloredblock}
-
-        \begin{coloredblock}[blue][\centering\faIcon{comments}~~~Language Detection][\footnotesize][4.8cm]
-            \begin{itemize}
-                \item \scriptsize Task: Identify the language of a given text.
-                \item \scriptsize Attributes: Text data (words, characters).
-                \item \scriptsize Class Labels: "English," "Spanish," etc.
-            \end{itemize}
-        \end{coloredblock}
-        
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.32\textwidth}
-
-        \begin{coloredblock}[blue][\centering\faIcon{running}~~~Activity Recognition][\footnotesize][4.8cm]
-            \begin{itemize}
-                \item \scriptsize Task: Determine the activity being performed based on sensor data.
-                \item \scriptsize Attributes: Sensor readings (e.g., from a smartphone or wearable device).
-                \item \scriptsize Class Labels: “Biking," "Running," etc.
-            \end{itemize}
-        \end{coloredblock}
-
-        \begin{coloredblock}[blue][\centering\faIcon{envelope}~~~E-Mail Spam Detection][\footnotesize][4.8cm]
-            \begin{itemize}
-                \item \scriptsize Task: Classify as "spam" or "not spam."
-                \item \scriptsize Attributes: Email content, sender, attachements etc.
-                \item \scriptsize Class Labels: "Spam" or "Not Spam"
-            \end{itemize}
-        \end{coloredblock}
-
     \end{minipage}
 
 \end{frame}
