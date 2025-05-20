@@ -31,6 +31,8 @@ The template includes:
 
 ## Release Notes
 - **2025-05-19:**
+   - Add new box style with icon on the left `\begin{coloredblockleft}`
+   - Fixed calculation of box height 
    - Change function coloredblocks and add option to customize padding.
    - Optionally display Beamer navigation buttons in the lower left corner (can be enabled in the Options section).
    - Include new list styles (romanenumerate, tugromanenumerate (tighter spacing), boxromanenumerate)

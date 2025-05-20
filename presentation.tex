@@ -215,7 +215,7 @@
 
     % Bottom blocks (side-by-side)
     \begin{minipage}[t]{0.49\textwidth}
-        \begin{coloredblock}[blue][\centering\faIcon{palette}~~~Designing Boxes][][6cm]
+        \begin{coloredblock}[blue][\centering\faIcon{palette}~~~Designing Boxes][][7cm]
             \begin{itemize}
                 \item \textbf{Title Bar}: You can choose between boxes with or without a title bar.
                 \item \textbf{Itemization}: Placing itemized lists inside a box can enhance structure and improve clarity.
@@ -224,7 +224,7 @@
     \end{minipage}
     \hfill
     \begin{minipage}[t]{0.49\textwidth}
-        \begin{coloredblock}[blue][\centering\faIcon{lightbulb}~~~Additional Tips][][6cm]
+        \begin{coloredblock}[blue][\centering\faIcon{lightbulb}~~~Additional Tips][][7cm]
             \begin{itemize}
                 \item Use \textbf{short}, concise \textbf{text} inside the box to maximize clarity
                 \item Consider \textbf{icons} in the title bar to enhance visual appeal. You can use the icons from the fontawesome package.
@@ -402,6 +402,60 @@
 \end{frame}
 
 
+\begin{frame}{Boxes}
+    \framesubtitle{Boxes with Icon on the left}
+
+    \footnotesize\centering\texttt{\textbackslash begin\{coloredblockleft\}[color][Optional:~LEFT ICON][Optional:~Height cm][Optional:~Left Width cm]}
+    
+    \begin{minipage}[t]{0.49\textwidth}
+
+        \begin{coloredblockleft}[blue][\large\faIcon{bolt}][2cm][2cm]
+            \vspace{0.3cm}
+            \texttt{\textbackslash begin\{coloredblockleft\}[blue]}\strut
+        \end{coloredblockleft}
+
+        \begin{coloredblockleft}[yellow][\large\faIcon{bolt}][2cm][2cm]
+            \vspace{0.3cm}
+            \texttt{\textbackslash begin\{coloredblockleft\}[yellow]}\strut
+        \end{coloredblockleft}
+
+        \begin{coloredblockleft}[red][\large\faIcon{bolt}][2cm][2cm]
+            \vspace{0.3cm}
+            \texttt{\textbackslash begin\{coloredblockleft\}[red]}\strut
+        \end{coloredblockleft}
+
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.49\textwidth}
+        
+        \begin{coloredblockleft}[iee][\large\faIcon{bolt}][2cm][2cm]
+            \vspace{0.3cm}
+            \texttt{\textbackslash begin\{coloredblockleft\}[iee]}\strut
+        \end{coloredblockleft}
+
+        \begin{coloredblockleft}[green][\large\faIcon{bolt}][2cm][2cm]
+            \vspace{0.3cm}
+            \texttt{\textbackslash begin\{coloredblockleft\}[green]}\strut
+        \end{coloredblockleft}
+
+        \begin{coloredblockleft}[grey][\large\faIcon{bolt}][2cm][2cm]
+            \vspace{0.3cm}
+            \texttt{\textbackslash begin\{coloredblockleft\}[grey]}\strut
+        \end{coloredblockleft}
+        
+    \end{minipage}
+
+    \centering
+    \begin{minipage}[t]{0.49\textwidth}
+        \begin{coloredblockleft}[turquoise][\large\faIcon{bolt}][2cm][2cm]
+            \vspace{0.3cm}
+            \texttt{\textbackslash begin\{coloredblockleft\}[turquoise]}\strut
+        \end{coloredblockleft}
+        
+    \end{minipage}
+\end{frame}
+
+
 %% -------------------------------------------------------------------
 %% Use the Typeface to Enhance Readability
 \section{Use the \textbf{Typeface} to Enhance Readability}
@@ -462,7 +516,7 @@
 
 
 %% -------------------------------------------------------------------
-%% Visualize your Numbers with Plots
+%% Reveal your content step-by-step withn Overlays
 \section{Reveal your content step-by-step with \textbf{Overlays}}
 
 \begin{frame}
@@ -473,17 +527,18 @@
 \begin{frame}{Overlay}
     \framesubtitle{Reveal your content step-by-step}
 
-    \begin{coloredblock}[yellow]
+    \vspace{-0.7cm}
+    \begin{coloredblockleft}[yellow][\large\faIcon{exclamation}]
         \begin{itemize}
             \item \footnotesize Enhance your presentation by \textbf{revealing} content \textbf{step by step} to \textbf{guide audience attention}.
             \item \footnotesize \textbf{No need to duplicate slides} — \textbf{overlays} handle it, and the slide number stays the same.
         \end{itemize}
-    \end{coloredblock}
+    \end{coloredblockleft}
 
     \pause
-    \vspace{-0.7cm}
+    \vspace{0.5cm}
     \begin{minipage}[t]{0.49\textwidth}
-        \begin{coloredblock}[turquoise][\centering \faIcon{pause}~~~Pause Command][\small][9.3cm]
+        \begin{coloredblock}[turquoise][\centering \faIcon{pause}~~~Pause Command][\small][10cm]
             \begin{itemize}
                 \item \footnotesize Insert \textbf{\texttt{\textbackslash pause}} at the point where you want the next item to appear.
                 \item \footnotesize Everything \textbf{before} \texttt{\textbackslash pause} is shown on the current slide.
@@ -496,7 +551,7 @@
     \setbeamercovered{invisible}
     \pause
     \begin{minipage}[t]{0.49\textwidth}
-        \begin{coloredblock}[green][\centering \faIcon{code-branch}~~~Transparent or Invisible][\small][9.3cm]
+        \begin{coloredblock}[green][\centering \faIcon{code-branch}~~~Transparent or Invisible][\small][10cm]
             \begin{itemize}
                \item \footnotesize Unrevealed content can either be \textbf{transparent} or \textbf{invisible} until it is revealed.
                 \item \footnotesize You control this using 
@@ -524,75 +579,25 @@
 \begin{frame}{Plots}
     \framesubtitle{Visualize your Numbers}
 
+    \vspace{-1.1cm}
     \begin{minipage}[t]{0.49\textwidth}
-        \vspace{-1.1cm}
-
-        \begin{minipage}[c]{0.14\textwidth}
-            \begin{coloredblockdark}[blue][][][1.5cm]
-               \vbox to 1.5cm {
-                    \vfil
-                        \hbox to 1.5cm {
-                            \hfill
-                                \large\faIcon{chart-line}
-                            \hfill
-                        }
-                    \vfil
-                }
-            \end{coloredblockdark}
-            \begin{coloredblockdark}[yellow][][][1.5cm]
-               \vbox to 1.5cm {
-                    \vfil
-                        \hbox to 1.5cm {
-                            \hfill
-                                \large\faIcon{list-ol}
-                            \hfill
-                        }
-                    \vfil
-                }
-            \end{coloredblockdark}
-            \begin{coloredblockdark}[grey][][][1.5cm]
-               \vbox to 1.5cm {
-                    \vfil
-                        \hbox to 1.5cm {
-                            \hfill
-                                \large\faIcon[regular]{square}
-                            \hfill
-                        }
-                    \vfil
-                }
-            \end{coloredblockdark}
-            \begin{coloredblockdark}[green][][][1.5cm]
-               \vbox to 1.5cm {
-                    \vfil
-                        \hbox to 1.5cm {
-                            \hfill
-                                \large\faIcon{chart-bar}
-                            \hfill
-                        }
-                    \vfil
-                }
-            \end{coloredblockdark}
-        \end{minipage}
-        \hfill
-        \begin{minipage}[c]{0.84\textwidth}
-            \begin{coloredblock}[blue][][][1.5cm]
-                \footnotesize
-                Set \textbf{axis line style} to \textbf{black} to add a black \textbf{border} around the plot area
-            \end{coloredblock}
-            \begin{coloredblock}[yellow][][][1.5cm]
-                \footnotesize
-                Include \textbf{axis labels} with descriptions and \textbf{units} and include thousand separator
-            \end{coloredblock}
-            \begin{coloredblock}[grey][][][1.5cm]
-                \footnotesize
-                Add a \textbf{black border} around the \textbf{sections} of the bar chart
-            \end{coloredblock}
-            \begin{coloredblock}[green][][][1.5cm]
-                \footnotesize
-                Include a \textbf{legend} to explain the chart's data categories
-            \end{coloredblock}
-        \end{minipage}
-        \begin{coloredblock}[iee][\centering \faIcon{star}~~~Optional Improvements][\footnotesize][3cm]
+        \begin{coloredblockleft}[blue][\large\faIcon{chart-line}][2.3cm][2.3cm]
+            \footnotesize
+            Set \textbf{axis line style} to \textbf{black} to add a black \textbf{border} around the plot area
+        \end{coloredblockleft}
+        \begin{coloredblockleft}[yellow][\large\faIcon{list-ol}][2.3cm][2.3cm]
+            \footnotesize
+            Include \textbf{axis labels} with descriptions and \textbf{units} and include thousand separator
+        \end{coloredblockleft}
+        \begin{coloredblockleft}[grey][\large\faIcon[regular]{square}][2.3cm][2.3cm]
+            \footnotesize
+            Add a \textbf{black border} around the \textbf{sections} of the bar chart
+        \end{coloredblockleft}
+        \begin{coloredblockleft}[green][\large\faIcon{chart-bar}][2.3cm][2.3cm]
+            \footnotesize
+            Include a \textbf{legend} to explain the chart's data categories
+        \end{coloredblockleft}
+        \begin{coloredblock}[iee][\centering \faIcon{star}~~~Optional Improvements][\footnotesize][3.9cm]
                 \begin{itemize}
                     \item \footnotesize Add grey grid lines to the background
                     \item \footnotesize Include caption in italics at the bottom, complete with figure numbering
@@ -602,9 +607,10 @@
     \hfill
     % Left side of the page
     \begin{minipage}[t]{0.49\textwidth}
-        \vspace{0.1cm}
+        \vspace{1cm}
         \tiny
-        \begin{figure}[htbp]
+        \begin{overprint}
+        \onslide<1>\begin{figure}[htbp]
             \begin{tikzpicture}
                 \begin{axis}[
                     ybar stacked,
@@ -638,95 +644,8 @@
             \caption{\centering Installed capacity per power plant type in Wakanda from 2022-2025.}
             \label{fig:installed_capacity}
         \end{figure}
-    \end{minipage}
 
-    \addsource{Source: Energy Report, Statistics Wakanda, 2023}
-\end{frame}
-
-
-\begin{frame}{Plots}
-    \framesubtitle{Visualize your Numbers}
-    \begin{minipage}[t]{0.49\textwidth}
-        \vspace{-1.1cm}
-        
-        \begin{minipage}[c]{0.14\textwidth}
-            \begin{coloredblockdark}[blue][][][1.5cm]
-               \vbox to 1.5cm {
-                    \vfil
-                        \hbox to 1.5cm {
-                            \hfill
-                                \large\faIcon{chart-line}
-                            \hfill
-                        }
-                    \vfil
-                }
-            \end{coloredblockdark}
-            \begin{coloredblockdark}[yellow][][][1.5cm]
-               \vbox to 1.5cm {
-                    \vfil
-                        \hbox to 1.5cm {
-                            \hfill
-                                \large\faIcon{list-ol}
-                            \hfill
-                        }
-                    \vfil
-                }
-            \end{coloredblockdark}
-            \begin{coloredblockdark}[grey][][][1.5cm]
-               \vbox to 1.5cm {
-                    \vfil
-                        \hbox to 1.5cm {
-                            \hfill
-                                \large\faIcon[regular]{square}
-                            \hfill
-                        }
-                    \vfil
-                }
-            \end{coloredblockdark}
-            \begin{coloredblockdark}[green][][][1.5cm]
-               \vbox to 1.5cm {
-                    \vfil
-                        \hbox to 1.5cm {
-                            \hfill
-                                \large\faIcon{chart-bar}
-                            \hfill
-                        }
-                    \vfil
-                }
-            \end{coloredblockdark}
-        \end{minipage}
-        \hfill
-        \begin{minipage}[c]{0.84\textwidth}
-            \begin{coloredblock}[blue][][][1.5cm]
-                \footnotesize
-                Set \textbf{axis line style} to \textbf{black} to add a black \textbf{border} around the plot area
-            \end{coloredblock}
-            \begin{coloredblock}[yellow][][][1.5cm]
-                \footnotesize
-                Include \textbf{axis labels} with descriptions and \textbf{units} and include thousand separator
-            \end{coloredblock}
-            \begin{coloredblock}[grey][][][1.5cm]
-                \footnotesize
-                Add a \textbf{black border} around the \textbf{sections} of the bar chart
-            \end{coloredblock}
-            \begin{coloredblock}[green][][][1.5cm]
-                \footnotesize
-                Include a \textbf{legend} to explain the chart's data categories
-            \end{coloredblock}
-        \end{minipage}
-        \begin{coloredblock}[iee][\centering \faIcon{star}~~~Optional Improvements][\footnotesize][3cm]
-                \begin{itemize}
-                    \item \footnotesize Add grey grid lines to the background
-                    \item \footnotesize Include caption in italics at the bottom, complete with figure numbering
-                \end{itemize}
-        \end{coloredblock}
-    \end{minipage}
-    \hfill
-    % Left side of the page
-    \begin{minipage}[t]{0.49\textwidth}
-        \vspace{0.1cm}
-        \tiny
-        \begin{figure}[htbp]
+        \onslide<2>\begin{figure}[htbp]
             \begin{tikzpicture}
                 \begin{axis}[
                     width=\linewidth,
@@ -774,94 +693,8 @@
             \caption{\centering Demand per representative periode in Wakanda.}
             \label{fig:demand}
         \end{figure}
-    \end{minipage}
-
-    \addsource{Source: Energy Report, Statistics Wakanda, 2023}
-\end{frame}
-
-\begin{frame}{Plots}
-    \framesubtitle{Visualize your Numbers}
-    \begin{minipage}[t]{0.49\textwidth}
-        \vspace{-1.1cm}
-        
-        \begin{minipage}[c]{0.14\textwidth}
-            \begin{coloredblockdark}[blue][][][1.5cm]
-               \vbox to 1.5cm {
-                    \vfil
-                        \hbox to 1.5cm {
-                            \hfill
-                                \large\faIcon{chart-line}
-                            \hfill
-                        }
-                    \vfil
-                }
-            \end{coloredblockdark}
-            \begin{coloredblockdark}[yellow][][][1.5cm]
-               \vbox to 1.5cm {
-                    \vfil
-                        \hbox to 1.5cm {
-                            \hfill
-                                \large\faIcon{list-ol}
-                            \hfill
-                        }
-                    \vfil
-                }
-            \end{coloredblockdark}
-            \begin{coloredblockdark}[grey][][][1.5cm]
-               \vbox to 1.5cm {
-                    \vfil
-                        \hbox to 1.5cm {
-                            \hfill
-                                \large\faIcon[regular]{square}
-                            \hfill
-                        }
-                    \vfil
-                }
-            \end{coloredblockdark}
-            \begin{coloredblockdark}[green][][][1.5cm]
-               \vbox to 1.5cm {
-                    \vfil
-                        \hbox to 1.5cm {
-                            \hfill
-                                \large\faIcon{chart-bar}
-                            \hfill
-                        }
-                    \vfil
-                }
-            \end{coloredblockdark}
-        \end{minipage}
-        \hfill
-        \begin{minipage}[c]{0.84\textwidth}
-            \begin{coloredblock}[blue][][][1.5cm]
-                \footnotesize
-                Set \textbf{axis line style} to \textbf{black} to add a black \textbf{border} around the plot area
-            \end{coloredblock}
-            \begin{coloredblock}[yellow][][][1.5cm]
-                \footnotesize
-                Include \textbf{axis labels} with descriptions and \textbf{units} and include thousand separator
-            \end{coloredblock}
-            \begin{coloredblock}[grey][][][1.5cm]
-                \footnotesize
-                Add a \textbf{black border} around the \textbf{sections} of the bar chart
-            \end{coloredblock}
-            \begin{coloredblock}[green][][][1.5cm]
-                \footnotesize
-                Include a \textbf{legend} to explain the chart's data categories
-            \end{coloredblock}
-        \end{minipage}
-        \begin{coloredblock}[iee][\centering \faIcon{star}~~~Optional Improvements][\footnotesize][3cm]
-                \begin{itemize}
-                    \item \footnotesize Add grey grid lines to the background
-                    \item \footnotesize Include caption in italics at the bottom, complete with figure numbering
-                \end{itemize}
-        \end{coloredblock}
-    \end{minipage}
-    \hfill
-    % Left side of the page
-    \begin{minipage}[t]{0.49\textwidth}
-        \vspace{0.1cm}
-        \tiny
-        \begin{figure}[htbp]
+ 
+        \onslide<3>\begin{figure}[htbp]
             \begin{tikzpicture}
             % Draw the donut chart
             \pie[
@@ -890,6 +723,7 @@
             \caption{\centering Shares of installed capacity per power plant type in Wakanda 2023.}
             \label{fig:installed_capacity_2023}
         \end{figure}
+        \end{overprint}
     \end{minipage}
 
     \addsource{Source: Energy Report, Statistics Wakanda, 2023}
@@ -1093,7 +927,7 @@
 
     % Bottom blocks (side-by-side)
     \begin{minipage}[t]{0.49\textwidth}
-        \begin{coloredblock}[blue][\centering\texttt{\textbf{\textbackslash begin\{itemize\}}}:][\small][3.7cm]
+        \begin{coloredblock}[blue][\centering\texttt{\textbf{\textbackslash begin\{itemize\}}}:][\small][4.5cm]
             \begin{itemize}
                 \item Item level 1
                 \begin{itemize}
@@ -1105,7 +939,7 @@
             \end{itemize}
         \end{coloredblock}
 
-        \begin{coloredblock}[iee][\centering\texttt{\textbf{\textbackslash begin\{enumerate\}}}:][\small][3.7cm]
+        \begin{coloredblock}[iee][\centering\texttt{\textbf{\textbackslash begin\{enumerate\}}}:][\small][4.5cm]
             \begin{enumerate}
             \item Item level 1
                 \begin{enumerate}
@@ -1120,7 +954,7 @@
     \end{minipage}
     \hfill
     \begin{minipage}[t]{0.49\textwidth}
-        \begin{coloredblock}[green][\centering\texttt{\textbackslash begin\{tugitemize\}} (tighter spacing):][\small][3.7cm]
+        \begin{coloredblock}[green][\centering\texttt{\textbackslash begin\{tugitemize\}} (tighter spacing):][\small][4.5cm]
             \vspace{0.5cm}
             \begin{tugitemize}
                 \item Item level 1
@@ -1133,7 +967,7 @@
             \end{tugitemize}
         \end{coloredblock}
 
-        \begin{coloredblock}[grey][\centering\texttt{\textbackslash begin\{tugenumerate\}} (tighter spacing):][\small][3.7cm]
+        \begin{coloredblock}[grey][\centering\texttt{\textbackslash begin\{tugenumerate\}} (tighter spacing):][\small][4.5cm]
             \vspace{0.5cm}
             \begin{tugenumerate}
                 \item Item level 1
@@ -1161,7 +995,7 @@
 
     % Bottom blocks (side-by-side)
     \begin{minipage}[t]{0.49\textwidth}
-        \begin{coloredblock}[turquoise][\centering\texttt{\textbf{\textbackslash begin\{romanenumerate\}}}:][\small][3.7cm]
+        \begin{coloredblock}[turquoise][\centering\texttt{\textbf{\textbackslash begin\{romanenumerate\}}}:][\small][4.5cm]
             \begin{romanenumerate}
                 \item Item level 1
                 \begin{romanenumerate}
@@ -1173,7 +1007,7 @@
             \end{romanenumerate}
         \end{coloredblock}
 
-        \begin{coloredblock}[yellow][\centering\texttt{\textbf{\textbackslash begin\{boxenumerate\}}}:][\small][3.7cm]
+        \begin{coloredblock}[yellow][\centering\texttt{\textbf{\textbackslash begin\{boxenumerate\}}}:][\small][4.5cm]
             \begin{boxenumerate}
             \item Item level 1
                 \begin{boxenumerate}
@@ -1188,7 +1022,7 @@
     \end{minipage}
     \hfill
     \begin{minipage}[t]{0.49\textwidth}
-        \begin{coloredblock}[blue][\centering\texttt{\textbackslash begin\{tugromanenumerate\}} (tighter spacing):][\small][3.7cm]
+        \begin{coloredblock}[blue][\centering\texttt{\textbackslash begin\{tugromanenumerate\}} (tighter spacing):][\small][4.5cm]
             \vspace{0.5cm}
             \begin{tugromanenumerate}
                 \item Item level 1
@@ -1201,7 +1035,7 @@
             \end{tugromanenumerate}
         \end{coloredblock}
 
-        \begin{coloredblock}[red][\centering\texttt{\textbackslash begin\{boxromanenumerate\}}:][\small][3.7cm]
+        \begin{coloredblock}[red][\centering\texttt{\textbackslash begin\{boxromanenumerate\}}:][\small][4.5cm]
                 \begin{boxromanenumerate}
                     \item Item level 1
                     \begin{boxromanenumerate}
@@ -1270,129 +1104,129 @@
 
     \vspace{-0.5cm}
     \begin{minipage}[t]{0.2\textwidth}
-        \begin{coloredblockdark}[blue][][][1.5cm]
-            \makebox[\textwidth]{%
-                \begin{minipage}[c][1.5cm][c]{0.3\textwidth}
+        \begin{coloredblockdark}[blue][][][2.35cm][0ex]
+                \begin{minipage}[c][2.35cm][c]{0.4\textwidth}
                     \centering
                     \Large{\faIcon{coins}}
                 \end{minipage}%
                 \hfill
-                \begin{minipage}[c][1.5cm][c]{0.69\textwidth}
+                \begin{minipage}[c][2.35cm][c]{0.55\textwidth}
                     \centering
                     \tiny\textbf{Objective Function:}\\
                     Minimize total system costs
                 \end{minipage}%
-            }
+                \hspace{0.05\textwidth}
         \end{coloredblockdark}
 
-        \begin{coloredblockdark}[blue][][][1.5cm]
-            \makebox[\textwidth]{%
-                \begin{minipage}[c][1.5cm][c]{0.3\textwidth}
+        \begin{coloredblockdark}[blue][][][2.35cm][0ex]
+                \begin{minipage}[c][2.35cm][c]{0.4\textwidth}
                     \centering
                     \Large{\faIcon{balance-scale}}
                 \end{minipage}%
                 \hfill
-                \begin{minipage}[c][1.5cm][c]{0.69\textwidth}
+                \begin{minipage}[c][2.35cm][c]{0.55\textwidth}
                     \centering
                     \tiny\textbf{Constraint 1:}\\ 
                     Balance equation
                 \end{minipage}%
-            }
+                \hspace{0.05\textwidth}
         \end{coloredblockdark}
 
-        \begin{coloredblockdark}[blue][][][1.5cm]
-            \makebox[\textwidth]{%
-                \begin{minipage}[c][1.5cm][c]{0.3\textwidth}
+        \begin{coloredblockdark}[blue][][][2.35cm][0ex]
+                \begin{minipage}[c][2.35cm][c]{0.4\textwidth}
                     \centering
                     \Large{\faIcon{hand-paper}}
                 \end{minipage}%
                 \hfill
-                \begin{minipage}[c][1.5cm][c]{0.69\textwidth}
+                \begin{minipage}[c][2.35cm][c]{0.55\textwidth}
                     \centering
                     \tiny\textbf{Constraint 2:}\\ 
                     NTC Limits
                 \end{minipage}%
-            }
+                \hspace{0.05\textwidth}
         \end{coloredblockdark}
 
-        \begin{coloredblockdark}[blue][][][1.5cm]
-            \makebox[\textwidth]{%
-                \begin{minipage}[c][1.5cm][c]{0.3\textwidth}
+        \begin{coloredblockdark}[blue][][][2.35cm][0ex]
+                \begin{minipage}[c][2.35cm][c]{0.4\textwidth}
                     \centering
                     \Large{\faIcon{arrows-alt-v}}
                 \end{minipage}%
                 \hfill
-                \begin{minipage}[c][1.5cm][c]{0.69\textwidth}
+                \begin{minipage}[c][2.35cm][c]{0.55\textwidth}
                     \centering
                     \tiny\textbf{Constraint 3:}\\ 
                     Flow Direction
                 \end{minipage}%
-            }
+                \hspace{0.05\textwidth}
         \end{coloredblockdark}
 
-        \begin{coloredblockdark}[blue][][][1.5cm]
-            \makebox[\textwidth]{%
-                \begin{minipage}[c][1.5cm][c]{0.3\textwidth}
+        \begin{coloredblockdark}[blue][][][2.35cm][0ex]
+                \begin{minipage}[c][2.35cm][c]{0.4\textwidth}
                     \centering
                     \Large{\faIcon{arrows-alt-h}}
                 \end{minipage}%
                 \hfill
-                \begin{minipage}[c][1.5cm][c]{0.69\textwidth}
+                \begin{minipage}[c][2.35cm][c]{0.55\textwidth}
                     \centering
                     \tiny\textbf{Constraint 4:}\\ 
                     Export/Import
                 \end{minipage}%
-            }
+                \hspace{0.05\textwidth}
         \end{coloredblockdark}
 
-        \begin{coloredblockdark}[blue][][][1.5cm]
-            \makebox[\textwidth]{%
-                \begin{minipage}[c][1.5cm][c]{0.3\textwidth}
+        \begin{coloredblockdark}[blue][][][2.35cm][0ex]
+                \begin{minipage}[c][2.35cm][c]{0.4\textwidth}
                     \centering
                     \Large{\faIcon{power-off}}
                 \end{minipage}%
                 \hfill
-                \begin{minipage}[c][1.5cm][c]{0.69\textwidth}
+                \begin{minipage}[c][2.35cm][c]{0.55\textwidth}
                     \centering
                     \tiny\textbf{Constraint 5:}\\ 
                     Generator Limits
                 \end{minipage}%
-            }
+                \hspace{0.05\textwidth}
         \end{coloredblockdark}
     \end{minipage}
     \hfill
     \begin{minipage}[t]{0.78\textwidth}
-        \begin{coloredblock}[blue][][][1.5cm]
+        \begin{coloredblock}[blue][][][2.35cm]
+            \vspace{0.35cm}
             \begin{center}
                 \small$\min \sum_{g,h} c_{g}^{op} \cdot p_g^{h} + \sum_{g} x_g \cdot (c_{g}^{Inv,MW} + c_{g}^{Inv,MWh} \cdot E2P_g)$
             \end{center}
         \end{coloredblock}
 
-        \begin{coloredblock}[blue][][][1.5cm]
+        \begin{coloredblock}[blue][][][2.35cm]
+            \vspace{0.35cm}
             \begin{center}
                 \small$\sum_{g} p_{gz(g,z),h} - \sum_{g} p_{cs(g,z),h} - \sum_{z \neq y} exp_{z,y,h} + \sum_{z \neq y} imp{z,y,h} = dem_{z,h}$
             \end{center}
         \end{coloredblock}
 
-        \begin{coloredblock}[blue][][][1.5cm]
+        \begin{coloredblock}[blue][][][2.35cm]
+            \vspace{0.35cm}
             \begin{center}
                 \small$exp_{z,y,h} \leq NTC_{z,y} \cdot bn_{z,y,h}$
             \end{center}
         \end{coloredblock}
 
-        \begin{coloredblock}[blue][][][1.5cm]
+        \begin{coloredblock}[blue][][][2.35cm]
+            \vspace{0.35cm}
             \begin{center}
                 \small$imp_{z,y,h} \leq NTC_{y,z} \cdot (1-bn_{z,y,h})$
             \end{center}
         \end{coloredblock}
 
-        \begin{coloredblock}[blue][][][1.5cm]
+        \begin{coloredblock}[blue][][][2.35cm]
+            \vspace{0.35cm}
             \begin{center}
                 \small$exp_{z,y,h} = imp_{y,z,h}$
             \end{center}
         \end{coloredblock}
 
-        \begin{coloredblock}[blue][][][1.5cm]
+        \begin{coloredblock}[blue][][][2.35cm]
+            \vspace{0.35cm}
             \begin{center}
                 \small$\underline{p_g} \leq p_{g,h} \leq \overline{p_g}$
             \end{center}
@@ -1474,7 +1308,7 @@
     \vspace{-0.5cm}
     \begin{minipage}[t][9.5cm]{\textwidth}
         \begin{minipage}[t]{0.32\textwidth}
-            \begin{coloredblock}[blue][\centering Participation][\footnotesize][5.5cm]
+            \begin{coloredblock}[blue][\centering Participation][\footnotesize][6.5cm]
                 \begin{itemize}
                     \item \footnotesize \textbf{Preparatory tasks}\\
                     Short tasks before class like watching a video, reading a text and answering some questions in TeachCenter
@@ -1485,7 +1319,7 @@
         \end{minipage}
         \hfill
         \begin{minipage}[t]{0.32\textwidth}
-            \begin{coloredblock}[blue][\centering Homework 1][\footnotesize][5.5cm]
+            \begin{coloredblock}[blue][\centering Homework 1][\footnotesize][6.5cm]
                 \begin{itemize}
                     \item \footnotesize \textbf{Exercise}\\
                     Work you have to do at home.
@@ -1497,7 +1331,7 @@
         \end{minipage}
         \hfill
         \begin{minipage}[t]{0.32\textwidth}
-            \begin{coloredblock}[blue][\centering Homework 2][\footnotesize][5.5cm]
+            \begin{coloredblock}[blue][\centering Homework 2][\footnotesize][6.5cm]
                 \begin{itemize}
                     \item \footnotesize \textbf{Exercise}\\
                     Work you have to do at home.
@@ -1590,7 +1424,7 @@
     \vspace{-0.8cm}
     \begin{minipage}[t]{0.32\textwidth}
     
-        \begin{coloredblock}[yellow][\centering\faIcon[regular]{smile-beam}~~~Sentiment Analysis][\footnotesize][4.8cm]
+        \begin{coloredblock}[yellow][\centering\faIcon[regular]{smile-beam}~~~Sentiment Analysis][\footnotesize][5.8cm]
             \begin{itemize}
                 \item \scriptsize Task: Determine the sentiment of a text (e.g., reviews, social media posts).
                 \item \scriptsize Attributes: Text data (words, phrases).
@@ -1598,7 +1432,7 @@
             \end{itemize}
         \end{coloredblock}
         \vspace{0.3cm}
-        \begin{coloredblock}[red][\centering\faIcon{image}~~~Image Recognition][\footnotesize][4.8cm]
+        \begin{coloredblock}[red][\centering\faIcon{image}~~~Image Recognition][\footnotesize][5.8cm]
                 \begin{itemize}
                     \item \scriptsize Task: Identify objects or people in images.
                     \item \scriptsize Attributes: Pixel values, image features, etc.
@@ -1609,7 +1443,7 @@
     \end{minipage}
     \hfill
     \begin{minipage}[t]{0.32\textwidth}
-        \begin{coloredblock}[blue][\centering\faIcon{stethoscope}~~~Disease Diagnosis][\footnotesize][4.8cm]
+        \begin{coloredblock}[blue][\centering\faIcon{stethoscope}~~~Disease Diagnosis][\footnotesize][5.8cm]
             \begin{itemize}
                 \item \scriptsize Task: Diagnose whether a patient has a particular disease.
                 \item \scriptsize Attributes: Medical history, test results, symptoms.
@@ -1617,7 +1451,7 @@
             \end{itemize}
         \end{coloredblock}
         \vspace{0.3cm}
-        \begin{coloredblock}[turquoise][\centering\faIcon{comments}~~~Language Detection][\footnotesize][4.8cm]
+        \begin{coloredblock}[turquoise][\centering\faIcon{comments}~~~Language Detection][\footnotesize][5.8cm]
             \begin{itemize}
                 \item \scriptsize Task: Identify the language of a given text.
                 \item \scriptsize Attributes: Text data (words, characters).
@@ -1629,7 +1463,7 @@
     \hfill
     \begin{minipage}[t]{0.32\textwidth}
 
-        \begin{coloredblock}[green][\centering\faIcon{running}~~~Activity Recognition][\footnotesize][4.8cm]
+        \begin{coloredblock}[green][\centering\faIcon{running}~~~Activity Recognition][\footnotesize][5.8cm]
             \begin{itemize}
                 \item \scriptsize Task: Determine the activity being performed based on sensor data.
                 \item \scriptsize Attributes: Sensor readings (e.g., from a smartphone or wearable device).
@@ -1637,7 +1471,7 @@
             \end{itemize}
         \end{coloredblock}
         \vspace{0.3cm}
-        \begin{coloredblock}[grey][\centering\faIcon{envelope}~~~E-Mail Spam Detection][\footnotesize][4.8cm]
+        \begin{coloredblock}[grey][\centering\faIcon{envelope}~~~E-Mail Spam Detection][\footnotesize][5.8cm]
             \begin{itemize}
                 \item \scriptsize Task: Classify as "spam" or "not spam."
                 \item \scriptsize Attributes: Email content, sender, attachements etc.
