@@ -1,0 +1,78 @@
+% ==============================================================================
+% Power Plant Colors Table
+% ==============================================================================
+% This file defines a color-coded table of power plant types using tabularray.
+% It can be compiled standalone (for preview/export) or input into a larger LaTeX
+% document (e.g., a Beamer presentation).
+%
+% To compile standalone, set \standalonetrue below.
+% To use via \input{}, ensure \standalonefalse is set (default).
+% ==============================================================================
+
+\newif\ifstandalone
+% \standalonetrue    % Uncomment this line to compile standalone
+\standalonefalse     % Default for input into other documents
+
+\ifstandalone
+    \documentclass{standalone}
+    \usepackage[table]{xcolor}
+    \usepackage{tabularray}
+    \UseTblrLibrary{booktabs}
+    \UseTblrLibrary{siunitx}
+    \usepackage{graphicx}
+    \usepackage{tikz}
+    \usepackage{sfmath}
+    \renewcommand{\familydefault}{\sfdefault}
+
+    % Load color definitions (always)
+    \input{beamerthemeiee/iee_colors}
+
+    \begin{document}
+\fi
+
+\footnotesize
+\centering
+\begin{tblr}{
+    colspec={lllrrrrc},
+    hline{1-2}={solid,1.5pt},
+    hline{3-Y}={grey},
+    hline{Z}={solid,1.5pt},
+    row{odd}={grey!20},
+    row{1}={white,font=\bfseries},
+    cell{2}{8}={bg=oilColor},
+    cell{3}{8}={bg=coalColor},
+    cell{4}{8}={bg=gasColor},
+    cell{5}{8}={bg=otherNonResColor},
+    cell{6}{8}={bg=nuclearColor},
+    cell{7}{8}={bg=biomassColor},
+    cell{8}{8}={bg=rorColor},
+    cell{9}{8}={bg=pvColor},
+    cell{10}{8}={bg=windColor},
+    cell{11}{8}={bg=windOffColor},
+    cell{12}{8}={bg=otherResColor},
+    cell{13}{8}={bg=storageHydroColor},
+    cell{14}{8}={bg=pumpedStorageColor},
+    cell{15}{8}={bg=bessColor},
+    cell{16}{8}={bg=otherStorageColor},
+}
+    \textbf{Power Plant Type} & \textbf{German Name} & \textbf{LaTeX~Name} & \textbf{R} & \textbf{G} & \textbf{B} & \textbf{Hex} & \textbf{Color} \\
+    Oil & Öl & \texttt{\textbackslash oilColor} & 16 & 47 & 64 & 102F40 & \\
+    Coal & Kohle & \texttt{\textbackslash coalColor} & 127 & 127 & 127 & 7F7F7F &  \\
+    Gas & Gas & \texttt{\textbackslash gasColor} & 191 & 191 & 191 & BFBFBF &  \\
+    Other non-RES & Sonstige nicht-EE & \texttt{\textbackslash otherNonResColor} & 221 & 110 & 56 & DD6E38 &  \\
+    Nuclear & Nuklear & \texttt{\textbackslash nuclearColor} & 236 & 96 & 95 & EC605F &  \\
+    Biomass & Biomasse & \texttt{\textbackslash biomassColor} & 198 & 70 & 59 & C6463B &  \\
+    Run-of-River & Laufwasserkraft & \texttt{\textbackslash rorColor} & 0 & 176 & 240 & 00B0F0 &  \\
+    Solar/PV & Solar/PV & \texttt{\textbackslash pvColor} & 255 & 192 & 0 & FFC000 &  \\
+    Wind-onshore & Wind-onshore & \texttt{\textbackslash windColor} & 146 & 208 & 80 & 92D050 &  \\
+    Wind-offshore & Wind-offshore & \texttt{\textbackslash windOffColor} & 30 & 143 & 79 & 1E8F4F &  \\
+    Other RES & Sonstige EE & \texttt{\textbackslash otherResColor} & 185 & 207 & 222 & B9CFDE &  \\
+    Storage Hydro & Wasserspeicher & \texttt{\textbackslash storageHydroColor} & 75 & 172 & 198 & 4BACC6 &  \\
+    Pumped Storage & Pumpspeicher & \texttt{\textbackslash pumpedStorageColor} & 59 & 90 & 112 & 3B5A70 &  \\
+    BESS & Batteriespeicher & \texttt{\textbackslash bessColor} & 112 & 48 & 160 & 7030A0 &  \\
+    Other Storages & Sonstige Speicher & \texttt{\textbackslash otherStorageColor} & 76 & 133 & 123 & 4C857B &  \\
+\end{tblr}
+
+\ifstandalone
+    \end{document}
+\fi

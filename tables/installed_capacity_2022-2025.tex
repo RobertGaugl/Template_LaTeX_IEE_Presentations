@@ -1,0 +1,62 @@
+% ==============================================================================
+% Power Plant Colors Table
+% ==============================================================================
+% This file defines a color-coded table of power plant types using tabularray.
+% It can be compiled standalone (for preview/export) or input into a larger LaTeX
+% document (e.g., a Beamer presentation).
+%
+% To compile standalone, set \standalonetrue below.
+% To use via \input{}, ensure \standalonefalse is set (default).
+% ==============================================================================
+
+\newif\ifstandalone
+% \standalonetrue    % Uncomment this line to compile standalone
+\standalonefalse     % Default for input into other documents
+
+\ifstandalone
+    \documentclass{standalone}
+    \usepackage[table]{xcolor}
+    \usepackage{tabularray}
+    \UseTblrLibrary{booktabs}
+    \UseTblrLibrary{siunitx}
+    \usepackage{graphicx}
+    \usepackage{tikz}
+    \usepackage{sfmath}
+    \renewcommand{\familydefault}{\sfdefault}
+
+    % Load color definitions (always)
+    \input{beamerthemeiee/iee_colors}
+
+    \begin{document}
+\fi
+\centering
+\small
+\begin{tblr}{
+      colspec = {
+            l 
+            S[table-format=4.1] % S for decimal-aligned numeric columns
+            S[table-format=3.1] % S for decimal-aligned numeric columns
+            S[table-format=3.1] % S for decimal-aligned numeric columns
+            S[table-format=3.1] % S for decimal-aligned numeric columns
+      },
+      hline{1-2}={solid,1.5pt}, % Header with black lines on top and bottom
+      hline{3-Y}={grey}, % Grey lines between rows
+      hline{Z}={solid,1.5pt}, % Black line at the end
+      row{odd}={grey!20}, % Background color odd rows
+      % row{even}={white}, % Background color even rows
+      row{1}={white,font=\bfseries}, % Bold font for header
+      cell{4}{2}={yellowLight, cmd=\textbf}, % Highlight cell (has to be after row{odd}={grey!20})
+      cell{4}{3}={yellowLight, cmd=\textbf}, % Highlight cell (has to be after row{odd}={grey!20})
+    }
+    \textbf{Power Plant Type} & \textbf{2022} & \textbf{2023} & \textbf{2024} & \textbf{2025} \\
+    Coal           & 25.3 & 20.6 & 15.9 & 10.5 \\
+    Gas            & 75.3 & 70.5 & 60.2 & 55.6 \\
+    Run-of-River   & 40.3 & 45.0 & 50.0 & 50.0 \\
+    PV             & 50.5 & 70.5 & 90.7 & 120.0 \\
+    Wind           & 80.0 & 90.2 & 110.3 & 130.4 \\
+    Storage Hydro  & 10.7 & 20.0 & 30.7 & 40.2 \\
+\end{tblr}
+
+\ifstandalone
+    \end{document}
+\fi
