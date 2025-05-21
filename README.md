@@ -30,7 +30,8 @@ The template includes:
 - Create consistent title and closing slides with `\maketitleslide` and `\closingslide`. These commands automatically adapt to the selected language.
 
 ## Release Notes
-- **2025-05-32:**
+- **2025-05-22:**
+   - Support for title in `\begin{coloredblockleft}` and `\begin{coloredblockright}`
    - Add new box style with icon on the right `\begin{coloredblockright}`
    - Move tables to separate files, so that they can compiled on its own
    - Title height is now calculated automatically to ensure proper layout for two-line titles
