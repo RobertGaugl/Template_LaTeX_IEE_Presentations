@@ -421,16 +421,27 @@
 \setbeamertemplate{block end}{\end{beamercolorbox}}
 
 % COLORED BLOCK
-\NewDocumentEnvironment{coloredblock}{O{blue} o O{\normalsize} O{} O{1ex}}{%
+\NewDocumentEnvironment{coloredblock}{O{blue} o O{\normalsize} O{} O{1ex} O{light}}{%
     % Set colors
-    \setbeamercolor{block body}{fg=#1Dark,bg=#1Light}%
+    \IfStrEq{#6}{light}{%
+        \setbeamercolor{block body}{fg=#1Dark,bg=#1Light}%
+    
+        \setbeamercolor{item}{fg=#1Dark}%
+        \setbeamercolor{subitem}{fg=#1Dark}%
+        \setbeamercolor{subsubitem}{fg=#1Dark}%
+        \setbeamercolor{item projected}{fg=white,bg=#1Dark}%
+        \setbeamercolor{subitem projected}{fg=white,bg=#1Dark}%
+        \setbeamercolor{subsubitem projected}{fg=white,bg=#1Dark}%
+    }{
+        \setbeamercolor{block body}{fg=white,bg=#1}%
 
-    \setbeamercolor{item}{fg=#1Dark}%
-    \setbeamercolor{subitem}{fg=#1Dark}%
-    \setbeamercolor{subsubitem}{fg=#1Dark}%
-    \setbeamercolor{item projected}{fg=white,bg=#1Dark}%
-    \setbeamercolor{subitem projected}{fg=white,bg=#1Dark}%
-    \setbeamercolor{subsubitem projected}{fg=white,bg=#1Dark}%
+        \setbeamercolor{item}{fg=white}%
+        \setbeamercolor{subitem}{fg=white}%
+        \setbeamercolor{subsubitem}{fg=white}%
+        \setbeamercolor{item projected}{fg=white,bg=white}%
+        \setbeamercolor{subitem projected}{fg=white,bg=white}%
+        \setbeamercolor{subsubitem projected}{fg=white,bg=white}%
+    }
 
     \IfNoValueTF{#2}{%
         % no optional title → no title block
@@ -452,7 +463,11 @@
         }{%
             % non-empty title → full block with variable font size for title (#3)
             \vspace{0.3cm}%
-            \setbeamercolor{block title}{fg=white,bg=#1}%
+            \IfStrEq{#6}{light}{%
+                \setbeamercolor{block title}{fg=white,bg=#1}%
+            }{
+                \setbeamercolor{block title}{fg=white,bg=#1Dark}%
+            }
             \setbeamerfont{block title}{series=\bfseries,size=#3}%
             \begin{beamercolorbox}[wd=\textwidth,sep=.75ex,rounded=false]{block title}%
                 \usebeamerfont{block title}#2\strut
@@ -479,62 +494,15 @@
 
 % COLORED BLOCK DARK
 \NewDocumentEnvironment{coloredblockdark}{O{blue} o O{\normalsize} O{} O{1ex}}{%
-    % Set colors
-    \setbeamercolor{block body}{fg=white,bg=#1}%
-
-    \setbeamercolor{item}{fg=white}%
-    \setbeamercolor{subitem}{fg=white}%
-    \setbeamercolor{subsubitem}{fg=white}%
-    \setbeamercolor{item projected}{fg=white,bg=white}%
-    \setbeamercolor{subitem projected}{fg=white,bg=white}%
-    \setbeamercolor{subsubitem projected}{fg=white,bg=white}%
-
     \IfNoValueTF{#2}{%
-        % no optional title → no title block
-        \vspace{0.3cm}%
-        \begin{beamercolorbox}[sep=#5]{block body}%
-            \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
+        \begin{coloredblock}[#1][][#3][#4][#5][dark]%
     }{%
-        % #2 present (maybe empty)
-        \IfStrEq{#2}{}{%
-            % empty title → no title block
-            \vspace{0.3cm}%
-            \IfStrEq{#4}{}{
-                \begin{beamercolorbox}[sep=#5]{block body}%
-                    \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
-            }{
-                \begin{beamercolorbox}[sep=#5]{block body}%%
-                    \begin{minipage}[t][\dimexpr#4-2\dimexpr#5\relax\relax]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
-            }
-        }{%
-            % non-empty title → full block with variable font size for title (#3)
-            \vspace{0.3cm}
-            \setbeamercolor{block title}{fg=white,bg=#1Dark}%
-            \setbeamerfont{block title}{series=\bfseries,size=#3}%
-            \begin{beamercolorbox}[wd=\textwidth,sep=0.75ex,rounded=false]{block title}%
-                \usebeamerfont{block title}#2\strut
-            \end{beamercolorbox}%
-            \edef\blocksep{\unexpanded{#5}}%
-            \ifdim\blocksep=0ex
-                \vspace{-1ex}%
-            \else
-                \vspace{-1pt}%
-            \fi
-            \IfStrEq{#4}{}{
-                \begin{beamercolorbox}[sep=#5]{block body}%%
-                    \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
-            }{
-                \begin{beamercolorbox}[sep=#5]{block body}%%
-                    \begin{minipage}[t][\dimexpr#4-2\dimexpr#5\relax\relax]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
-            }
-        }%
+        \begin{coloredblock}[#1][#2][#3][#4][#5][dark]%
     }%
 }{%
-    \end{minipage}%
-    \end{beamercolorbox}%
+    \end{coloredblock}%
 }
-\usepackage{printlen}
-\uselengthunit{cm}
+
 
 % COLORED BLOCK LEFT
 \ExplSyntaxOn
