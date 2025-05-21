@@ -31,6 +31,7 @@ The template includes:
 
 ## Release Notes
 - **2025-05-32:**
+   - Add new box style with icon on the right `\begin{coloredblockright}`
    - Move tables to separate files, so that they can compiled on its own
    - Title height is now calculated automatically to ensure proper layout for two-line titles
    - Figures are now compiled separately and included as PDFs to improve main document compilation time

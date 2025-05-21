@@ -421,10 +421,10 @@
 
 
 \begin{frame}{Boxes}
-    \framesubtitle{Boxes with Icon on the left}
+    \framesubtitle{Boxes with Icon on the Left}
 
     \begin{coloredblock}[grey]
-        \footnotesize\centering\texttt{\textbackslash begin\{coloredblockleft\}[color][Optional:~LEFT ICON][Optional:~Height cm][Optional:~Left Width cm]}
+        \footnotesize\centering\texttt{\textbackslash begin\{coloredblockleft\}[color][Optional:~Left Icon][Optional:~Height cm][Optional:~Left Width cm]}
     \end{coloredblock}
 
     \vspace{-2.1cm}
@@ -473,6 +473,64 @@
             \vspace{0.2cm}
             \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[turquoise]}\strut
         \end{coloredblockleft}
+        
+    \end{minipage}
+\end{frame}
+
+
+\begin{frame}{Boxes}
+    \framesubtitle{Boxes with Icon on the Right}
+
+    \begin{coloredblock}[grey]
+        \footnotesize\centering\texttt{\textbackslash begin\{coloredblockright\}[color][Optional:~Right Icon][Optional:~Height cm][Optional:~Left Width cm]}
+    \end{coloredblock}
+
+    \vspace{-2.1cm}
+    \begin{columns}
+        \begin{column}{0.49\textwidth}
+
+            \begin{coloredblockright}[blue][\large\faIcon{bolt}][2cm][2cm]
+                \vspace{0.2cm}
+                \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[blue]}\strut
+            \end{coloredblockright}
+    
+            \begin{coloredblockright}[yellow][\large\faIcon{bolt}][2cm][2cm]
+                \vspace{0.2cm}
+                \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[yellow]}\strut
+            \end{coloredblockright}
+    
+            \begin{coloredblockright}[red][\large\faIcon{bolt}][2cm][2cm]
+                \vspace{0.2cm}
+                \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[red]}\strut
+            \end{coloredblockright}
+
+        \end{column}
+        \begin{column}{0.49\textwidth}
+        
+            \begin{coloredblockright}[iee][\large\faIcon{bolt}][2cm][2cm]
+                \vspace{0.2cm}
+                \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[iee]}\strut
+            \end{coloredblockright}
+    
+            \begin{coloredblockright}[green][\large\faIcon{bolt}][2cm][2cm]
+                \vspace{0.2cm}
+                \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[green]}\strut
+            \end{coloredblockright}
+    
+            \begin{coloredblockright}[grey][\large\faIcon{bolt}][2cm][2cm]
+                \vspace{0.2cm}
+                \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[grey]}\strut
+            \end{coloredblockright}
+        
+        \end{column}
+    \end{columns}
+
+    \centering
+    \begin{minipage}[t]{0.49\textwidth}
+        \begin{coloredblockright}[turquoise][\large\faIcon{bolt}][2cm][2cm]
+            \vspace{0.2cm}
+            \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[turquoise]}\strut
+        \end{coloredblockright}
         
     \end{minipage}
 \end{frame}

@@ -504,7 +504,77 @@
 }
 
 
-% COLORED BLOCK LEFT
+% % COLORED BLOCK LEFT
+% \ExplSyntaxOn
+
+% \newlength{\cbr@rightboxheight}
+% \newlength{\cbr@leftboxwidth}
+% \newlength{\cbr@leftboxheight}
+% \newsavebox{\cbr@measurebox}
+
+% % \begin{coloredboxright}[<COLOR>][<LEFT TEXT>][<HEIGHT>][LEFT WIDTH]
+% \NewDocumentEnvironment{coloredblockleft}{O{blue} O{} O{0.75cm} O{2cm} +b}
+%  {
+%   \group_begin:
+%   \def\cbr@color{#1}
+%   \def\cbr@leftcontent{#2}
+%   \setlength{\cbr@rightboxheight}{#3}
+
+%   % Optional left box width override
+%   \def\cbr@leftboxwidthopt{#4}
+  
+%   % Measure natural height if needed
+%   \ifdim\cbr@rightboxheight=0.75cm
+%     \sbox{\cbr@measurebox}{%
+%       \begin{minipage}{\dimexpr\textwidth - #4 - 0.2cm - 2ex\relax}
+%          #5
+%       \end{minipage}
+%     }
+%     \setlength{\cbr@rightboxheight}{\dimexpr\ht\cbr@measurebox + \dp\cbr@measurebox+2ex\relax}
+%   \fi
+
+%   \setlength{\cbr@leftboxheight}{\dimexpr\cbr@rightboxheight\relax}
+
+%   % Handle user-defined or automatic width
+%   \IfNoValueTF{#4}{
+%     % No width given → default based on height
+%     \ifdim\cbr@leftboxheight<2cm
+%       \setlength{\cbr@leftboxwidth}{\cbr@leftboxheight}
+%     \else
+%       \setlength{\cbr@leftboxwidth}{2cm}
+%     \fi
+%   }{
+%     % Width explicitly provided
+%     \setlength{\cbr@leftboxwidth}{#4}
+%   }
+
+%   % Layout
+%   \begin{minipage}[t]{\textwidth}
+%     \begin{minipage}[t]{\dimexpr\cbr@leftboxwidth\relax}
+%       \begin{coloredblockdark}[\cbr@color][][][\dimexpr\cbr@leftboxheight\relax][0ex]
+%         \begin{minipage}[t][\dimexpr\cbr@leftboxheight\relax][c]{\dimexpr\cbr@leftboxwidth\relax}
+%           \centering \cbr@leftcontent
+%         \end{minipage}
+%       \end{coloredblockdark}
+%     \end{minipage}
+%     \hfill
+%     \begin{minipage}[t]{\dimexpr\textwidth - \cbr@leftboxwidth - 0.2cm\relax}
+%       \begin{coloredblock}[\cbr@color][][][\cbr@rightboxheight]
+%         #5
+%       \end{coloredblock}
+%     \end{minipage}
+%   \end{minipage}
+%  }
+%  {
+%   \group_end:
+%  }
+
+% \ExplSyntaxOff
+
+% =============================================================================
+% COLORED BLOCK LEFT + RIGHT (Reusable Version)
+% =============================================================================
+
 \ExplSyntaxOn
 
 \newlength{\cbr@rightboxheight}
@@ -512,64 +582,98 @@
 \newlength{\cbr@leftboxheight}
 \newsavebox{\cbr@measurebox}
 
-% \begin{coloredboxright}[<COLOR>][<LEFT TEXT>][<HEIGHT>][LEFT WIDTH]
+% Internal macro with body as explicit argument
+\cs_new_protected:Nn \__cbr_render_coloredblock:nnnnnn {
+    % #1: direction (left/right)
+    % #2: color
+    % #3: left content
+    % #4: height
+    % #5: left width
+    % #6: body content
+    \def\cbr@direction{#1}
+    \def\cbr@color{#2}
+    \def\cbr@leftcontent{#3}
+    \setlength{\cbr@rightboxheight}{#4}
+    \def\cbr@leftboxwidthopt{#5}
+    \def\cbr@body{#6}
+
+    % Measure right box height if default
+    \ifdim\cbr@rightboxheight=0.75cm
+        \sbox{\cbr@measurebox}{%
+            \begin{minipage}{\dimexpr\textwidth - #5 - 0.2cm - 2ex\relax}
+                \cbr@body
+            \end{minipage}
+        }
+        \setlength{\cbr@rightboxheight}{\dimexpr\ht\cbr@measurebox + \dp\cbr@measurebox + 2ex\relax}
+    \fi
+
+    \setlength{\cbr@leftboxheight}{\cbr@rightboxheight}
+
+    \IfNoValueTF{#5}{
+        \ifdim\cbr@leftboxheight<2cm
+            \setlength{\cbr@leftboxwidth}{\cbr@leftboxheight}
+        \else
+            \setlength{\cbr@leftboxwidth}{2cm}
+        \fi
+    }{
+        \setlength{\cbr@leftboxwidth}{#5}
+    }
+
+    \begin{minipage}[t]{\textwidth}
+        \ifnum\pdfstrcmp{\cbr@direction}{left}=0
+            \begin{minipage}[t]{\dimexpr\cbr@leftboxwidth\relax}
+                \begin{coloredblockdark}[\cbr@color][][][\cbr@leftboxheight][0ex]
+                    \begin{minipage}[t][\cbr@leftboxheight][c]{\cbr@leftboxwidth}
+                        \centering \cbr@leftcontent
+                    \end{minipage}
+                \end{coloredblockdark}
+            \end{minipage}
+            \hfill
+            \begin{minipage}[t]{\dimexpr\textwidth - \cbr@leftboxwidth - 0.2cm\relax}
+                \begin{coloredblock}[\cbr@color][][][\cbr@rightboxheight]
+                    \cbr@body
+                \end{coloredblock}
+            \end{minipage}
+        \else
+            \begin{minipage}[t]{\dimexpr\textwidth - \cbr@leftboxwidth - 0.2cm\relax}
+                \begin{coloredblock}[\cbr@color][][][\cbr@rightboxheight]
+                    \cbr@body
+                \end{coloredblock}
+            \end{minipage}
+            \hfill
+            \begin{minipage}[t]{\cbr@leftboxwidth}
+                \begin{coloredblockdark}[\cbr@color][][][\cbr@leftboxheight][0ex]
+                    \begin{minipage}[t][\cbr@leftboxheight][c]{\cbr@leftboxwidth}
+                        \centering \cbr@leftcontent
+                    \end{minipage}
+                \end{coloredblockdark}
+            \end{minipage}
+        \fi
+    \end{minipage}
+}
+
+% coloredblockleft environment
 \NewDocumentEnvironment{coloredblockleft}{O{blue} O{} O{0.75cm} O{2cm} +b}
  {
-  \group_begin:
-  \def\cbr@color{#1}
-  \def\cbr@leftcontent{#2}
-  \setlength{\cbr@rightboxheight}{#3}
-
-  % Optional left box width override
-  \def\cbr@leftboxwidthopt{#4}
-  
-  % Measure natural height if needed
-  \ifdim\cbr@rightboxheight=0.75cm
-    \sbox{\cbr@measurebox}{%
-      \begin{minipage}{\dimexpr\textwidth - #4 - 0.2cm - 2ex\relax}
-         #5
-      \end{minipage}
-    }
-    \setlength{\cbr@rightboxheight}{\dimexpr\ht\cbr@measurebox + \dp\cbr@measurebox+2ex\relax}
-  \fi
-
-  \setlength{\cbr@leftboxheight}{\dimexpr\cbr@rightboxheight\relax}
-
-  % Handle user-defined or automatic width
-  \IfNoValueTF{#4}{
-    % No width given → default based on height
-    \ifdim\cbr@leftboxheight<2cm
-      \setlength{\cbr@leftboxwidth}{\cbr@leftboxheight}
-    \else
-      \setlength{\cbr@leftboxwidth}{2cm}
-    \fi
-  }{
-    % Width explicitly provided
-    \setlength{\cbr@leftboxwidth}{#4}
-  }
-
-  % Layout
-  \begin{minipage}[t]{\textwidth}
-    \begin{minipage}[t]{\dimexpr\cbr@leftboxwidth\relax}
-      \begin{coloredblockdark}[\cbr@color][][][\dimexpr\cbr@leftboxheight\relax][0ex]
-        \begin{minipage}[t][\dimexpr\cbr@leftboxheight\relax][c]{\dimexpr\cbr@leftboxwidth\relax}
-          \centering \cbr@leftcontent
-        \end{minipage}
-      \end{coloredblockdark}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{\dimexpr\textwidth - \cbr@leftboxwidth - 0.2cm\relax}
-      \begin{coloredblock}[\cbr@color][][][\cbr@rightboxheight]
-        #5
-      \end{coloredblock}
-    \end{minipage}
-  \end{minipage}
+    \group_begin:
+    \__cbr_render_coloredblock:nnnnnn {left} {#1} {#2} {#3} {#4} {#5}
  }
  {
-  \group_end:
+    \group_end:
+ }
+
+% coloredblockright environment
+\NewDocumentEnvironment{coloredblockright}{O{blue} O{} O{0.75cm} O{2cm} +b}
+ {
+    \group_begin:
+    \__cbr_render_coloredblock:nnnnnn {right} {#1} {#2} {#3} {#4} {#5}
+ }
+ {
+    \group_end:
  }
 
 \ExplSyntaxOff
+
 
 
 %%%   SOURCE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
