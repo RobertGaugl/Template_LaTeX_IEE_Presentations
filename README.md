@@ -30,6 +30,9 @@ The template includes:
 - Create consistent title and closing slides with `\maketitleslide` and `\closingslide`. These commands automatically adapt to the selected language.
 
 ## Release Notes
+- **2025-05-32:**
+   - Title height is now calculated automatically to ensure proper layout for two-line titles
+   - Figures are now compiled separately and included as PDFs to improve main document compilation time
 - **2025-05-19:**
    - Add new box style with icon on the left `\begin{coloredblockleft}`
    - Fixed calculation of box height 

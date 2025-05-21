@@ -1,0 +1,58 @@
+% ------------------------------------------------------------------------------
+% This figure is designed to be compiled separately as a standalone PDF.
+% 
+% For faster compilation of your main document:
+% 1. Compile this .tex file independently to generate a PDF file.
+% 2. Store the generated PDF (e.g., figure_demand.pdf) in your project's
+%    'figures' folder (or another directory of your choice).
+% 3. In your main document, include the figure PDF with:
+%      \includegraphics{figures/figure_demand.pdf}
+%
+% This approach keeps the main document compilation fast and modular.
+% ------------------------------------------------------------------------------
+
+\documentclass[tikz]{standalone}
+
+% Use sans-serif font for text and math
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{sfmath}
+
+% Load pgfplots and set compatibility
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% Load your custom color definitions
+\input{beamerthemeiee/iee_colors}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+        ybar stacked,
+        bar width=45pt,
+        width=17cm,
+        height=12cm,        % Adjust to fit nicely
+        enlarge x limits=0.15,
+        ymin=0,
+        ylabel={Installed Capacity in MW},
+        xlabel={Year},
+        symbolic x coords={2022,2023,2024,2025},
+        xtick=data,
+        xmajorgrids=false,
+        ymajorgrids=true,
+        major grid style={gray!30},
+        axis line style={black},
+        tick style={draw=none},
+        legend style={at={(0.5,-0.15)}, anchor=north, legend columns=-1, font=\normalsize},
+        area legend,
+    ]
+    ]
+    \addplot+[draw=black, fill=coalColor] coordinates {(2022,25) (2023,20) (2024,15) (2025,10)};
+    \addplot+[draw=black, fill=gasColor] coordinates {(2022,75) (2023,70) (2024,60) (2025,55)};
+    \addplot+[draw=black, fill=rorColor] coordinates {(2022,40) (2023,45) (2024,50) (2025,50)};
+    \addplot+[draw=black, fill=pvColor] coordinates {(2022,50) (2023,70) (2024,90) (2025,120)};
+    \addplot+[draw=black, fill=windColor] coordinates {(2022,80) (2023,90) (2024,110) (2025,130)};
+    \addplot+[draw=black, fill=storageHydroColor] coordinates {(2022,10) (2023,20) (2024,30) (2025,40)};
+    \legend{Coal, Gas, Run-of-River, PV, Wind, Storage}
+    \end{axis}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,54 @@
+% ------------------------------------------------------------------------------
+% This figure is designed to be compiled separately as a standalone PDF.
+% 
+% For faster compilation of your main document:
+% 1. Compile this .tex file independently to generate a PDF file.
+% 2. Store the generated PDF (e.g., figure_demand.pdf) in your project's
+%    'figures' folder (or another directory of your choice).
+% 3. In your main document, include the figure PDF with:
+%      \includegraphics{figures/figure_demand.pdf}
+%
+% This approach keeps the main document compilation fast and modular.
+% ------------------------------------------------------------------------------
+
+\documentclass[tikz]{standalone}
+
+% Use sans-serif font for text and math
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{sfmath}
+
+% Load pgfplots and set compatibility
+\usepackage{pgfplots}
+\usepackage{pgf-pie}
+\pgfplotsset{compat=1.18}
+
+% Load your custom color definitions
+\input{beamerthemeiee/iee_colors}
+
+\begin{document}
+\begin{tikzpicture}
+    % Draw the donut chart
+    \pie[
+        radius=5,
+        color={coalColor, gasColor, rorColor, pvColor, windColor, storageHydroColor},
+        after number=\%,
+        sum=auto,
+        text=legend
+        %text=none % No labels inside pie
+    ]{
+        20/Coal,
+        70/Gas,
+        45/Run-of-River,
+        70/PV,
+        90/Wind,
+        20/Storage
+    }
+
+    % Inner white circle to simulate donut hole
+    \fill[white] (0,0) circle (2);
+    \draw[black, thick] (0,0) circle (2);
+    % Text in the center of the donut hole
+    \node at (0,0.3) {\scriptsize 315~MW};
+    \node at (0,-0.35) {\tiny \textbf{2023}};
+\end{tikzpicture}
+\end{document}

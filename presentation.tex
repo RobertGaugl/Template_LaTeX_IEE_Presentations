@@ -610,116 +610,24 @@
         \vspace{1cm}
         \tiny
         \begin{overprint}
-        \onslide<1>\begin{figure}[htbp]
-            \begin{tikzpicture}
-                \begin{axis}[
-                    ybar stacked,
-                    bar width=45pt,
-                    width=\linewidth,  % Use full minipage width
-                    height=12cm,        % Adjust to fit nicely
-                    enlarge x limits=0.15,
-                    ymin=0,
-                    ylabel={Installed Capacity in MW},
-                    xlabel={Year},
-                    symbolic x coords={2022,2023,2024,2025},
-                    xtick=data,
-                    xmajorgrids=false,
-                    ymajorgrids=true,
-                    major grid style={gray!30},
-                    axis line style={black},
-                    tick style={draw=none},
-                    legend style={at={(0.5,-0.15)}, anchor=north, legend columns=-1, font=\tiny},
-                    area legend,
-                ]
-                ]
-                \addplot+[draw=black, fill=coalColor] coordinates {(2022,25) (2023,20) (2024,15) (2025,10)};
-                \addplot+[draw=black, fill=gasColor] coordinates {(2022,75) (2023,70) (2024,60) (2025,55)};
-                \addplot+[draw=black, fill=rorColor] coordinates {(2022,40) (2023,45) (2024,50) (2025,50)};
-                \addplot+[draw=black, fill=pvColor] coordinates {(2022,50) (2023,70) (2024,90) (2025,120)};
-                \addplot+[draw=black, fill=windColor] coordinates {(2022,80) (2023,90) (2024,110) (2025,130)};
-                \addplot+[draw=black, fill=storageHydroColor] coordinates {(2022,10) (2023,20) (2024,30) (2025,40)};
-                \legend{Coal, Gas, Run-of-River, PV, Wind, Storage}
-                \end{axis}
-            \end{tikzpicture}
-            \caption{\centering Installed capacity per power plant type in Wakanda from 2022-2025.}
-            \label{fig:installed_capacity}
+            \onslide<1>\begin{figure}[htbp]
+                % Figure generated seperately for faster compilation time.
+                \includegraphics[width=\linewidth]{figures/installed_capacity_2022-2025.pdf}
+                \caption{\centering Installed capacity per power plant type in Wakanda from 2022-2025.}
+                \label{fig:installed_capacity}
         \end{figure}
 
         \onslide<2>\begin{figure}[htbp]
-            \begin{tikzpicture}
-                \begin{axis}[
-                    width=\linewidth,
-                    height=12cm,
-                    xlabel={Hour of Day},
-                    ylabel={Demand in MW},
-                    xmin=0, xmax=23,
-                    ymin=0, ymax=150,
-                    xtick={0,4,8,12,16,20,23},
-                    ymajorgrids=true,
-                    grid style={gray!30},
-                    legend style={at={(0.5,-0.2)}, anchor=north, legend columns=3},
-                    tick style={draw=none},
-                    axis line style={black},
-                    legend cell align={left},
-                ]
-            
-                % Sample data for Day 1
-                \addplot+[mark=none, line width=3pt, smooth, color=default] coordinates {
-                    (0,40) (1,38) (2,35) (3,34) (4,36) (5,42)
-                    (6,55) (7,70) (8,90) (9,100) (10,105) (11,110)
-                    (12,108) (13,105) (14,100) (15,98) (16,102) (17,110)
-                    (18,115) (19,120) (20,110) (21,90) (22,70) (23,50)
-                };
-        
-                % Sample data for Day 2
-                \addplot+[mark=none, line width=3pt, smooth, color=green] coordinates {
-                    (0,45) (1,43) (2,40) (3,38) (4,40) (5,48)
-                    (6,60) (7,75) (8,95) (9,110) (10,115) (11,120)
-                    (12,118) (13,115) (14,110) (15,108) (16,115) (17,120)
-                    (18,125) (19,130) (20,120) (21,100) (22,80) (23,60)
-                };
-        
-                % Sample data for Day 3
-                \addplot+[mark=none, line width=3pt, smooth, color=yellow] coordinates {
-                    (0,30) (1,28) (2,25) (3,24) (4,25) (5,32)
-                    (6,45) (7,60) (8,80) (9,90) (10,95) (11,100)
-                    (12,98) (13,95) (14,90) (15,88) (16,95) (17,100)
-                    (18,105) (19,110) (20,100) (21,80) (22,60) (23,40)
-                };
-
-                \legend{RP01, RP02, RP03}
-                \end{axis}
-            \end{tikzpicture}
+            % Figure generated seperately for faster compilation time. 
+             \includegraphics[width=\linewidth]{figures/demand_rp.pdf}  % path to your PDF file
             \caption{\centering Demand per representative periode in Wakanda.}
             \label{fig:demand}
         \end{figure}
  
         \onslide<3>\begin{figure}[htbp]
-            \begin{tikzpicture}
-            % Draw the donut chart
-            \pie[
-                radius=5,
-                color={coalColor, gasColor, rorColor, pvColor, windColor, storageHydroColor},
-                after number=\%,
-                sum=auto,
-                text=legend
-                %text=none % No labels inside pie
-            ]{
-                20/Coal,
-                70/Gas,
-                45/Run-of-River,
-                70/PV,
-                90/Wind,
-                20/Storage
-            }
-
-            % Inner white circle to simulate donut hole
-            \fill[white] (0,0) circle (2);
-            \draw[black, thick] (0,0) circle (2);
-            % Text in the center of the donut hole
-            \node at (0,0.3) {\scriptsize 315~MW};
-            \node at (0,-0.35) {\tiny \textbf{2023}};
-        \end{tikzpicture}
+            % Figure generated seperately for faster compilation time. 
+            \includegraphics[width=\linewidth]
+            {figures/installed_capacity_2023_percent.pdf}  % path to your PDF file
             \caption{\centering Shares of installed capacity per power plant type in Wakanda 2023.}
             \label{fig:installed_capacity_2023}
         \end{figure}
