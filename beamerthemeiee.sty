@@ -434,14 +434,14 @@
 
     \IfNoValueTF{#2}{%
         % no optional title → no title block
-        \vspace{0.2cm}%
+        \vspace{0.3cm}%
         \begin{beamercolorbox}[sep=#5]{block body}%
             \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
     }{%
         % #2 present (maybe empty)
         \IfStrEq{#2}{}{%
             % empty title → no title block
-            \vspace{0.2cm}%
+            \vspace{0.3cm}%
             \IfStrEq{#4}{}{
                 \begin{beamercolorbox}[sep=#5]{block body}%
                     \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
@@ -477,7 +477,7 @@
     \end{beamercolorbox}%
 }
 
-% Colored block
+% COLORED BLOCK DARK
 \NewDocumentEnvironment{coloredblockdark}{O{blue} o O{\normalsize} O{} O{1ex}}{%
     % Set colors
     \setbeamercolor{block body}{fg=white,bg=#1}%
@@ -491,14 +491,14 @@
 
     \IfNoValueTF{#2}{%
         % no optional title → no title block
-        \vspace{0.2cm}%
+        \vspace{0.3cm}%
         \begin{beamercolorbox}[sep=#5]{block body}%
             \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
     }{%
         % #2 present (maybe empty)
         \IfStrEq{#2}{}{%
             % empty title → no title block
-            \vspace{0.2cm}%
+            \vspace{0.3cm}%
             \IfStrEq{#4}{}{
                 \begin{beamercolorbox}[sep=#5]{block body}%
                     \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
@@ -508,10 +508,10 @@
             }
         }{%
             % non-empty title → full block with variable font size for title (#3)
-            \vspace{0.2cm}
+            \vspace{0.3cm}
             \setbeamercolor{block title}{fg=white,bg=#1Dark}%
             \setbeamerfont{block title}{series=\bfseries,size=#3}%
-            \begin{beamercolorbox}[wd=\textwidth,sep=1ex,rounded=false]{block title}%
+            \begin{beamercolorbox}[wd=\textwidth,sep=0.75ex,rounded=false]{block title}%
                 \usebeamerfont{block title}#2\strut
             \end{beamercolorbox}%
             \edef\blocksep{\unexpanded{#5}}%

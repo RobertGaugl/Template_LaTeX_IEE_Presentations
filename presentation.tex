@@ -213,105 +213,115 @@
         \end{itemize}
     \end{coloredblock}
 
-    % Bottom blocks (side-by-side)
-    \begin{minipage}[t]{0.49\textwidth}
-        \begin{coloredblock}[blue][\centering\faIcon{palette}~~~Designing Boxes][][7cm]
-            \begin{itemize}
-                \item \textbf{Title Bar}: You can choose between boxes with or without a title bar.
-                \item \textbf{Itemization}: Placing itemized lists inside a box can enhance structure and improve clarity.
-            \end{itemize}
-        \end{coloredblock}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.49\textwidth}
-        \begin{coloredblock}[blue][\centering\faIcon{lightbulb}~~~Additional Tips][][7cm]
-            \begin{itemize}
-                \item Use \textbf{short}, concise \textbf{text} inside the box to maximize clarity
-                \item Consider \textbf{icons} in the title bar to enhance visual appeal. You can use the icons from the fontawesome package.
-            \end{itemize}
-        \end{coloredblock}
-    \end{minipage}
+   % Bottom blocks (side-by-side)
+    \begin{columns}
+        \begin{column}{0.49\textwidth}
+            \begin{coloredblock}[blue][\centering\faIcon{palette}~~~Designing Boxes][][7cm]
+                \begin{itemize}
+                    \item \textbf{Title Bar}: You can choose between boxes with or without a title bar.
+                    \item \textbf{Itemization}: Placing itemized lists inside a box can enhance structure and improve clarity.
+                \end{itemize}
+            \end{coloredblock}
+        \end{column}
+        \begin{column}{0.49\textwidth}
+            \begin{coloredblock}[blue][\centering\faIcon{lightbulb}~~~Additional Tips][][7cm]
+                \begin{itemize}
+                    \item Use \textbf{short}, concise \textbf{text} inside the box to maximize clarity.
+                    \item Consider \textbf{icons} in the title bar to enhance visual appeal. You can use the icons from the fontawesome package.
+                \end{itemize}
+            \end{coloredblock}
+        \end{column}
+    \end{columns}
+
 \end{frame}
 
 \begin{frame}{Boxes}
     \framesubtitle{Standard Boxes with Title}
 
-    \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm][Optional:~Padding ex]}
-    
-    \begin{minipage}[t]{0.49\textwidth}
-    
-        \begin{coloredblock}[blue][Blue Block with Title]
-            \texttt{\textbackslash begin\{coloredblock\}[blue][Blue Block with Title]}\strut
-        \end{coloredblock}
+    \begin{coloredblock}[grey]
+        \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm][Optional:~Padding ex]}
+    \end{coloredblock}
 
-        \begin{coloredblock}[yellow][Yellow Block with Title]
-            \texttt{\textbackslash begin\{coloredblock\}[yellow][Yellow Block with Title]}\strut
-        \end{coloredblock}
+    \vspace{-1.1cm}
+    \begin{columns}
+        \begin{column}{0.49\textwidth}
+    
+            \begin{coloredblock}[blue][Blue Block with Title]
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[blue][Blue Block with Title]}\strut
+            \end{coloredblock}
+    
+            \begin{coloredblock}[yellow][Yellow Block with Title]
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[yellow][Yellow Block with Title]}\strut
+            \end{coloredblock}
 
-        \begin{coloredblock}[red][Red Block with Title]
-            \texttt{\textbackslash begin\{coloredblock\}[red][Red Block with Title]}\strut
-        \end{coloredblock}
+            \begin{coloredblock}[red][Red Block with Title]
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[red][Red Block with Title]}\strut
+            \end{coloredblock}
         
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.49\textwidth}
+        \end{column}
+        \begin{column}{0.49\textwidth}
     
-        \begin{coloredblock}[iee][IEE Block with Title]
-            \texttt{\textbackslash begin\{coloredblock\}[iee][IEE Block with Title]}\strut
-        \end{coloredblock}
+            \begin{coloredblock}[iee][IEE Block with Title]
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[iee][IEE Block with Title]}\strut
+            \end{coloredblock}
+    
+            \begin{coloredblock}[green][Green Block with Title]
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[green][Green Block with Title]}\strut
+            \end{coloredblock}
+    
+            \begin{coloredblock}[grey][Grey Block with Title]
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[grey][Grey Block with Title]}\strut
+            \end{coloredblock}
+        \end{column}
+    \end{columns}
 
-        \begin{coloredblock}[green][Green Block with Title]
-            \texttt{\textbackslash begin\{coloredblock\}[green][Green Block with Title]}\strut
-        \end{coloredblock}
-
-        \begin{coloredblock}[grey][Grey Block with Title]
-            \texttt{\textbackslash begin\{coloredblock\}[grey][Grey Block with Title]}\strut
-        \end{coloredblock}
-        
-    \end{minipage}
 \end{frame}
 
 \begin{frame}{Boxes}
     \framesubtitle{Standard Boxes without Title}
 
-    \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm][Optional:~Padding ex]}
+    \begin{coloredblock}[grey]
+        \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm][Optional:~Padding ex]}
+    \end{coloredblock}
+
+    \vspace{-1.1cm}
+    \begin{columns}
+        \begin{column}{0.49\textwidth}
+
+            \begin{coloredblock}[blue]
+                \footnotesize\footnotesize\texttt{\textbackslash begin\{coloredblock\}[blue]}\strut
+            \end{coloredblock}
     
-    \begin{minipage}[t]{0.49\textwidth}
+            \begin{coloredblock}[yellow]
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[yellow]}\strut
+            \end{coloredblock}
+    
+            \begin{coloredblock}[red]
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[red]}\strut
+            \end{coloredblock}
 
-        \begin{coloredblock}[blue]
-            \texttt{\textbackslash begin\{coloredblock\}[blue]}\strut
-        \end{coloredblock}
-
-        \begin{coloredblock}[yellow]
-            \texttt{\textbackslash begin\{coloredblock\}[yellow]}\strut
-        \end{coloredblock}
-
-        \begin{coloredblock}[red]
-            \texttt{\textbackslash begin\{coloredblock\}[red]}\strut
-        \end{coloredblock}
-
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.49\textwidth}
+        \end{column}
+        \begin{column}{0.49\textwidth}
         
-        \begin{coloredblock}[iee]
-            \texttt{\textbackslash begin\{coloredblock\}[iee]}\strut
-        \end{coloredblock}
-
-        \begin{coloredblock}[green]
-            \texttt{\textbackslash begin\{coloredblock\}[green]}\strut
-        \end{coloredblock}
-
-        \begin{coloredblock}[grey]
-            \texttt{\textbackslash begin\{coloredblock\}[grey]}\strut
-        \end{coloredblock}
+            \begin{coloredblock}[iee]
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[iee]}\strut
+            \end{coloredblock}
+    
+            \begin{coloredblock}[green]
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[green]}\strut
+            \end{coloredblock}
+    
+            \begin{coloredblock}[grey]
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[grey]}\strut
+            \end{coloredblock}
         
-    \end{minipage}
+        \end{column}
+    \end{columns}
 
     \centering
     \begin{minipage}[t]{0.49\textwidth}
         \begin{coloredblock}[turquoise]
-                \texttt{\textbackslash begin\{coloredblock\}[turquoise]}\strut
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[turquoise]}\strut
         \end{coloredblock}
     \end{minipage}
 \end{frame}
@@ -320,82 +330,90 @@
 \begin{frame}{Boxes}
     \framesubtitle{Dark Boxes with Title}
 
-    \footnotesize\centering\texttt{\textbackslash begin\{coloredblockdark\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm][Optional:~Padding ex]}
-    
-    \begin{minipage}[t]{0.49\textwidth}
-    
-        \begin{coloredblockdark}[blue][Dark Blue Block with Title]
-            \texttt{\textbackslash begin\{coloredblockdark\}[blue][Blue Block with Title]}\strut
-        \end{coloredblockdark}
+    \begin{coloredblock}[grey]
+        \footnotesize\centering\texttt{\textbackslash begin\{coloredblockdark\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm][Optional:~Padding ex]}
+    \end{coloredblock}
 
-        \begin{coloredblockdark}[yellow][Dark Yellow Block with Title]
-            \texttt{\textbackslash begin\{coloredblockdark\}[yellow]\allowbreak [Yellow Block with Title]}\strut
-        \end{coloredblockdark}
-
-        \begin{coloredblockdark}[red][Dark Red Block with Title]
-            \texttt{\textbackslash begin\{coloredblockdark\}[red][Red Block with Title]}\strut
-        \end{coloredblockdark}
+    \vspace{-1.1cm}
+    \begin{columns}
+        \begin{column}{0.49\textwidth}
+    
+            \begin{coloredblockdark}[blue][Dark Blue Block with Title]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockdark\}[blue][Blue Block with Title]}\strut
+            \end{coloredblockdark}
+    
+            \begin{coloredblockdark}[yellow][Dark Yellow Block with Title]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockdark\}[yellow]\allowbreak [Yellow Block with Title]}\strut
+            \end{coloredblockdark}
+    
+            \begin{coloredblockdark}[red][Dark Red Block with Title]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockdark\}[red][Red Block with Title]}\strut
+            \end{coloredblockdark}
         
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.49\textwidth}
+        \end{column}
+        \begin{column}{0.49\textwidth}
     
-        \begin{coloredblockdark}[iee][Dark IEE Block with Title]
-            \texttt{\textbackslash begin\{coloredblockdark\}[iee][IEE Block with Title]}\strut
-        \end{coloredblockdark}
-
-        \begin{coloredblockdark}[green][Dark Green Block with Title]
-            \texttt{\textbackslash begin\{coloredblockdark\}[green]\allowbreak [Green Block with Title]}\strut
-        \end{coloredblockdark}
-
-        \begin{coloredblockdark}[grey][Dark Grey Block with Title]
-            \texttt{\textbackslash begin\{coloredblockdark\}[grey][Grey Block with Title]}\strut
-        \end{coloredblockdark}
+            \begin{coloredblockdark}[iee][Dark IEE Block with Title]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockdark\}[iee][IEE Block with Title]}\strut
+            \end{coloredblockdark}
+    
+            \begin{coloredblockdark}[green][Dark Green Block with Title]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockdark\}[green]\allowbreak [Green Block with Title]}\strut
+            \end{coloredblockdark}
+    
+            \begin{coloredblockdark}[grey][Dark Grey Block with Title]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockdark\}[grey][Grey Block with Title]}\strut
+            \end{coloredblockdark}
         
-    \end{minipage}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Boxes}
     \framesubtitle{Dark Boxes without Title}
 
-    \footnotesize\centering\texttt{\textbackslash begin\{coloredblockdark\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm][Optional:~Padding ex]}
+    \begin{coloredblock}[grey]
+        \footnotesize\centering\texttt{\textbackslash begin\{coloredblockdark\}[color][Optional:~Title][Optional:~titlesize][Optional:~Height cm][Optional:~Padding ex]}
+    \end{coloredblock}
+
+    \vspace{-1.1cm}
+    \begin{columns}
+        \begin{column}{0.49\textwidth}
+
+            \begin{coloredblockdark}[blue]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockdark\}[blue]}\strut
+            \end{coloredblockdark}
     
-    \begin{minipage}[t]{0.49\textwidth}
+            \begin{coloredblockdark}[yellow]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockdark\}[yellow]}\strut
+            \end{coloredblockdark}
+    
+            \begin{coloredblockdark}[red]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockdark\}[red]}\strut
+            \end{coloredblockdark}
 
-        \begin{coloredblockdark}[blue]
-            \texttt{\textbackslash begin\{coloredblockdark\}[blue]}\strut
-        \end{coloredblockdark}
-
-        \begin{coloredblockdark}[yellow]
-            \texttt{\textbackslash begin\{coloredblockdark\}[yellow]}\strut
-        \end{coloredblockdark}
-
-        \begin{coloredblockdark}[red]
-            \texttt{\textbackslash begin\{coloredblockdark\}[red]}\strut
-        \end{coloredblockdark}
-
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.49\textwidth}
+        \end{column}
+        \begin{column}{0.49\textwidth}
         
-        \begin{coloredblockdark}[iee]
-            \texttt{\textbackslash begin\{coloredblockdark\}[iee]}\strut
-        \end{coloredblockdark}
-
-        \begin{coloredblockdark}[green]
-            \texttt{\textbackslash begin\{coloredblockdark\}[green]}\strut
-        \end{coloredblockdark}
-
-        \begin{coloredblockdark}[grey]
-            \texttt{\textbackslash begin\{coloredblockdark\}[grey]}\strut
-        \end{coloredblockdark}
+            \begin{coloredblockdark}[iee]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockdark\}[iee]}\strut
+            \end{coloredblockdark}
+    
+            \begin{coloredblockdark}[green]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockdark\}[green]}\strut
+            \end{coloredblockdark}
+    
+            \begin{coloredblockdark}[grey]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockdark\}[grey]}\strut
+            \end{coloredblockdark}
         
-    \end{minipage}
+        \end{column}
+    \end{columns}
 
     \centering
     \begin{minipage}[t]{0.49\textwidth}
         \begin{coloredblockdark}[turquoise]
-                \texttt{\textbackslash begin\{coloredblockdark\}[turquoise]}\strut
+                \footnotesize\texttt{\textbackslash begin\{coloredblockdark\}[turquoise]}\strut
         \end{coloredblockdark}
         
     \end{minipage}
@@ -405,51 +423,55 @@
 \begin{frame}{Boxes}
     \framesubtitle{Boxes with Icon on the left}
 
-    \footnotesize\centering\texttt{\textbackslash begin\{coloredblockleft\}[color][Optional:~LEFT ICON][Optional:~Height cm][Optional:~Left Width cm]}
+    \begin{coloredblock}[grey]
+        \footnotesize\centering\texttt{\textbackslash begin\{coloredblockleft\}[color][Optional:~LEFT ICON][Optional:~Height cm][Optional:~Left Width cm]}
+    \end{coloredblock}
+
+    \vspace{-2.1cm}
+    \begin{columns}
+        \begin{column}{0.49\textwidth}
+
+            \begin{coloredblockleft}[blue][\large\faIcon{bolt}][2cm][2cm]
+                \vspace{0.3cm}
+                \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[blue]}\strut
+            \end{coloredblockleft}
     
-    \begin{minipage}[t]{0.49\textwidth}
+            \begin{coloredblockleft}[yellow][\large\faIcon{bolt}][2cm][2cm]
+                \vspace{0.3cm}
+                \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[yellow]}\strut
+            \end{coloredblockleft}
+    
+            \begin{coloredblockleft}[red][\large\faIcon{bolt}][2cm][2cm]
+                \vspace{0.3cm}
+                \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[red]}\strut
+            \end{coloredblockleft}
 
-        \begin{coloredblockleft}[blue][\large\faIcon{bolt}][2cm][2cm]
-            \vspace{0.3cm}
-            \texttt{\textbackslash begin\{coloredblockleft\}[blue]}\strut
-        \end{coloredblockleft}
-
-        \begin{coloredblockleft}[yellow][\large\faIcon{bolt}][2cm][2cm]
-            \vspace{0.3cm}
-            \texttt{\textbackslash begin\{coloredblockleft\}[yellow]}\strut
-        \end{coloredblockleft}
-
-        \begin{coloredblockleft}[red][\large\faIcon{bolt}][2cm][2cm]
-            \vspace{0.3cm}
-            \texttt{\textbackslash begin\{coloredblockleft\}[red]}\strut
-        \end{coloredblockleft}
-
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.49\textwidth}
+        \end{column}
+        \begin{column}{0.49\textwidth}
         
-        \begin{coloredblockleft}[iee][\large\faIcon{bolt}][2cm][2cm]
-            \vspace{0.3cm}
-            \texttt{\textbackslash begin\{coloredblockleft\}[iee]}\strut
-        \end{coloredblockleft}
-
-        \begin{coloredblockleft}[green][\large\faIcon{bolt}][2cm][2cm]
-            \vspace{0.3cm}
-            \texttt{\textbackslash begin\{coloredblockleft\}[green]}\strut
-        \end{coloredblockleft}
-
-        \begin{coloredblockleft}[grey][\large\faIcon{bolt}][2cm][2cm]
-            \vspace{0.3cm}
-            \texttt{\textbackslash begin\{coloredblockleft\}[grey]}\strut
-        \end{coloredblockleft}
+            \begin{coloredblockleft}[iee][\large\faIcon{bolt}][2cm][2cm]
+                \vspace{0.3cm}
+                \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[iee]}\strut
+            \end{coloredblockleft}
+    
+            \begin{coloredblockleft}[green][\large\faIcon{bolt}][2cm][2cm]
+                \vspace{0.3cm}
+                \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[green]}\strut
+            \end{coloredblockleft}
+    
+            \begin{coloredblockleft}[grey][\large\faIcon{bolt}][2cm][2cm]
+                \vspace{0.3cm}
+                \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[grey]}\strut
+            \end{coloredblockleft}
         
-    \end{minipage}
+        \end{column}
+    \end{columns}
 
     \centering
     \begin{minipage}[t]{0.49\textwidth}
         \begin{coloredblockleft}[turquoise][\large\faIcon{bolt}][2cm][2cm]
             \vspace{0.3cm}
-            \texttt{\textbackslash begin\{coloredblockleft\}[turquoise]}\strut
+            \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[turquoise]}\strut
         \end{coloredblockleft}
         
     \end{minipage}
@@ -536,7 +558,7 @@
     \end{coloredblockleft}
 
     \pause
-    \vspace{0.5cm}
+    \vspace{0.3cm}
     \begin{minipage}[t]{0.49\textwidth}
         \begin{coloredblock}[turquoise][\centering \faIcon{pause}~~~Pause Command][\small][10cm]
             \begin{itemize}
@@ -585,18 +607,22 @@
             \footnotesize
             Set \textbf{axis line style} to \textbf{black} to add a black \textbf{border} around the plot area
         \end{coloredblockleft}
+        \vspace{-0.1cm}
         \begin{coloredblockleft}[yellow][\large\faIcon{list-ol}][2.3cm][2.3cm]
             \footnotesize
             Include \textbf{axis labels} with descriptions and \textbf{units} and include thousand separator
         \end{coloredblockleft}
+        \vspace{-0.1cm}
         \begin{coloredblockleft}[grey][\large\faIcon[regular]{square}][2.3cm][2.3cm]
             \footnotesize
             Add a \textbf{black border} around the \textbf{sections} of the bar chart
         \end{coloredblockleft}
+        \vspace{-0.1cm}
         \begin{coloredblockleft}[green][\large\faIcon{chart-bar}][2.3cm][2.3cm]
             \footnotesize
             Include a \textbf{legend} to explain the chart's data categories
         \end{coloredblockleft}
+        \vspace{-0.1cm}
         \begin{coloredblock}[iee][\centering \faIcon{star}~~~Optional Improvements][\footnotesize][3.9cm]
                 \begin{itemize}
                     \item \footnotesize Add grey grid lines to the background
@@ -1025,7 +1051,7 @@
                 \end{minipage}%
                 \hspace{0.05\textwidth}
         \end{coloredblockdark}
-
+        \vspace{-0.1cm}
         \begin{coloredblockdark}[blue][][][2.35cm][0ex]
                 \begin{minipage}[c][2.35cm][c]{0.4\textwidth}
                     \centering
@@ -1039,7 +1065,7 @@
                 \end{minipage}%
                 \hspace{0.05\textwidth}
         \end{coloredblockdark}
-
+        \vspace{-0.1cm}
         \begin{coloredblockdark}[blue][][][2.35cm][0ex]
                 \begin{minipage}[c][2.35cm][c]{0.4\textwidth}
                     \centering
@@ -1053,7 +1079,7 @@
                 \end{minipage}%
                 \hspace{0.05\textwidth}
         \end{coloredblockdark}
-
+        \vspace{-0.1cm}
         \begin{coloredblockdark}[blue][][][2.35cm][0ex]
                 \begin{minipage}[c][2.35cm][c]{0.4\textwidth}
                     \centering
@@ -1067,7 +1093,7 @@
                 \end{minipage}%
                 \hspace{0.05\textwidth}
         \end{coloredblockdark}
-
+        \vspace{-0.1cm}
         \begin{coloredblockdark}[blue][][][2.35cm][0ex]
                 \begin{minipage}[c][2.35cm][c]{0.4\textwidth}
                     \centering
@@ -1081,7 +1107,7 @@
                 \end{minipage}%
                 \hspace{0.05\textwidth}
         \end{coloredblockdark}
-
+        \vspace{-0.1cm}
         \begin{coloredblockdark}[blue][][][2.35cm][0ex]
                 \begin{minipage}[c][2.35cm][c]{0.4\textwidth}
                     \centering
@@ -1104,35 +1130,35 @@
                 \small$\min \sum_{g,h} c_{g}^{op} \cdot p_g^{h} + \sum_{g} x_g \cdot (c_{g}^{Inv,MW} + c_{g}^{Inv,MWh} \cdot E2P_g)$
             \end{center}
         \end{coloredblock}
-
+        \vspace{-0.1cm}
         \begin{coloredblock}[blue][][][2.35cm]
             \vspace{0.35cm}
             \begin{center}
                 \small$\sum_{g} p_{gz(g,z),h} - \sum_{g} p_{cs(g,z),h} - \sum_{z \neq y} exp_{z,y,h} + \sum_{z \neq y} imp{z,y,h} = dem_{z,h}$
             \end{center}
         \end{coloredblock}
-
+        \vspace{-0.1cm}
         \begin{coloredblock}[blue][][][2.35cm]
             \vspace{0.35cm}
             \begin{center}
                 \small$exp_{z,y,h} \leq NTC_{z,y} \cdot bn_{z,y,h}$
             \end{center}
         \end{coloredblock}
-
+        \vspace{-0.1cm}
         \begin{coloredblock}[blue][][][2.35cm]
             \vspace{0.35cm}
             \begin{center}
                 \small$imp_{z,y,h} \leq NTC_{y,z} \cdot (1-bn_{z,y,h})$
             \end{center}
         \end{coloredblock}
-
+        \vspace{-0.1cm}
         \begin{coloredblock}[blue][][][2.35cm]
             \vspace{0.35cm}
             \begin{center}
                 \small$exp_{z,y,h} = imp_{y,z,h}$
             \end{center}
         \end{coloredblock}
-
+        \vspace{-0.1cm}
         \begin{coloredblock}[blue][][][2.35cm]
             \vspace{0.35cm}
             \begin{center}
@@ -1255,7 +1281,7 @@
         \centering\footnotesize\textbf{In each part more than 50\% of the points are required for a positive grade}
     \end{coloredblock}
 
-    \vspace{0.5cm}
+    \vspace{0.2cm}
     \begin{coloredblock}[green]
         \begin{minipage}[c]{0.24\textwidth}
             \centering\footnotesize \textbf{Grading Scale}
@@ -1300,7 +1326,7 @@
         \end{tugitemize}
     \end{coloredblock}
 
-    \vspace{0.3cm}
+    \vspace{0.2cm}
 
     \begin{coloredblock}[green][\faIcon{tasks}~~~Task][\footnotesize]
         \vspace{0.2cm}
@@ -1310,7 +1336,7 @@
         \end{tugitemize}
     \end{coloredblock}
 
-    \vspace{0.3cm}
+    \vspace{0.2cm}
 
     \begin{coloredblock}[blue][\faIcon{bullseye}~~~Goal][\footnotesize]
         \vspace{0.2cm}
