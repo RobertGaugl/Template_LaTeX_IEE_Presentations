@@ -30,6 +30,9 @@ The template includes:
 - Create consistent title and closing slides with `\maketitleslide` and `\closingslide`. These commands automatically adapt to the selected language.
 
 ## Release Notes
+- **2025-05-23:**
+   - Complete behind-the-scenes rework of coloredblock logic. (Because of rework, support for`\begin{coloredblockleft}` and `\begin{coloredblockright}` temporarily deactivated.)
+   - Blocks now have a border to match IEE style. 
 - **2025-05-22:**
    - Support for title in `\begin{coloredblockleft}` and `\begin{coloredblockright}`
    - Add new box style with icon on the right `\begin{coloredblockright}`

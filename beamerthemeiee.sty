@@ -401,288 +401,179 @@
 
 
 %%%   BLOCKS   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newlength{\tugraz@blocksep}
-\setlength{\tugraz@blocksep}{1ex} % alternative: 0.8ex
+% \newlength{\tugraz@blocksep}
+% \setlength{\tugraz@blocksep}{1ex} % alternative: 0.8ex
 
-\newcommand{\tugraz@block}[1]{
-    \par\vskip\medskipamount%
-    \setlength{\parskip}{0pt}%
-    \begin{beamercolorbox}[sep=\dimexpr\tugraz@blocksep\relax]{block title#1}%
-        \usebeamerfont*{block title#1}%
-        \vphantom{()}%
-        \insertblocktitle%
-        \vphantom{()}%
-    \end{beamercolorbox}%
-    \nointerlineskip%
-    \begin{beamercolorbox}[sep=\dimexpr\tugraz@blocksep\relax,vmode]{block body#1}%
-        \usebeamerfont{block body#1}%
-}
-\setbeamertemplate{block begin}{\tugraz@block{}}
-\setbeamertemplate{block end}{\end{beamercolorbox}}
-
-
-\newlength{\cbr@titleheight}
-\newsavebox{\cbr@measureboxtitle}
-
-% COLORED BLOCK
-% \begin{coloredblock}[<COLOR>][<TITLE>][<Title size>][<Height>][<Padding>][<Color scheme>]
-\NewDocumentEnvironment{coloredblock}{O{blue} o O{\normalsize} O{} O{1ex} O{light}}{%
-    % Set colors
-    \IfStrEq{#6}{light}{%
-        \setbeamercolor{block body}{fg=#1Dark,bg=#1Light}%
-    
-        \setbeamercolor{item}{fg=#1Dark}%
-        \setbeamercolor{subitem}{fg=#1Dark}%
-        \setbeamercolor{subsubitem}{fg=#1Dark}%
-        \setbeamercolor{item projected}{fg=white,bg=#1Dark}%
-        \setbeamercolor{subitem projected}{fg=white,bg=#1Dark}%
-        \setbeamercolor{subsubitem projected}{fg=white,bg=#1Dark}%
-    }{
-        \setbeamercolor{block body}{fg=white,bg=#1}%
-
-        \setbeamercolor{item}{fg=white}%
-        \setbeamercolor{subitem}{fg=white}%
-        \setbeamercolor{subsubitem}{fg=white}%
-        \setbeamercolor{item projected}{fg=white,bg=white}%
-        \setbeamercolor{subitem projected}{fg=white,bg=white}%
-        \setbeamercolor{subsubitem projected}{fg=white,bg=white}%
-    }
-
-    \IfNoValueTF{#2}{%
-        % no optional title → no title block
-        \vspace{0.3cm}%
-        \begin{beamercolorbox}[sep=#5]{block body}%
-            \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
-    }{%
-        % #2 present (maybe empty)
-        \IfStrEq{#2}{}{%
-            % empty title → no title block
-            \vspace{0.3cm}%
-            \IfStrEq{#4}{}{
-                \begin{beamercolorbox}[sep=#5]{block body}%
-                    \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
-            }{
-                \begin{beamercolorbox}[sep=#5]{block body}%%
-                    \begin{minipage}[t][\dimexpr#4-2\dimexpr#5\relax\relax]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}%
-            }
-        }{%
-            % non-empty title → full block with variable font size for title (#3)
-            \vspace{-0.7cm}%
-            % Title exists → measure title height and add it to body height
-            \sbox{\cbr@measureboxtitle}{%
-                \begin{minipage}{\dimexpr\textwidth - 0.2cm - 1.5ex\relax}
-                    {#3 \bfseries #2\strut}
-                \end{minipage}
-            }
-            \setlength{\cbr@titleheight}{\dimexpr
-            \ht\cbr@measureboxtitle + \dp\cbr@measureboxtitle + 1.5ex
-            \relax}
-            
-            \IfStrEq{#6}{light}{%
-                \setbeamercolor{block title}{fg=white,bg=#1}%
-            }{
-                \setbeamercolor{block title}{fg=white,bg=#1Dark}%
-            }
-            \setbeamerfont{block title}{series=\bfseries,size=#3}%
-            \begin{beamercolorbox}[wd=\textwidth,sep=0ex,rounded=false]{block title}%
-                \usebeamerfont{block title}
-                \begin{minipage}[t][\cbr@titleheight][c]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}
-                    \hspace{0.25ex}
-                    #2
-                \end{minipage}
-            \end{beamercolorbox}%
-            \edef\blocksep{\unexpanded{#5}}%
-            \ifdim\blocksep=0ex
-                \vspace{-1ex}%
-            \else
-                \vspace{-1pt}%
-            \fi
-            \IfStrEq{#4}{}{
-                \begin{beamercolorbox}[sep=#5]{block body}%%
-                    \begin{minipage}[t][#4]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}
-            }{
-                \begin{beamercolorbox}[sep=#5]{block body}%%
-                    \begin{minipage}[t][\dimexpr#4-2\dimexpr#5\relax\relax]{\dimexpr\textwidth - 2\dimexpr#5\relax\relax}
-            }
-        }%
-    }%
-}{%
-    \end{minipage}%
-    \end{beamercolorbox}%
-}
-
-% COLORED BLOCK DARK
-\NewDocumentEnvironment{coloredblockdark}{O{blue} o O{\normalsize} O{} O{1ex}}{%
-    \IfNoValueTF{#2}{%
-        \begin{coloredblock}[#1][][#3][#4][#5][dark]%
-    }{%
-        \begin{coloredblock}[#1][#2][#3][#4][#5][dark]%
-    }%
-}{%
-    \end{coloredblock}%
-}
+% \newcommand{\tugraz@block}[1]{
+%     \par\vskip\medskipamount%
+%     \setlength{\parskip}{0pt}%
+%     \begin{beamercolorbox}[sep=\dimexpr\tugraz@blocksep\relax]{block title#1}%
+%         \usebeamerfont*{block title#1}%
+%         \vphantom{()}%
+%         \insertblocktitle%
+%         \vphantom{()}%
+%     \end{beamercolorbox}%
+%     \nointerlineskip%
+%     \begin{beamercolorbox}[sep=\dimexpr\tugraz@blocksep\relax,vmode]{block body#1}%
+%         \usebeamerfont{block body#1}%
+% }
+% \setbeamertemplate{block begin}{\tugraz@block{}}
+% \setbeamertemplate{block end}{\end{beamercolorbox}}
 
 
-% =============================================================================
-% COLORED BLOCK LEFT + RIGHT (Reusable Version)
-% =============================================================================
+
+
+
+%%%   STANDARD BLOCKS   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength{\iee@contentheight}
+\newlength{\iee@contentwidth}
+\newsavebox{\iee@measureboxcontent}
+\newcommand{\iee@colorbody}{}
+\newcommand{\iee@colorborder}{}
+\newcommand{\iee@colortext}{}
+
 \usepackage{printlen}
-\uselengthunit{cm}
+\uselengthunit{cm} % Set unit to centimeters
 
-\ExplSyntaxOn
+% O{.75ex} O{1ex} 
+\NewDocumentEnvironment{standardblock}{O{blue} O{b} O{} O{} O{1ex} O{.75ex} O{t} O{} +b}
+{
+    % #1: Color
+    % #2: Block Type (b: body, t: title, i: icon, dt:darktitle)
+    % #3: Height
+    % #4: Width
+    % #5: Padding Top/Bottom
+    % #6: Padding Left/Right
+    % #7: Vertical Alignement (t: Top, c: Center, B: Bottom)
+    % #8: Formatting Options for Title
+    % #9: Content
 
-\newlength{\cbr@rightboxheight}
-\newlength{\cbr@leftboxwidth}
-\newlength{\cbr@leftboxheight}
-\newlength{\cbr@exspace}
-\newsavebox{\cbr@measurebox}
-% \newsavebox{\cbr@measureboxtitle}
-\newlength{\mylen}
-\setlength{\mylen}{1pt}
-
-% Internal macro with body as explicit argument
-\cs_new_protected:Nn \__cbr_render_coloredblock:nnnnnnnn {
-    % #1: direction (left/right)
-    % #2: color
-    % #3: title
-    % #4: titlesize
-    % #5: left content
-    % #6: height
-    % #7: left width
-    % #8: body content
-    \def\cbr@direction{#1}
-    \def\cbr@color{#2}
-    \def\cbr@title{#3}
-    \def\cbr@titlesize{#4}
-    \def\cbr@leftcontent{#5}
-    \setlength{\cbr@rightboxheight}{#6}
-    \def\cbr@leftboxwidthopt{#7}
-    \def\cbr@body{#8}
-
-    % Measure right box height if default
-    \ifdim\cbr@rightboxheight=0.75cm
-        \sbox{\cbr@measurebox}{%
-            \begin{minipage}{\dimexpr\textwidth - #7 - 0.2cm - 2ex\relax}
-                \cbr@body
-            \end{minipage}
-        }
-        \setlength{\cbr@rightboxheight}{\dimexpr\ht\cbr@measurebox + \dp\cbr@measurebox + 2ex\relax}
-    \fi
-
-    \setlength{\cbr@leftboxheight}{\cbr@rightboxheight}
-
-    \IfNoValueTF{#7}{
-        \ifdim\cbr@leftboxheight<2cm
-            \setlength{\cbr@leftboxwidth}{\cbr@leftboxheight}
-        \else
-            \setlength{\cbr@leftboxwidth}{2cm}
-        \fi
+    % Set colors if title 
+    \IfStrEq{#2}{t}{
+        \renewcommand{\iee@colorbody}{#1}
+        \renewcommand{\iee@colorborder}{#1Dark}
+        \renewcommand{\iee@colortext}{white}
     }{
-        \setlength{\cbr@leftboxwidth}{#7}
+        % Set colors if icon 
+        \IfStrEq{#2}{i}{
+            \renewcommand{\iee@colorbody}{#1}
+            \renewcommand{\iee@colorborder}{#1}
+            \renewcommand{\iee@colortext}{white}
+        }{
+            \IfStrEq{#2}{dt}{
+                \renewcommand{\iee@colorbody}{#1Dark}
+                \renewcommand{\iee@colorborder}{#1Dark}
+                \renewcommand{\iee@colortext}{white}
+            }{
+                % Set default (body)
+                \renewcommand{\iee@colorbody}{#1Light}
+                \renewcommand{\iee@colorborder}{#1Dark}
+                \renewcommand{\iee@colortext}{#1Dark}
+            }
+        }
     }
 
-    \IfNoValueTF{#3}{
-        % No title → use just right box height
-        \setlength{\cbr@leftboxheight}{\cbr@rightboxheight}
+    % If no width given, set to \textwidth
+    \IfStrEq{#4}{}{%
+        \setlength{\iee@contentwidth}{\dimexpr \textwidth - 1pt\relax}
     }{
-    % #3 present (maybe empty)
+        \setlength{\iee@contentwidth}{\dimexpr #4 - 1pt\relax}
+    }
+
+    % If no height given, calculate height based on content
     \IfStrEq{#3}{}{%
-       \setlength{\cbr@leftboxheight}{\cbr@rightboxheight}
-    }{
-        % Title exists → measure title height and add it to body height
-        \sbox{\cbr@measureboxtitle}{%
-            \begin{minipage}{\dimexpr\textwidth - #7 - 0.2cm - 1.5ex\relax}
-                {\cbr@titlesize \bfseries \cbr@title\strut}
+        \sbox{\iee@measureboxcontent}{%
+            \begin{minipage}{\dimexpr\iee@contentwidth - #6 - #6 -#6\relax}
+                #8 #9
             \end{minipage}
         }
-    
-        % Measure 1.5ex in the title font size
-        \sbox0{{\cbr@titlesize x}}%
-        \setlength{\cbr@exspace}{\ht0}
-    
-        % Add everything up
-        \setlength{\cbr@leftboxheight}{\dimexpr
-            \ht\cbr@measureboxtitle + \dp\cbr@measureboxtitle + 1.5ex + \cbr@rightboxheight
-        \relax}
-    }}
+        \setlength{\iee@contentheight}{\dimexpr\ht\iee@measureboxcontent + \dp\iee@measureboxcontent + #5 + #5\relax}
+    }{
+        % If height value given
+        \setlength{\iee@contentheight}{#3}
+    }
 
-    \begin{minipage}[t]{\textwidth}
-        \ifnum\pdfstrcmp{\cbr@direction}{left}=0
-            \begin{minipage}[t]{\dimexpr\cbr@leftboxwidth\relax}
-                \begin{coloredblockdark}[\cbr@color][][][\cbr@leftboxheight][0ex]
-                    \begin{minipage}[t][\cbr@leftboxheight][c]{\cbr@leftboxwidth}
-                        \centering \cbr@leftcontent
-                    \end{minipage}
-                \end{coloredblockdark}
+    \begin{tikzpicture}[baseline=(current bounding box.north west)]
+        \draw[line width=1pt, draw=\iee@colorborder, fill=\iee@colorbody] (0,0) rectangle (\iee@contentwidth,\iee@contentheight);
+        \node[anchor=west,  inner xsep=0ex, outer sep=#6, text=\iee@colortext] at (0, { 0.5*\iee@contentheight}) { % vertically center at half height
+            \setlength\fboxsep{0pt}
+            \begin{minipage}[t][\dimexpr\iee@contentheight-#5-#5\relax][#7]{\dimexpr\iee@contentwidth-#6-#6-#6\relax}
+                #8 #9
             \end{minipage}
-            \hfill
-            \begin{minipage}[t]{\dimexpr\textwidth - \cbr@leftboxwidth - 0.2cm\relax}
-                 % #3 present 
-                \IfStrEq{#3}{}{}{%
-                   \vspace{1cm}
-                }
-                \begin{coloredblock}[\cbr@color][\cbr@title][\cbr@titlesize][\cbr@rightboxheight]
-                    \cbr@body 
-                \end{coloredblock}
-            \end{minipage}
-        \else
-            \begin{minipage}[t]{\dimexpr\textwidth - \cbr@leftboxwidth - 0.2cm\relax}
-                 % #3 present 
-                \IfStrEq{#3}{}{}{%
-                   \vspace{1cm}
-                }
-                \begin{coloredblock}[\cbr@color][\cbr@title][\cbr@titlesize][\cbr@rightboxheight]
-                    \cbr@body
-                \end{coloredblock}
-            \end{minipage}
-            \hfill
-            \begin{minipage}[t]{\cbr@leftboxwidth}
-                \begin{coloredblockdark}[\cbr@color][][][\cbr@leftboxheight][0ex]
-                    \begin{minipage}[t][\cbr@leftboxheight][c]{\cbr@leftboxwidth}
-                        \centering \cbr@leftcontent
-                    \end{minipage}
-                \end{coloredblockdark}
-            \end{minipage}
-        \fi
-    \end{minipage}
+    };
+    \end{tikzpicture}\par\vspace{\dimexpr.3cm-2pt\relax}
 }
 
-% coloredblockleft environment
-% \begin{coloredblockleft}[color][title][titlesizr][Left Icon][Height][Left Width]
-\NewDocumentEnvironment{coloredblockleft}{O{blue} o O{\normalsize} O{} O{0.75cm} O{2cm} +b}
- {
-  \group_begin:
-  \tl_clear:N \l_tmpa_tl
-  \IfValueTF{#2}
-    { \tl_set:Nx \l_tmpa_tl { \exp_not:n {#2} } }
-    { \tl_set:Nn \l_tmpa_tl {} }
-  \__cbr_render_coloredblock:nnnnnnnn
-    {left} {#1} {\l_tmpa_tl} {#3} {#4} {#5} {#6} {#7}
- }
- {
-  \group_end:
- }
 
-% coloredblockright environment
-% \begin{coloredblockleft}[color][Left Icon][Height][Left Width]
-\NewDocumentEnvironment{coloredblockright}{O{blue} o O{\normalsize} O{} O{0.75cm} O{2cm} +b}
- {
-  \group_begin:
-  \tl_clear:N \l_tmpa_tl
-  \IfValueTF{#2}
-    { \tl_set:Nx \l_tmpa_tl { \exp_not:n {#2} } }
-    { \tl_set:Nn \l_tmpa_tl {} }
-  \__cbr_render_coloredblock:nnnnnnnn
-    {right} {#1} {\l_tmpa_tl} {#3} {#4} {#5} {#6} {#7}
- }
- {
-  \group_end:
- }
+%%%   COLORED BLOCK   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NewDocumentEnvironment{coloredblock}{O{blue} O{} O{} O{t} O{} O{} o o +b}
+{
+    % #1: Color
+    % #2: Title
+    % #3: Title Formatting Options
+    % #4: Vertical Alignement (t: Top, c: Center, B: Bottom)
+    % #5: Height
+    % #6: Width
+    % #7: Padding Top/Bottom
+    % #8: Padding Left/Right
+    % #9: Content
 
+    \setbeamercolor{block body}{fg=#1Dark,bg=#1Light}%
+    \setbeamercolor{itemize/enumerate body}{fg=#1Dark}%
+    \setbeamercolor{item}{fg=#1Dark}%
+    \setbeamercolor{subitem}{fg=#1Dark}%
+    \setbeamercolor{subsubitem}{fg=#1Dark}%
+    \setbeamercolor{item projected}{fg=white,bg=#1Dark}%
+    \setbeamercolor{subitem projected}{fg=white,bg=#1Dark}%
+    \setbeamercolor{subsubitem projected}{fg=white,bg=#1Dark}%
 
+    % If no width given, set to \textwidth
+    \IfStrEq{#2}{}{}
+    {
+        \begin{standardblock}[#1][t][][#6][0.75ex][#8][c][#3]
+            \textbf{#2}\strut
+        \end{standardblock}
+        \vspace{-.3cm}
+    }
+    \begin{standardblock}[#1][b][#5][#6][#7][#8][#4][]
+        #9
+    \end{standardblock}
+}
 
-\ExplSyntaxOff
+%%%   COLORED BLOCK DARK   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NewDocumentEnvironment{coloredblockdark}{O{blue} O{} O{} O{t} O{} O{} o o +b}
+{
+    % #1: Color
+    % #2: Title
+    % #3: Title Formatting Options
+    % #4: Vertical Alignement (t: Top, c: Center, B: Bottom)
+    % #5: Height
+    % #6: Width
+    % #7: Padding Top/Bottom
+    % #8: Padding Left/Right
+    % #9: Content
 
+    \setbeamercolor{block body}{fg=white,bg=#1Light}%
+    \setbeamercolor{itemize/enumerate body}{fg=white}%
+    \setbeamercolor{item}{fg=white}%
+    \setbeamercolor{subitem}{fg=white}%
+    \setbeamercolor{subsubitem}{fg=white}%
+    \setbeamercolor{item projected}{fg=white,bg=#1Dark}%
+    \setbeamercolor{subitem projected}{fg=white,bg=#1Dark}%
+    \setbeamercolor{subsubitem projected}{fg=white,bg=#1Dark}%
+
+     % If no width given, set to \textwidth
+    \IfStrEq{#2}{}{}
+    {
+        \begin{standardblock}[#1][dt][][#6][0.75ex][#8][c][#3]
+            \textbf{#2}\strut
+        \end{standardblock}
+        \vspace{-.3cm}
+    }
+    \begin{standardblock}[#1][t][#5][#6][#7][#8][#4][]
+        #9
+    \end{standardblock}
+}
 
 
 %%%   SOURCE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -701,25 +592,29 @@
     % #1 = inset from right (e.g., 15.98cm)
     % #2 = image path
     % #3 = caption text
-    \vspace{-3.15cm}
-    \tikzset{every picture/.style={remember picture,overlay}}
+    
+    \raisebox{-1ex}{
+        \vspace{-3.15cm}
+        \tikzset{every picture/.style={remember picture,overlay}}
 
-    % Main image
-    \begin{tikzpicture}[xshift=0cm,yshift=0cm]
-        \node[anchor=north west, inner sep=0pt] at ($(current page.north east) + (-#1,0)$) {
-            \includegraphics[height=1.041\textheight]{#2}
-        };
-    \end{tikzpicture}
 
-    % Fade overlay
-    \begin{tikzpicture}[xshift=0cm,yshift=0cm]
-        \node[anchor=north east, inner sep=0pt] at (current page.north east) {
-            \includegraphics[height=1.048\textheight, width=#1]{beamerthemeiee/FadeToWhite.png}
-        };
-    \end{tikzpicture}
-
-    % Add caption
-    \addsource{#3}
+        % Main image
+        \begin{tikzpicture}[xshift=0cm,yshift=0cm]
+            \node[anchor=north west, inner sep=0pt] at ($(current page.north east) + (-#1,0)$) {
+                \includegraphics[height=1.041\textheight]{#2}
+            };
+        \end{tikzpicture}
+    
+        % Fade overlay
+        \begin{tikzpicture}[xshift=0cm,yshift=0cm]
+            \node[anchor=north east, inner sep=0pt] at (current page.north east) {
+                \includegraphics[height=1.048\textheight, width=#1]{beamerthemeiee/FadeToWhite.png}
+            };
+        \end{tikzpicture}
+    
+        % Add caption
+        \addsource{#3}
+    }\vspace{-1.47cm}
 }
 
 
