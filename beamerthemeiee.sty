@@ -493,7 +493,7 @@
         \setlength{\iee@contentheight}{#3}
     }
 
-    \begin{tikzpicture}[baseline=(current bounding box.north west)]
+    \begin{tikzpicture}[baseline]
         \draw[line width=1pt, draw=\iee@colorborder, fill=\iee@colorbody] (0,0) rectangle (\iee@contentwidth,\iee@contentheight);
         \node[anchor=west,  inner xsep=0ex, outer sep=#6, text=\iee@colortext] at (0, { 0.5*\iee@contentheight}) { % vertically center at half height
             \setlength\fboxsep{0pt}
