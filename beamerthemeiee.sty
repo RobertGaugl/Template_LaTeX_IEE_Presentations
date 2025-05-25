@@ -464,10 +464,10 @@
         \renewcommand{\iee@colorborder}{#1Dark}
         \renewcommand{\iee@colortext}{white}
     }{
-        % Set colors if icon 
-        \IfStrEq{#2}{i}{
-            \renewcommand{\iee@colorbody}{#1}
-            \renewcommand{\iee@colorborder}{#1}
+        % Set colors if darktitle 
+        \IfStrEq{#2}{dt}{
+            \renewcommand{\iee@colorbody}{#1Dark}
+            \renewcommand{\iee@colorborder}{#1Dark}
             \renewcommand{\iee@colortext}{white}
         }{
             % Set default (body)
@@ -568,12 +568,12 @@
      % If no title given, don't add title
     \IfStrEq{#2}{}{}
     {
-        \begin{standardblock}[#1][t][][#6][0.75ex][#8][c][#3]
+        \begin{standardblock}[#1][dt][][#6][0.75ex][#8][c][#3]
             \textbf{#2}\strut
         \end{standardblock}
         \vspace{-.3cm}
     }
-    \begin{standardblock}[#1][b][#5][#6][#7][#8][#4][]
+    \begin{standardblock}[#1][t][#5][#6][#7][#8][#4][]
         #9
     \end{standardblock}
 }
