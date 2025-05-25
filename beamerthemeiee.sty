@@ -426,16 +426,20 @@
 
 %%%   STANDARD BLOCKS   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newlength{\iee@contentheight}
+\newlength{\iee@titleheight}
+\newlength{\iee@iconboxheight}
+\newlength{\iee@iconboxwidth}
 \newlength{\iee@contentwidth}
 \newsavebox{\iee@measureboxcontent}
 \newcommand{\iee@colorbody}{}
 \newcommand{\iee@colorborder}{}
 \newcommand{\iee@colortext}{}
+\newcommand{\iee@baseline}{}
+\newcommand{\iee@vertical}{}
 
-\usepackage{printlen}
-\uselengthunit{cm} % Set unit to centimeters
+% \usepackage{printlen}
+% \uselengthunit{cm} % Set unit to centimeters
 
-% O{.75ex} O{1ex} 
 \NewDocumentEnvironment{standardblock}{O{blue} O{b} O{} O{} O{1ex} O{.75ex} O{t} O{} +b}
 {
     % #1: Color
@@ -447,6 +451,12 @@
     % #7: Vertical Alignement (t: Top, c: Center, B: Bottom)
     % #8: Formatting Options for Title
     % #9: Content
+
+    \IfStrEq{#7}{}{
+        \renewcommand{\iee@vertical}{t}
+    }{
+        \renewcommand{\iee@vertical}{#7}
+    }
 
     % Set colors if title 
     \IfStrEq{#2}{t}{
@@ -460,16 +470,10 @@
             \renewcommand{\iee@colorborder}{#1}
             \renewcommand{\iee@colortext}{white}
         }{
-            \IfStrEq{#2}{dt}{
-                \renewcommand{\iee@colorbody}{#1Dark}
-                \renewcommand{\iee@colorborder}{#1Dark}
-                \renewcommand{\iee@colortext}{white}
-            }{
-                % Set default (body)
-                \renewcommand{\iee@colorbody}{#1Light}
-                \renewcommand{\iee@colorborder}{#1Dark}
-                \renewcommand{\iee@colortext}{#1Dark}
-            }
+            % Set default (body)
+            \renewcommand{\iee@colorbody}{#1Light}
+            \renewcommand{\iee@colorborder}{#1Dark}
+            \renewcommand{\iee@colortext}{#1Dark}
         }
     }
 
@@ -494,12 +498,11 @@
     }
 
     \begin{tikzpicture}[baseline]
-        \draw[line width=1pt, draw=\iee@colorborder, fill=\iee@colorbody] (0,0) rectangle (\iee@contentwidth,\iee@contentheight);
-        \node[anchor=west,  inner xsep=0ex, outer sep=#6, text=\iee@colortext] at (0, { 0.5*\iee@contentheight}) { % vertically center at half height
-            \setlength\fboxsep{0pt}
-            \begin{minipage}[t][\dimexpr\iee@contentheight-#5-#5\relax][#7]{\dimexpr\iee@contentwidth-#6-#6-#6\relax}
-                #8 #9
-            \end{minipage}
+    \draw[line width=1pt, draw=\iee@colorborder, fill=\iee@colorbody] (0,0) rectangle (\iee@contentwidth,\iee@contentheight);
+    \node[anchor=west,  inner xsep=0ex, outer sep=#6, text=\iee@colortext] at (0, { 0.5*\iee@contentheight}) { % vertically center at half height
+        \begin{minipage}[t][\dimexpr\iee@contentheight-#5-#5\relax][\iee@vertical]{\dimexpr\iee@contentwidth-#6-#6-#6\relax}
+            #8 #9
+        \end{minipage}
     };
     \end{tikzpicture}\par\vspace{\dimexpr.3cm-2pt\relax}
 }
@@ -527,7 +530,7 @@
     \setbeamercolor{subitem projected}{fg=white,bg=#1Dark}%
     \setbeamercolor{subsubitem projected}{fg=white,bg=#1Dark}%
 
-    % If no width given, set to \textwidth
+    % If no title given, don't add title
     \IfStrEq{#2}{}{}
     {
         \begin{standardblock}[#1][t][][#6][0.75ex][#8][c][#3]
@@ -540,7 +543,7 @@
     \end{standardblock}
 }
 
-%%%   COLORED BLOCK DARK   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   COLORED BLOCK DARK   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NewDocumentEnvironment{coloredblockdark}{O{blue} O{} O{} O{t} O{} O{} o o +b}
 {
     % #1: Color
@@ -562,18 +565,148 @@
     \setbeamercolor{subitem projected}{fg=white,bg=#1Dark}%
     \setbeamercolor{subsubitem projected}{fg=white,bg=#1Dark}%
 
-     % If no width given, set to \textwidth
+     % If no title given, don't add title
     \IfStrEq{#2}{}{}
     {
-        \begin{standardblock}[#1][dt][][#6][0.75ex][#8][c][#3]
+        \begin{standardblock}[#1][t][][#6][0.75ex][#8][c][#3]
             \textbf{#2}\strut
         \end{standardblock}
         \vspace{-.3cm}
     }
-    \begin{standardblock}[#1][t][#5][#6][#7][#8][#4][]
+    \begin{standardblock}[#1][b][#5][#6][#7][#8][#4][]
         #9
     \end{standardblock}
 }
+
+%%%   COLORED BLOCK ICON   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NewDocumentEnvironment{coloredblockicon}{O{blue} O{} O{} O{} O{l} O{t} O{} O{} +b}
+{
+    % #1: Color
+    % #2: Title
+    % #3: Title Formatting Options
+    % #4: Left Icon
+    % #5: Side of Icon
+    % #6: Vertical Alignement (t: Top, c: Center, B: Bottom)
+    % #7: Height
+    % #8: Left Width
+    % #9: Content
+
+    \setbeamercolor{block body}{fg=#1Dark,bg=#1Light}%
+    \setbeamercolor{itemize/enumerate body}{fg=#1Dark}%
+    \setbeamercolor{item}{fg=#1Dark}%
+    \setbeamercolor{subitem}{fg=#1Dark}%
+    \setbeamercolor{subsubitem}{fg=#1Dark}%
+    \setbeamercolor{item projected}{fg=white,bg=#1Dark}%
+    \setbeamercolor{subitem projected}{fg=white,bg=#1Dark}%
+    \setbeamercolor{subsubitem projected}{fg=white,bg=#1Dark}%
+
+    \IfStrEq{#8}{}{
+        \setlength{\iee@contentwidth}{\dimexpr\textwidth - 2cm - 0.2cm\relax}
+    }{
+        \setlength{\iee@contentwidth}{\dimexpr\textwidth - #8 - 0.2cm\relax}
+    }
+    
+
+    % If no height given, calculate height based on content
+    \IfStrEq{#7}{}{%
+        \sbox{\iee@measureboxcontent}{%
+            \begin{minipage}{\dimexpr\iee@contentwidth - 2.25ex\relax}
+                #9
+            \end{minipage}
+        }
+        \setlength{\iee@contentheight}{\dimexpr\ht\iee@measureboxcontent + \dp\iee@measureboxcontent + 2ex\relax}
+    }{
+        \setlength{\iee@contentheight}{#7}
+    }
+
+    \IfStrEq{#2}{}{
+        \setlength{\iee@titleheight}{0ex}
+    }{
+        % Calculate Title height
+        \sbox{\iee@measureboxcontent}{%
+            \begin{minipage}{\dimexpr\iee@contentwidth - 2.25ex\relax}
+                #3 #2\strut
+            \end{minipage}
+        }
+        \setlength{\iee@titleheight}{\dimexpr\ht\iee@measureboxcontent + \dp\iee@measureboxcontent + 1.5ex\relax}
+        
+    }
+
+    \setlength{\iee@iconboxheight}{\dimexpr\iee@contentheight + \iee@titleheight\relax}
+
+    \ifdim\iee@iconboxheight<2cm
+        \setlength{\iee@iconboxwidth}{\dimexpr\iee@contentheight + \iee@titleheight\relax}
+    \else
+        \setlength{\iee@iconboxwidth}{2cm}
+    \fi
+
+    \IfStrEq{#8}{}{}
+    {
+        \setlength{\iee@iconboxwidth}{#8}
+    }
+
+    \begin{tikzpicture}[baseline]
+    \clip (-.5pt,-.5pt) rectangle (\textwidth,\dimexpr\iee@iconboxheight+.5pt\relax);
+    \IfStrEq{#5}{l}{
+        % Icon
+        \draw[line width=1pt, draw=#1Dark, fill=#1] (0,0) rectangle (\iee@iconboxwidth,\iee@iconboxheight);
+        \node[anchor=west,  inner xsep=0ex, outer sep=0ex, text=white] at (0, { 0.5*\iee@iconboxheight}) { % vertically center at half height
+            \begin{minipage}[t][\iee@iconboxheight][c]{\iee@iconboxwidth}
+                \centering #4
+            \end{minipage}
+        };
+
+
+        \IfStrEq{#2}{}{}
+        {
+            % Title
+            \draw[line width=1pt, draw=#1Dark, fill=#1] (\dimexpr\iee@iconboxwidth+.2cm\relax,\dimexpr\iee@iconboxheight-\iee@titleheight\relax) rectangle (\dimexpr\iee@contentwidth+\iee@iconboxwidth+.2cm-1pt\relax,\iee@iconboxheight);
+            \node[anchor=west,  inner xsep=0ex, outer sep=.75ex, text=white] at (\dimexpr\iee@iconboxwidth+.2cm\relax, {\iee@iconboxheight-\iee@titleheight+0.5*\iee@titleheight}) { % vertically center at half height
+                \begin{minipage}[t][\dimexpr\iee@titleheight-1.5ex\relax][c]{\dimexpr\iee@contentwidth-2.25ex\relax}
+                    \bfseries #3 #2\strut
+                \end{minipage}
+            };
+        }
+    
+        % Body
+        \draw[line width=1pt, draw=#1Dark, fill=#1Light] (\dimexpr\iee@iconboxwidth+.2cm\relax,0) rectangle (\dimexpr\iee@contentwidth+\iee@iconboxwidth+.2cm-1pt\relax,\iee@contentheight);
+            \node[anchor=north west,  inner xsep=0ex, outer sep=.75ex, text=#1Dark] at (\dimexpr\iee@iconboxwidth+.2cm\relax, {\iee@contentheight+.5ex}) { % vertically center at half height
+                \begin{minipage}[t][\dimexpr\iee@contentheight-2ex\relax][c]{\dimexpr\iee@contentwidth-2.25ex\relax}
+                    #9
+                \end{minipage}
+            };
+    }{
+        % If icon on right side
+        \IfStrEq{#2}{}{}
+        {
+            % Title
+            \draw[line width=1pt, draw=#1Dark, fill=#1] (0,0) rectangle (\dimexpr\textwidth-\iee@iconboxwidth-.2cm-1pt\relax,\iee@iconboxheight);
+            \node[anchor=west,  inner xsep=0ex, outer sep=.75ex, text=white] at (0, {\iee@iconboxheight-\iee@titleheight+0.5*\iee@titleheight}) { % vertically center at half height
+                \begin{minipage}[t][\dimexpr\iee@titleheight-1.5ex\relax][c]{\dimexpr\iee@contentwidth-2.25ex\relax}
+                    \bfseries #3 #2\strut
+                \end{minipage}
+            };
+        }
+    
+        % Body
+        \draw[line width=1pt, draw=#1Dark, fill=#1Light] (0,0) rectangle (\dimexpr\textwidth-\iee@iconboxwidth-.2cm-1pt\relax,\iee@contentheight);
+            \node[anchor=north west,  inner xsep=0ex, outer sep=.75ex, text=#1Dark] at (0, {\iee@contentheight+.5ex}) { % vertically center at half height
+                \begin{minipage}[t][\dimexpr\iee@contentheight-2ex\relax][c]{\dimexpr\iee@contentwidth-2.25ex\relax}
+                    #9
+                \end{minipage}
+            };
+
+        % Icon
+        \draw[line width=1pt, draw=#1Dark, fill=#1] (\dimexpr\textwidth-\iee@iconboxwidth-1pt\relax,0) rectangle (\textwidth-1pt,\iee@iconboxheight);
+        \node[anchor=west,  inner xsep=0ex, outer sep=0ex, text=white] at (\dimexpr\iee@contentwidth+.2cm\relax, { 0.5*\iee@iconboxheight}) { % vertically center at half height
+            \begin{minipage}[t][\iee@iconboxheight][c]{\iee@iconboxwidth}
+                \centering #4
+            \end{minipage}
+        };
+    }
+    \end{tikzpicture}\par\vspace{\dimexpr.3cm-2pt\relax}
+}
+
 
 
 %%%   SOURCE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -748,6 +881,10 @@
 
 %%%   GENERAL SETTINGS   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setbeamertemplate{background}{}
+
+% Activate caption numbering (Figures, Tables)
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
 
 \beamer@centeredfalse
 

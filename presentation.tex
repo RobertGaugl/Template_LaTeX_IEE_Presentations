@@ -18,6 +18,7 @@
 \UseTblrLibrary{booktabs} % Optional, for better lines in tables
 \UseTblrLibrary{siunitx}
 
+
 \usepackage[
   backend      = biber,
   style        = ieee,
@@ -39,7 +40,6 @@
 % \usepackage[ngerman]{babel}
 
 \title[Short Title]{IEE Template}
-% \twolinetitletrue % Activate if title is two lines long
 \subtitle{for \LaTeX~Presentations}
 
 \author{Robert Gaugl}
@@ -240,10 +240,10 @@
     \framesubtitle{Standard Boxes with Title}
 
     \begin{coloredblock}[grey]
-        \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[Color][Optional:~Title][Optional:~Title~Formatting] [Optional:~Alignment (t,c, b)][Optional:~Height~cm] [Optional:~Width~cm]}
+        \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[Color][Optional:~Title][Optional:~Title~Formatting] [Optional:~Alignment (t,c,b)][Optional:~Height~cm] [Optional:~Width~cm]}
     \end{coloredblock}
 
-    \vspace{-1.1cm}
+    \vspace{-1cm}
     \begin{columns}
         \begin{column}{0.49\textwidth}
     
@@ -282,10 +282,10 @@
     \framesubtitle{Standard Boxes without Title}
 
     \begin{coloredblock}[grey]
-        \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[Color][Optional:~Title][Optional:~Title~Formatting] [Optional:~Alignment (t,c, b)][Optional:~Height~cm] [Optional:~Width~cm]}
+        \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[Color][Optional:~Title][Optional:~Title~Formatting] [Optional:~Alignment (t,c,b)][Optional:~Height~cm] [Optional:~Width~cm]}
     \end{coloredblock}
 
-    \vspace{-1.1cm}
+    \vspace{-1cm}
     \begin{columns}
         \begin{column}{0.49\textwidth}
 
@@ -332,10 +332,10 @@
     \framesubtitle{Dark Boxes with Title}
 
     \begin{coloredblock}[grey]
-        \footnotesize\centering\texttt{\textbackslash begin\{coloredblockdark\}[Color][Optional:~Title][Optional:~Title~Formatting] [Optional:~Alignment (t,c, b)][Optional:~Height~cm] [Optional:~Width~cm]}
+        \footnotesize\centering\texttt{\textbackslash begin\{coloredblockdark\}[Color][Optional:~Title][Optional:~Title~Formatting] [Optional:~Alignment (t,c,b)][Optional:~Height~cm] [Optional:~Width~cm]}
     \end{coloredblock}
 
-    \vspace{-1.1cm}
+    \vspace{-1cm}
     \begin{columns}
         \begin{column}{0.49\textwidth}
     
@@ -374,10 +374,10 @@
     \framesubtitle{Dark Boxes without Title}
 
     \begin{coloredblock}[grey]
-        \footnotesize\centering\texttt{\textbackslash begin\{coloredblockdark\}[Color][Optional:~Title][Optional:~Title~Formatting] [Optional:~Alignment (t,c, b)][Optional:~Height~cm] [Optional:~Width~cm]}
+        \footnotesize\centering\texttt{\textbackslash begin\{coloredblockdark\}[Color][Optional:~Title][Optional:~Title~Formatting] [Optional:~Alignment (t,c,b)][Optional:~Height~cm] [Optional:~Width~cm]}
     \end{coloredblock}
 
-    \vspace{-1.1cm}
+    \vspace{-1cm}
     \begin{columns}
         \begin{column}{0.49\textwidth}
 
@@ -420,198 +420,92 @@
     \end{minipage}
 \end{frame}
 
-% \begin{frame}{Boxes}
-%     \framesubtitle{Boxes with Title with Icon on the Left}
+\begin{frame}{Boxes}
+    \framesubtitle{Boxes with Icon and with Title}
 
-%     \begin{coloredblock}[grey]
-%         \footnotesize\centering\texttt{\textbackslash begin\{coloredblockleft\}[Color][Optional:~Title][Optional:~Title~Size] [Optional:~Left~Icon][Optional:~Height~cm][Optional:~Left~Width~cm]}
-        
-%     \end{coloredblock}
+    \begin{coloredblock}[grey]
+        \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[Color][Optional:~Title][Optional:~Title~Size] [Optional:~Icon][Optional:~Side~of~icon (l,r)][Optional:~Alignment (t,c,b)][Optional:~Height~cm][Optional:~Width~Iconblock~cm]}
+    \end{coloredblock}
 
-%     \vspace{-2.1cm}
-%     \begin{columns}
-%         \begin{column}{0.49\textwidth}
+    \vspace{-1cm}
+    \begin{columns}
+        \begin{column}{0.49\textwidth}
 
-%             \begin{coloredblockleft}[blue][Blue Box with Title and Left Icon][][\large\faIcon{bolt}]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[blue][Blue Box with Title and Left Icon][][\textbackslash faIcon\{bolt\}]}\strut
-%             \end{coloredblockleft}
+            \begin{coloredblockicon}[blue][Blue Box with Title and Icon][][\large\faIcon{bolt}]
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[blue][Blue Box with Title and Icon][][\textbackslash faIcon\{bolt\}]}\strut
+            \end{coloredblockicon}
     
-%             \begin{coloredblockleft}[yellow][Yellow Box with Title and Left Icon][][\large\faIcon{bolt}]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[yellow] [Yellow Box with Title and Left Icon][][\textbackslash faIcon\{bolt\}]}\strut
-%             \end{coloredblockleft}
+            \begin{coloredblockicon}[yellow][Yellow Box with Title and Icon][][\large\faIcon{bolt}]
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[yellow] [Yellow Box with Title and Icon][][\textbackslash faIcon\{bolt\}]}\strut
+            \end{coloredblockicon}
 
-%         \end{column}
-%         \begin{column}{0.49\textwidth}
+        \end{column}
+        \begin{column}{0.49\textwidth}
         
-%             \begin{coloredblockleft}[iee][IEE Box with Title and Left Icon][][\large\faIcon{bolt}]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[iee][IEE Box with Title and Left Icon][][\textbackslash faIcon\{bolt\}]}\strut
-%             \end{coloredblockleft}
+            \begin{coloredblockicon}[iee][IEE Box with Title and Icon][][\large\faIcon{bolt}][r]
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[iee][IEE Box with Title and Icon][][\textbackslash faIcon\{bolt\}][r]}\strut
+            \end{coloredblockicon}
     
-%             \begin{coloredblockleft}[green][Green Box with Title and Left Icon][][\large\faIcon{bolt}]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[green] [Green Box with Title and Left Icon][][\textbackslash faIcon\{bolt\}]}\strut
-%             \end{coloredblockleft}
+            \begin{coloredblockicon}[green][Green Box with Title and Icon][][\large\faIcon{bolt}][r]
+                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[green] [Green Box with Title and Icon][][\textbackslash faIcon\{bolt\}][r]}\strut
+            \end{coloredblockicon}
         
-%         \end{column}
-%     \end{columns}
+        \end{column}
+    \end{columns}
 
-% \end{frame}
+\end{frame}
 
-% \begin{frame}{Boxes}
-%     \framesubtitle{Boxes without Title with Icon on the Left}
+\begin{frame}{Boxes}
+    \framesubtitle{Boxes with Icon and without Title}
 
-%     \begin{coloredblock}[grey]
-%         \footnotesize\centering\texttt{\textbackslash begin\{coloredblockleft\}[Color][Optional:~Title][Optional:~Title~Size] [Optional:~Left~Icon][Optional:~Height~cm][Optional:~Left~Width~cm]}
+    \begin{coloredblock}[grey]
+        \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[Color][Optional:~Title][Optional:~Title~Size] [Optional:~Icon][Optional:~Side~of~icon (l,r)][Optional:~Alignment (t,c,b)][Optional:~Height~cm][Optional:~Width~Iconblock~cm]}
+    \end{coloredblock}
         
-%     \end{coloredblock}
 
-%     \vspace{-2.1cm}
-%     \begin{columns}
-%         \begin{column}{0.49\textwidth}
+    \vspace{-1cm}
+    \begin{columns}
+        \begin{column}{0.49\textwidth}
 
-%             \begin{coloredblockleft}[blue][][][\large\faIcon{bolt}][2cm][2cm]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[blue]}\strut
-%             \end{coloredblockleft}
+            \begin{coloredblockicon}[blue][][][\large\faIcon{bolt}][l][2cm][2cm]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockicon\}[blue]}\strut
+            \end{coloredblockicon}
     
-%             \begin{coloredblockleft}[yellow][][][\large\faIcon{bolt}][2cm][2cm]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[yellow]}\strut
-%             \end{coloredblockleft}
+            \begin{coloredblockicon}[yellow][][][\large\faIcon{bolt}][l][2cm][2cm]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockicon\}[yellow]}\strut
+            \end{coloredblockicon}
     
-%             \begin{coloredblockleft}[red][][][\large\faIcon{bolt}][2cm][2cm]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[red]}\strut
-%             \end{coloredblockleft}
+            \begin{coloredblockicon}[red][][][\large\faIcon{bolt}][l][2cm][2cm]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockicon\}[red]}\strut
+            \end{coloredblockicon}
 
-%         \end{column}
-%         \begin{column}{0.49\textwidth}
+        \end{column}
+        \begin{column}{0.49\textwidth}
         
-%             \begin{coloredblockleft}[iee][][][\large\faIcon{bolt}][2cm][2cm]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[iee]}\strut
-%             \end{coloredblockleft}
+            \begin{coloredblockicon}[iee][][][\large\faIcon{bolt}][r][2cm][2cm]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockicon\}[iee]}\strut
+            \end{coloredblockicon}
     
-%             \begin{coloredblockleft}[green][][][\large\faIcon{bolt}][2cm][2cm]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[green]}\strut
-%             \end{coloredblockleft}
+            \begin{coloredblockicon}[green][][][\large\faIcon{bolt}][r][2cm][2cm]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockicon\}[green]}\strut
+            \end{coloredblockicon}
     
-%             \begin{coloredblockleft}[grey][][][\large\faIcon{bolt}][2cm][2cm]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[grey]}\strut
-%             \end{coloredblockleft}
+            \begin{coloredblockicon}[grey][][][\large\faIcon{bolt}][r][2cm][2cm]
+                \footnotesize\texttt{\textbackslash begin\{coloredblockicon\}[grey]}\strut
+            \end{coloredblockicon}
         
-%         \end{column}
-%     \end{columns}
+        \end{column}
+    \end{columns}
 
-%     \centering
-%     \begin{minipage}[t]{0.49\textwidth}
-%         \begin{coloredblockleft}[turquoise][][][\large\faIcon{bolt}][2cm][2cm]
-%             \vspace{0.2cm}
-%             \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[turquoise]}\strut
-%         \end{coloredblockleft}
+    \centering
+    \begin{minipage}[t]{0.49\textwidth}
+        \begin{coloredblockicon}[turquoise][][][\large\faIcon{bolt}][l][2cm][2cm]
+            \vspace{0.2cm}
+            \footnotesize\texttt{\textbackslash begin\{coloredblockicon\}[turquoise]}\strut
+        \end{coloredblockicon}
         
-%     \end{minipage}
-% \end{frame}
-
-% \begin{frame}{Boxes}
-%     \framesubtitle{Boxes with Title with Icon on the Right}
-
-%     \begin{coloredblock}[grey]
-%         \footnotesize\centering\texttt{\textbackslash begin\{coloredblockright\}[Color][Optional:~Title][Optional:~Title~Size] [Optional:~Left~Icon][Optional:~Height~cm][Optional:~Left~Width~cm]}
-%     \end{coloredblock}
-
-%     \vspace{-2.1cm}
-%     \begin{columns}
-%         \begin{column}{0.49\textwidth}
-
-%             \begin{coloredblockright}[blue][Blue Box with Title and Right Icon][][\large\faIcon{bolt}]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockright\}[blue][Blue Box with Title and Right Icon][][\textbackslash faIcon\{bolt\}]}\strut
-%             \end{coloredblockright}
-    
-%             \begin{coloredblockright}[yellow][Yellow Box with Title and Right Icon][][\large\faIcon{bolt}]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockright\}[yellow] [Yellow Box with Title and Right Icon][][\textbackslash faIcon\{bolt\}]}\strut
-%             \end{coloredblockright}
-
-%         \end{column}
-%         \begin{column}{0.49\textwidth}
-        
-%             \begin{coloredblockright}[iee][IEE Box with Title and Right Icon][][\large\faIcon{bolt}]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockright\}[iee][IEE Box with Title and Right Icon][][\textbackslash faIcon\{bolt\}]}\strut
-%             \end{coloredblockright}
-    
-%             \begin{coloredblockright}[green][Green Box with Title and Right Icon][][\large\faIcon{bolt}]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockright\}[green] [Green Box with Title and Right Icon][][\textbackslash faIcon\{bolt\}]}\strut
-%             \end{coloredblockright}
-        
-%         \end{column}
-%     \end{columns}
-% \end{frame}
-
-% \begin{frame}{Boxes}
-%     \framesubtitle{Boxes without Title with Icon on the Right}
-
-%     \begin{coloredblock}[grey]
-%         \footnotesize\centering\texttt{\textbackslash begin\{coloredblockright\}[Color][Optional:~Title][Optional:~Title~Size] [Optional:~Left~Icon][Optional:~Height~cm][Optional:~Left~Width~cm]}
-%     \end{coloredblock}
-
-%     \vspace{-2.1cm}
-%     \begin{columns}
-%         \begin{column}{0.49\textwidth}
-
-%             \begin{coloredblockright}[blue][][][\large\faIcon{bolt}][2cm][2cm]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockright\}[blue]}\strut
-%             \end{coloredblockright}
-    
-%             \begin{coloredblockright}[yellow][][][\large\faIcon{bolt}][2cm][2cm]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockright\}[yellow]}\strut
-%             \end{coloredblockright}
-    
-%             \begin{coloredblockright}[red][][][\large\faIcon{bolt}][2cm][2cm]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockright\}[red]}\strut
-%             \end{coloredblockright}
-
-%         \end{column}
-%         \begin{column}{0.49\textwidth}
-        
-%             \begin{coloredblockright}[iee][][][\large\faIcon{bolt}][2cm][2cm]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockright\}[iee]}\strut
-%             \end{coloredblockright}
-    
-%             \begin{coloredblockright}[green][][][\large\faIcon{bolt}][2cm][2cm]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockright\}[green]}\strut
-%             \end{coloredblockright}
-    
-%             \begin{coloredblockright}[grey][][][\large\faIcon{bolt}][2cm][2cm]
-%                 \vspace{0.2cm}
-%                 \footnotesize\texttt{\textbackslash begin\{coloredblockright\}[grey]}\strut
-%             \end{coloredblockright}
-        
-%         \end{column}
-%     \end{columns}
-
-%     \centering
-%     \begin{minipage}[t]{0.49\textwidth}
-%         \begin{coloredblockright}[turquoise][][][\large\faIcon{bolt}][2cm][2cm]
-%             \vspace{0.2cm}
-%             \footnotesize\texttt{\textbackslash begin\{coloredblockleft\}[turquoise]}\strut
-%         \end{coloredblockright}
-        
-%     \end{minipage}
-% \end{frame}
+    \end{minipage}
+\end{frame}
 
 
 %% -------------------------------------------------------------------
@@ -685,12 +579,12 @@
 \begin{frame}{Overlay}
     \framesubtitle{Reveal your content step-by-step}
 
-    \begin{coloredblock}[yellow]%[][][\large\faIcon{exclamation}]
+    \begin{coloredblockicon}[yellow][][][\large\faIcon{exclamation}]
         \begin{itemize}
             \item \footnotesize Enhance your presentation by \textbf{revealing} content \textbf{step by step} to \textbf{guide audience attention}.
             \item \footnotesize \textbf{No need to duplicate slides} — \textbf{overlays} handle it, and the slide number stays the same.
         \end{itemize}
-    \end{coloredblock}
+    \end{coloredblockicon}
 
     \pause
     \vspace{-0.5cm}
@@ -735,83 +629,83 @@
     %\agenda[sections=all]{Agenda}{Overview of lecture structure} % With subtitle and all sections highlighted
 \end{frame}
 
-% \begin{frame}{Plots}
-%     \framesubtitle{Visualize your Numbers}
+\begin{frame}{Plots}
+    \framesubtitle{Visualize your Numbers}
 
-%     \vspace{-1.1cm}
-%     \begin{columns}
-%         \begin{column}{0.49\textwidth}
-%             \begin{coloredblockleft}[blue][][][\large\faIcon{chart-line}][2.3cm][2.3cm]
-%                 \footnotesize
-%                 Set \textbf{axis line style} to \textbf{black} to add a black \textbf{border} around the plot area
-%             \end{coloredblockleft}
-%             \vspace{-0.1cm}
-%             \begin{coloredblockleft}[yellow][][][\large\faIcon{list-ol}][2.3cm][2.3cm]
-%                 \footnotesize
-%                 Include \textbf{axis labels} with descriptions and \textbf{units} and include thousand separator
-%             \end{coloredblockleft}
-%             \vspace{-0.1cm}
-%             \begin{coloredblockleft}[grey][][][\large\faIcon[regular]{square}][2.3cm][2.3cm]
-%                 \footnotesize
-%                 Add a \textbf{black border} around the \textbf{sections} of the bar chart
-%             \end{coloredblockleft}
-%             \vspace{-0.1cm}
-%             \begin{coloredblockleft}[green][][][\large\faIcon{chart-bar}][2.3cm][2.3cm]
-%                 \footnotesize
-%                 Include a \textbf{legend} to explain the chart's data categories
-%             \end{coloredblockleft}
-%             \vspace{-0.1cm}
-%             \begin{coloredblock}[iee][\centering \faIcon{star}~~~Optional Improvements][\footnotesize][3.9cm]
-%                     \begin{itemize}
-%                         \item \footnotesize Add grey grid lines to the background
-%                         \item \footnotesize Include caption in italics at the bottom, complete with figure numbering
-%                     \end{itemize}
-%             \end{coloredblock}
-%         \end{column}
-%         \begin{column}{0.49\textwidth}
-%     % Left side of the page
-%             \vspace{1cm}
-%             \tiny
-%             \begin{overprint}
-%                 \onslide<1>\begin{figure}[htbp]
-%                     % Figure generated seperately for faster compilation time.
-%                     \includegraphics[width=\linewidth]{figures/installed_capacity_2022-2025.pdf}
-%                     \caption{\centering Installed capacity per power plant type in Wakanda from 2022-2025.}
-%                     \label{fig:installed_capacity}
-%             \end{figure}
+    \vspace{-1cm}
+    \begin{columns}
+        \begin{column}{0.49\textwidth}
+            \begin{coloredblockicon}[blue][][][\large\faIcon{chart-line}][l][2.3cm][2.3cm]
+                \footnotesize
+                Set \textbf{axis line style} to \textbf{black} to add a black \textbf{border} around the plot area
+            \end{coloredblockicon}
+            \vspace{-0.1cm}
+            \begin{coloredblockicon}[yellow][][][\large\faIcon{list-ol}][l][2.3cm][2.3cm]
+                \footnotesize
+                Include \textbf{axis labels} with descriptions and \textbf{units} and include thousand separator
+            \end{coloredblockicon}
+            \vspace{-0.1cm}
+            \begin{coloredblockicon}[grey][][][\large\faIcon[regular]{square}][l][2.3cm][2.3cm]
+                \footnotesize
+                Add a \textbf{black border} around the \textbf{sections} of the bar chart
+            \end{coloredblockicon}
+            \vspace{-0.1cm}
+            \begin{coloredblockicon}[green][][][\large\faIcon{chart-bar}][l][2.3cm][2.3cm]
+                \footnotesize
+                Include a \textbf{legend} to explain the chart's data categories
+            \end{coloredblockicon}
+            \vspace{-0.1cm}
+            \begin{coloredblock}[iee][\centering \faIcon{star}~~~Optional Improvements][\footnotesize][3.9cm]
+                    \begin{itemize}
+                        \item \footnotesize Add grey grid lines to the background
+                        \item \footnotesize Include caption in italics at the bottom, complete with figure numbering
+                    \end{itemize}
+            \end{coloredblock}
+        \end{column}
+        \begin{column}{0.49\textwidth}
+    % Left side of the page
+            \vspace{1cm}
+            \tiny
+            \begin{overprint}
+                \onslide<1>\begin{figure}[htbp]
+                    % Figure generated seperately for faster compilation time.
+                    \includegraphics[width=\linewidth]{figures/installed_capacity_2022-2025.pdf}
+                    \caption{\centering Installed capacity per power plant type in Wakanda from 2022-2025.}
+                    \label{fig:installed_capacity}
+            \end{figure}
     
-%             \onslide<2>\begin{figure}[htbp]
-%                 % Figure generated seperately for faster compilation time. 
-%                  \includegraphics[width=\linewidth]{figures/demand_rp.pdf}  % path to your PDF file
-%                 \caption{\centering Demand per representative periode in Wakanda.}
-%                 \label{fig:demand}
-%             \end{figure}
+            \onslide<2>\begin{figure}[htbp]
+                % Figure generated seperately for faster compilation time. 
+                 \includegraphics[width=\linewidth]{figures/demand_rp.pdf}  % path to your PDF file
+                \caption{\centering Demand per representative periode in Wakanda.}
+                \label{fig:demand}
+            \end{figure}
      
-%             \onslide<3>\vspace{-1cm}\begin{figure}[htbp]
-%                 % Figure generated seperately for faster compilation time. 
-%                 \includegraphics[width=\linewidth]
-%                 {figures/installed_capacity_2023_percent.pdf}  % path to your PDF file
-%                 \caption{\centering Shares of installed capacity per power plant type in Wakanda 2023.}
-%                 \label{fig:installed_capacity_2023}
-%             \end{figure}
-%             \end{overprint}
-%         \end{column}
-%     \end{columns}
+            \onslide<3>\vspace{-1cm}\begin{figure}[htbp]
+                % Figure generated seperately for faster compilation time. 
+                \includegraphics[width=\linewidth]
+                {figures/installed_capacity_2023_percent.pdf}  % path to your PDF file
+                \caption{\centering Shares of installed capacity per power plant type in Wakanda 2023.}
+                \label{fig:installed_capacity_2023}
+            \end{figure}
+            \end{overprint}
+        \end{column}
+    \end{columns}
 
-%     \addsource{Source: Energy Report, Statistics Wakanda, 2023}
-% \end{frame}
+    \addsource{Source: Energy Report, Statistics Wakanda, 2023}
+\end{frame}
 
 
-% \begin{frame}{Plots}
-%     \framesubtitle{Colors for Power Plants}
+\begin{frame}{Plots}
+    \framesubtitle{Colors for Power Plants}
 
-%     \begin{table}[htbp]
-%         \scalebox{0.94}{
-%             \input{tables/power_plant_colors}
-%         }
-%     \end{table}
+    \begin{table}[htbp]
+        \scalebox{0.94}{
+            \input{tables/power_plant_colors}
+        }
+    \end{table}
 
-% \end{frame}
+\end{frame}
 
 
 %% -------------------------------------------------------------------
@@ -1376,45 +1270,45 @@
 \end{frame}
 
 
-% \begin{frame}{Classification}
-%     \framesubtitle{Definition}
-%     \small\centering\textbf{Classification} is a \textbf{machine learning technique} used to \textbf{predict group membership} for data instances.
+\begin{frame}{Classification}
+    \framesubtitle{Definition}
+    \small\centering\textbf{Classification} is a \textbf{machine learning technique} used to \textbf{predict group membership} for data instances.
 
-%     \vspace{-0.3cm}
-%     \begin{coloredblockleft}[yellow][Training Data][\footnotesize][\faIcon{table}]
-%         \vspace{0.2cm}
-%         \begin{tugitemize}
-%             \item \scriptsize Given a collection of records (training set), each record contains a set of attributes, with one attribute being the class.
-%             \item \scriptsize Each sample is characterized by a tuple (X, y), where:
-%             \item \scriptsize X: attribute set (predictor, independent variable, input)
-%             \item \scriptsize y: class label (response, dependent variable, output)
-%         \end{tugitemize}
-%     \end{coloredblockleft}
+    \vspace{.6cm}
+    \begin{coloredblockicon}[yellow][Training Data][\footnotesize][\faIcon{table}]
+        \vspace{.3cm}
+        \begin{tugitemize}
+            \item \scriptsize Given a collection of records (training set), each record contains a set of attributes, with one attribute being the class.
+            \item \scriptsize Each sample is characterized by a tuple (X, y), where:
+            \item \scriptsize X: attribute set (predictor, independent variable, input)
+            \item \scriptsize y: class label (response, dependent variable, output)
+        \end{tugitemize}
+    \end{coloredblockicon}
 
-%     \vspace{0.1cm}
+    \vspace{0.1cm}
 
-%     \begin{coloredblockleft}[green][Task][\footnotesize][\faIcon{tasks}]
-%         \vspace{0.2cm}
-%         \begin{tugitemize}
-%             \item \scriptsize Learn a model that maps each attribute set X to one of the predefined class labels y.
-%             \item \scriptsize Find a model for the class attribute as a function of the values of other attributes.
-%         \end{tugitemize}
-%     \end{coloredblockleft}
+    \begin{coloredblockicon}[green][Task][\footnotesize][\faIcon{tasks}]
+        \vspace{.3cm}
+        \begin{tugitemize}
+            \item \scriptsize Learn a model that maps each attribute set X to one of the predefined class labels y.
+            \item \scriptsize Find a model for the class attribute as a function of the values of other attributes.
+        \end{tugitemize}
+    \end{coloredblockicon}
 
-%     \vspace{0.1cm}
+    \vspace{0.1cm}
 
-%     \begin{coloredblockleft}[blue][Goal][\footnotesize][\faIcon{bullseye}]
-%         \vspace{0.2cm}
-%         \begin{tugitemize}
-%             \item \scriptsize Assign previously unseen records to a class as accurately as possible.
-%             \item \scriptsize Use a test set to determine the accuracy of the model.
-%             \item \scriptsize Typically, the dataset is divided into training and test sets:
-%             \item \scriptsize Training set: Used to build the model
-%             \item \scriptsize Test set: Used to validate the model
-%         \end{tugitemize}
-%     \end{coloredblockleft}
+    \begin{coloredblockicon}[blue][Goal][\footnotesize][\faIcon{bullseye}]
+        \vspace{.3cm}
+        \begin{tugitemize}
+            \item \scriptsize Assign previously unseen records to a class as accurately as possible.
+            \item \scriptsize Use a test set to determine the accuracy of the model.
+            \item \scriptsize Typically, the dataset is divided into training and test sets:
+            \item \scriptsize Training set: Used to build the model
+            \item \scriptsize Test set: Used to validate the model
+        \end{tugitemize}
+    \end{coloredblockicon}
 
-% \end{frame}
+\end{frame}
 
 
 \begin{frame}{Classification}
@@ -1424,15 +1318,15 @@
     \begin{columns}
         \begin{column}{0.32\textwidth}
         
-            \begin{coloredblock}[yellow][\faIcon[regular]{smile-beam}~~~Sentiment Analysis][\footnotesize\centering][][5.8cm]
+            \begin{coloredblock}[yellow][\faIcon[regular]{smile-beam}~~~Sentiment Analysis][\footnotesize\centering][][6.2cm]
                 \begin{itemize}
                     \item \scriptsize Task: Determine the sentiment of a text (e.g., reviews, social media posts).
                     \item \scriptsize Attributes: Text data (words, phrases).
                     \item \scriptsize Class Labels: "Pos," "Neg," or "Neutr"
                 \end{itemize}
             \end{coloredblock}
-            \vspace{0.3cm}
-            \begin{coloredblock}[red][\faIcon{image}~~~Image Recognition][\footnotesize\centering][][5.8cm]
+            \vspace{0.1cm}
+            \begin{coloredblock}[red][\faIcon{image}~~~Image Recognition][\footnotesize\centering][][6.2cm]
                     \begin{itemize}
                         \item \scriptsize Task: Identify objects or people in images.
                         \item \scriptsize Attributes: Pixel values, image features, etc.
@@ -1442,15 +1336,15 @@
             
         \end{column}
         \begin{column}{0.32\textwidth}
-            \begin{coloredblock}[blue][\faIcon{stethoscope}~~~Disease Diagnosis][\footnotesize\centering][][5.8cm]
+            \begin{coloredblock}[blue][\faIcon{stethoscope}~~~Disease Diagnosis][\footnotesize\centering][][6.2cm]
                 \begin{itemize}
                     \item \scriptsize Task: Diagnose whether a patient has a particular disease.
                     \item \scriptsize Attributes: Medical history, test results, symptoms.
                     \item \scriptsize Class Labels: "Disease" / "No Disease"
                 \end{itemize}
             \end{coloredblock}
-            \vspace{0.3cm}
-            \begin{coloredblock}[turquoise][\faIcon{comments}~~~Language Detection][\footnotesize\centering][][5.8cm]
+            \vspace{0.1cm}
+            \begin{coloredblock}[turquoise][\faIcon{comments}~~~Language Detection][\footnotesize\centering][][6.2cm]
                 \begin{itemize}
                     \item \scriptsize Task: Identify the language of a given text.
                     \item \scriptsize Attributes: Text data (words, characters).
@@ -1461,15 +1355,15 @@
         \end{column}
         \begin{column}{0.32\textwidth}
         
-        \begin{coloredblock}[green][\faIcon{running}~~~Activity Recognition][\footnotesize\centering][][5.8cm]
+        \begin{coloredblock}[green][\faIcon{running}~~~Activity Recognition][\footnotesize\centering][][6.2cm]
             \begin{itemize}
                 \item \scriptsize Task: Determine the activity being performed based on sensor data.
                 \item \scriptsize Attributes: Sensor readings (e.g., from a smartphone or wearable device).
                 \item \scriptsize Class Labels: “Biking," "Running," etc.
             \end{itemize}
         \end{coloredblock}
-        \vspace{0.3cm}
-        \begin{coloredblock}[grey][\faIcon{envelope}~~~E-Mail Spam Detection][\footnotesize\centering][][5.8cm]
+        \vspace{0.1cm}
+        \begin{coloredblock}[grey][\faIcon{envelope}~~~E-Mail Spam Detection][\footnotesize\centering][][6.2cm]
             \begin{itemize}
                 \item \scriptsize Task: Classify as "spam" or "not spam."
                 \item \scriptsize Attributes: Email content, sender, attachements etc.
