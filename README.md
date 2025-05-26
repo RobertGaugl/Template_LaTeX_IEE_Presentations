@@ -30,6 +30,8 @@ The template includes:
 - Create consistent title and closing slides with `\maketitleslide` and `\closingslide`. These commands automatically adapt to the selected language.
 
 ## Release Notes
+- **2025-05-26:**
+   - Customizable agenda background picture and source text
 - **2025-05-25:**
    - Introduce `\begin{coloredblockicon}` (which replaces `\begin{coloredblockleft}` and `\begin{coloredblockright}`)
    - Include numbering in figures and table captions.

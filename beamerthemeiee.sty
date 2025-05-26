@@ -752,16 +752,15 @@
 
 
 %%%   AGENDA   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Define \agenda command
-\newcommand{\agenda}[3][currentsection]{%
-    \frametitle{#2}%
+\NewDocumentCommand{\agenda}{O{currentsection} O{Agenda} O{} O{beamerthemeiee/estee-janssens-aQfhbxailCs-unsplash.jpg} O{Source: Photo by \href{https://unsplash.com/@esteejanssens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash}{Estée Janssens} on \href{https://unsplash.com/photos/white-ceramic-mug-with-coffee-on-top-of-a-planner-aQfhbxailCs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash}{Unsplash}}}{%
+    \frametitle{#2}
     \framesubtitle{#3}%
-
-    \insertfadedpicture{15.98cm}{beamerthemeiee/estee-janssens-aQfhbxailCs-unsplash.jpg}{Source: Photo by \href{https://unsplash.com/@esteejanssens?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash}{Estée Janssens} on \href{https://unsplash.com/photos/white-ceramic-mug-with-coffee-on-top-of-a-planner-aQfhbxailCs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash}{Unsplash}
-}%
-
+  
+    \insertfadedpicture{15.98cm}{#4}{#5}%
+  
     \tableofcontents[#1]%
 }
+
 
 
 %%%   CLOSING SLIDE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
