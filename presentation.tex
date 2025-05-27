@@ -426,7 +426,7 @@
     \framesubtitle{Boxes with Icon and with Title}
 
     \begin{coloredblock}[grey]
-        \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[Color][Optional:~Title][Optional:~Title~Size] [Optional:~Icon][Optional:~Side~of~icon (l,r)][Optional:~Alignment (t,c,b)][Optional:~Height~cm][Optional:~Width~Iconblock~cm]}
+        \footnotesize\centering\texttt{\textbackslash begin\{coloredblockicon\}[Color][Optional:~Title][Optional:~Title~Size] [Optional:~Icon][Optional:~Side~of~icon (l,r)][Optional:~Alignment (t,c,b)][Optional:~Height~cm][Optional:~Width~Iconblock~cm]}
     \end{coloredblock}
 
     \vspace{-1cm}
@@ -434,22 +434,22 @@
         \begin{column}{0.49\textwidth}
 
             \begin{coloredblockicon}[blue][Blue Box with Title and Icon][][\large\faIcon{bolt}]
-                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[blue][Blue Box with Title and Icon][][\textbackslash faIcon\{bolt\}]}\strut
+                \footnotesize\texttt{\textbackslash begin\{coloredblockicon\}[blue][Blue Box with Title and Icon][][\textbackslash faIcon\{bolt\}]}\strut
             \end{coloredblockicon}
     
             \begin{coloredblockicon}[yellow][Yellow Box with Title and Icon][][\large\faIcon{bolt}]
-                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[yellow] [Yellow Box with Title and Icon][][\textbackslash faIcon\{bolt\}]}\strut
+                \footnotesize\texttt{\textbackslash begin\{coloredblockicon\}[yellow] [Yellow Box with Title and Icon][][\textbackslash faIcon\{bolt\}]}\strut
             \end{coloredblockicon}
 
         \end{column}
         \begin{column}{0.49\textwidth}
         
             \begin{coloredblockicon}[iee][IEE Box with Title and Icon][][\large\faIcon{bolt}][r]
-                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[iee][IEE Box with Title and Icon][][\textbackslash faIcon\{bolt\}][r]}\strut
+                \footnotesize\texttt{\textbackslash begin\{coloredblockicon\}[iee][IEE Box with Title and Icon][][\textbackslash faIcon\{bolt\}][r]}\strut
             \end{coloredblockicon}
     
             \begin{coloredblockicon}[green][Green Box with Title and Icon][][\large\faIcon{bolt}][r]
-                \footnotesize\texttt{\textbackslash begin\{coloredblock\}[green] [Green Box with Title and Icon][][\textbackslash faIcon\{bolt\}][r]}\strut
+                \footnotesize\texttt{\textbackslash begin\{coloredblockicon\}[green] [Green Box with Title and Icon][][\textbackslash faIcon\{bolt\}][r]}\strut
             \end{coloredblockicon}
         
         \end{column}
@@ -461,7 +461,7 @@
     \framesubtitle{Boxes with Icon and without Title}
 
     \begin{coloredblock}[grey]
-        \footnotesize\centering\texttt{\textbackslash begin\{coloredblock\}[Color][Optional:~Title][Optional:~Title~Size] [Optional:~Icon][Optional:~Side~of~icon (l,r)][Optional:~Alignment (t,c,b)][Optional:~Height~cm][Optional:~Width~Iconblock~cm]}
+        \footnotesize\centering\texttt{\textbackslash begin\{coloredblockicon\}[Color][Optional:~Title][Optional:~Title~Size] [Optional:~Icon][Optional:~Side~of~icon (l,r)][Optional:~Alignment (t,c,b)][Optional:~Height~cm][Optional:~Width~Iconblock~cm]}
     \end{coloredblock}
         
 
@@ -1171,6 +1171,43 @@
 \end{frame}
 
 
+\begin{frame}{Decarbonization}
+    \framesubtitle{Energy Sectors}
+
+    \vspace{-.9cm}
+    \begin{columns}
+        \begin{column}{0.587\textwidth}
+            \begin{coloredblock}[turquoise][][][c][13.7cm]
+                \includegraphics[width=\linewidth]{figures/Path_net-zero.png}
+            \end{coloredblock}
+        \end{column}
+        \begin{column}{0.39\textwidth}
+            \begin{coloredblockicon}[grey][][][\large\faIcon{thermometer-half}][l][c][3.7cm]
+                \small The European Commission wants to achieve \textbf{climate neutrality until 2050}
+            \end{coloredblockicon}
+            \begin{coloredblockicon}[grey][][][\large\faIcon{industry}][l][c][5.7cm]
+                \small Affected sectors:
+                \begin{tugitemize}
+                    \item \footnotesize Electric power sector
+                    \item \footnotesize Transport and mobility
+                    \item \footnotesize Heat
+                    \item \footnotesize Gas (hydrogen), etc.
+                \end{tugitemize}
+            \end{coloredblockicon}
+            \begin{coloredblockicon}[grey][][][\large\faIcon{euro-sign}][l][c][3.7cm]
+                \small \textbf{Large-scale investments} in (energy) infrastructure required
+            \end{coloredblockicon}
+        \end{column}
+    \end{columns}
+
+    \begin{coloredblock}[yellow][][][c][1.5cm]
+        \centering \textbf{Simulation/optimization models} serve as \textbf{decision support tool}.
+    \end{coloredblock}
+
+    \addsource{Source: SWP Berlin}
+
+\end{frame}
+
 \begin{frame}{Examined Main Scenarios}
     \framesubtitle{Analysis of Flexibility Requirements}
 
@@ -1411,6 +1448,91 @@
 
 \end{frame}
 
+
+\begin{frame}{Pipeline Gas Transmission}
+    \framesubtitle{Framework for Piecewise Linearization}
+
+    \vspace{-.9cm}
+    \begin{columns}
+        \begin{column}{.39\textwidth}
+            \begin{coloredblock}[yellow][][][c][3.5cm]
+                \begin{center}
+                    \textbf{General gas glow equation}
+                    \vspace{.3cm}\par
+                    \footnotesize$f_{k,l}|f_{k,l}|=R_l^G(p_{k,m}^2-p_{k,n}^2)~~\forall k,l(m,n)$
+                \end{center}
+            \end{coloredblock}
+
+            \begin{coloredblock}[yellow][][][c][3.5cm]
+                \begin{center}
+                    \textbf{Linepack}
+                    \vspace{.3cm}\par
+                    \footnotesize$lp_{k,l}=LP_l\frac{p_{k,m}+p_{k,m}}{2}~~\forall k,l(m,n)$
+                \end{center}
+            \end{coloredblock}
+
+            \begin{coloredblock}[yellow][][][c][3.5cm]
+                \begin{center}
+                    \textbf{Average gas flow}
+                    \vspace{.3cm}\par
+                    \footnotesize$f_{k,l}=LP_l\frac{f_{k,l}^{in}+f_{k,l}^{out}}{2}~~\forall k,l(m,n)$
+                \end{center}
+            \end{coloredblock}
+
+            \begin{coloredblock}[yellow][][][c][3.5cm]
+                \begin{center}
+                    \textbf{Inventory constraint}
+                    \vspace{.3cm}\par
+                    \footnotesize$lp_{k,l}=lp_{k-1,l}+f_{k,l}^{in}-f_{k,l}^{out}~~\forall k,l(m,n)$
+                \end{center}
+            \end{coloredblock}
+        \end{column}
+        \begin{column}{.587\textwidth}
+            \begin{coloredblock}[grey]
+                \begin{center}
+                    \textbf{INC \& SOS2} linearizations are \textbf{tight \& compact}.\\
+                    \textbf{Their union is not!}
+                \end{center}
+            \end{coloredblock}
+            \vspace{.3cm}
+            \begin{minipage}[t]{.6\textwidth}
+                \includegraphics[width=\textwidth]{figures/Gasflow.png}
+            \end{minipage}
+            \hfill
+            \begin{minipage}[b]{.37\textwidth}
+                \begin{coloredblock}[grey]
+                    \tiny
+                    \textbf{Indizes}\\[.2cm]
+                    \begin{tabular}{@{}p{1.5cm} l@{}}
+                        $k$ & Time step \\
+                        $m,n$ & Gas nodes \\
+                        $l(m,n)$ & Pipeline connecting $m,n$ \\
+                    \end{tabular}
+                    
+                    \vspace{0.5cm}
+                    
+                    \textbf{Variables}\\[0.2cm]
+                    \begin{tabular}{@{}p{1.5cm} l@{}}
+                        $f_{k,l}$ & Average gas flow \\
+                        $p_{k,m}$ & Nodal gas pressure \\
+                        $f_{k,l}^{in},f_{k,l}^{out}$ & In and outflowing gas \\
+                        $lp_{k,l}$ & Linepack \\
+                    \end{tabular}
+                    
+                    \vspace{0.5cm}
+                    
+                    \textbf{Parameter}\\[0.2cm]
+                    \begin{tabular}{@{}p{1.5cm} l@{}}
+                        $R_{l,G}$ & Pipeline characteristics \\
+                        $LP_l$ & Linepack characteristics \\
+                    \end{tabular}
+                \end{coloredblock}
+            \end{minipage}
+        \end{column}
+    \end{columns}
+
+    \addsource{T. Klatzer, U. Bachhiesl, S. Wogrin, A. Tomasgard, „Ramping up the hydrogen sector: An energy system modeling framework“, Applied Energy 2024, doi: \href{https://doi.org/10.1016/j.apenergy.2023.122264}{10.1016/j.apenergy.2023.122264}}
+\end{frame}
 
 %% -------------------------------------------------------------------
 %% Closing Slide
