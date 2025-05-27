@@ -1101,46 +1101,70 @@
     \end{minipage}
     \hfill
     \begin{minipage}[t]{0.78\textwidth}
-        \begin{coloredblock}[blue][][][][2.35cm][][0ex][0ex]
-            \vspace{0.35cm}
+        \begin{coloredblock}[blue][][][c][2.35cm][][0ex][0ex]
             \begin{center}
-                \small$\min \sum_{g,h} c_{g}^{op} \cdot p_g^{h} + \sum_{g} x_g \cdot (c_{g}^{Inv,MW} + c_{g}^{Inv,MWh} \cdot E2P_g)$
+                \footnotesize$\min \sum_{g,h} c_{g}^{op} \cdot p_g^{h} + \sum_{g} x_g \cdot (c_{g}^{Inv,MW} + c_{g}^{Inv,MWh} \cdot E2P_g)$
             \end{center}
         \end{coloredblock}
         \vspace{-0.55cm}
-        \begin{coloredblock}[blue][][][][2.35cm][][0ex][0ex]
-            \vspace{0.35cm}
-            \begin{center}
-                \small$\sum_{g} p_{gz(g,z),h} - \sum_{g} p_{cs(g,z),h} - \sum_{z \neq y} exp_{z,y,h} + \sum_{z \neq y} imp{z,y,h} = dem_{z,h}$
-            \end{center}
+        \begin{coloredblock}[blue][][][c][2.35cm][][0ex][0ex]
+            \begin{minipage}[t]{.89\textwidth}
+                \begin{center}
+                    \footnotesize$\sum_{g} p_{gz(g,z),h} - \sum_{g} p_{cs(g,z),h} - \sum_{z \neq y} exp_{z,y,h} + \sum_{z \neq y} imp{z,y,h} = dem_{z,h}$
+                \end{center}
+            \end{minipage}
+            \hfill
+            \begin{minipage}[t]{.1\textwidth}
+                \footnotesize $\forall z,y,h$
+            \end{minipage}
         \end{coloredblock}
         \vspace{-0.55cm}
-        \begin{coloredblock}[blue][][][][2.35cm][][0ex][0ex]
-            \vspace{0.35cm}
-            \begin{center}
-                \small$exp_{z,y,h} \leq NTC_{z,y} \cdot bn_{z,y,h}$
-            \end{center}
+        \begin{coloredblock}[blue][][][c][2.35cm][][0ex][0ex]
+            \begin{minipage}[t]{.89\textwidth}
+                \begin{center}
+                    \footnotesize$exp_{z,y,h} \leq NTC_{z,y} \cdot bn_{z,y,h}$
+                \end{center}
+            \end{minipage}
+            \hfill
+            \begin{minipage}[t]{.1\textwidth}
+                \footnotesize $\forall z,y,h$
+            \end{minipage}
         \end{coloredblock}
         \vspace{-0.55cm}
-        \begin{coloredblock}[blue][][][][2.35cm][][0ex][0ex]
-            \vspace{0.35cm}
-            \begin{center}
-                \small$imp_{z,y,h} \leq NTC_{y,z} \cdot (1-bn_{z,y,h})$
-            \end{center}
+        \begin{coloredblock}[blue][][][c][2.35cm][][0ex][0ex]
+            \begin{minipage}[t]{.89\textwidth}
+                \begin{center}
+                    \footnotesize$imp_{z,y,h} \leq NTC_{y,z} \cdot (1-bn_{z,y,h})$
+                \end{center}
+            \end{minipage}
+            \hfill
+            \begin{minipage}[t]{.1\textwidth}
+                \footnotesize $\forall z,y,h$
+            \end{minipage}
         \end{coloredblock}
         \vspace{-0.55cm}
-        \begin{coloredblock}[blue][][][][2.35cm][][0ex][0ex]
-            \vspace{0.35cm}
-            \begin{center}
-                \small$exp_{z,y,h} = imp_{y,z,h}$
-            \end{center}
+        \begin{coloredblock}[blue][][][c][2.35cm][][0ex][0ex]
+            \begin{minipage}[t]{.89\textwidth}
+                \begin{center}
+                    \footnotesize$exp_{z,y,h} = imp_{y,z,h}$
+                \end{center}
+            \end{minipage}
+            \hfill
+            \begin{minipage}[t]{.1\textwidth}
+                \footnotesize $\forall z,y,h$
+            \end{minipage}
         \end{coloredblock}
         \vspace{-0.55cm}
-        \begin{coloredblock}[blue][][][][2.35cm][][0ex][0ex]
-            \vspace{0.35cm}
-            \begin{center}
-                \small$\underline{p_g} \leq p_{g,h} \leq \overline{p_g}$
-            \end{center}
+        \begin{coloredblock}[blue][][][c][2.35cm][][0ex][0ex]
+            \begin{minipage}[t]{.89\textwidth}
+                \begin{center}
+                    \footnotesize$\underline{p_g} \leq p_{g,h} \leq \overline{p_g}$
+                \end{center}
+            \end{minipage}
+            \hfill
+            \begin{minipage}[t]{.1\textwidth}
+                \footnotesize $\forall g,h$
+            \end{minipage}
         \end{coloredblock}
     \end{minipage}
     
