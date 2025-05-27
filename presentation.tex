@@ -211,8 +211,8 @@
 
     \begin{coloredblock}[yellow]
         \begin{itemize}
-            \item Instead of using lists or enumerations, consider organizing your content into distinct groups for better structure
-            \item Boxes are an excellent tool to enhance visual clarity and emphasize group distinctions
+            \item \textbf{Instead} of using \textbf{lists} or \textbf{enumerations}, consider \textbf{organizing} your \textbf{content} into \textbf{distinct groups} for better structure
+            \item \textbf{Boxes} are an \textbf{excellent tool} to enhance \textbf{visual clarity} and emphasize group distinctions
         \end{itemize}
     \end{coloredblock}
 
@@ -1276,37 +1276,39 @@
     \framesubtitle{Definition}
     \small\centering\textbf{Classification} is a \textbf{machine learning technique} used to \textbf{predict group membership} for data instances.
 
-    \vspace{.6cm}
+    \vspace{.3cm}
     \begin{coloredblockicon}[yellow][Training Data][\footnotesize][\faIcon{table}]
         \vspace{.3cm}
         \begin{tugitemize}
-            \item \scriptsize Given a collection of records (training set), each record contains a set of attributes, with one attribute being the class.
-            \item \scriptsize Each sample is characterized by a tuple (X, y), where:
-            \item \scriptsize X: attribute set (predictor, independent variable, input)
-            \item \scriptsize y: class label (response, dependent variable, output)
+            \item \scriptsize Given a collection of \textbf{records (training set)}, each record contains a set of \textbf{attributes}, with one attribute being the \textbf{class}.
+            \item \scriptsize Each sample is characterized by a \textbf{tuple (X, y)}, where:
+            \vspace{-.3cm}
+            \begin{tugitemize}
+                \item \scriptsize \textbf{X: attribute set (predictor, independent variable, input)}
+                \item \scriptsize \textbf{y: class label (response, dependent variable, output)}
+            \end{tugitemize}
         \end{tugitemize}
     \end{coloredblockicon}
-
-    \vspace{0.1cm}
 
     \begin{coloredblockicon}[green][Task][\footnotesize][\faIcon{tasks}]
         \vspace{.3cm}
         \begin{tugitemize}
-            \item \scriptsize Learn a model that maps each attribute set X to one of the predefined class labels y.
-            \item \scriptsize Find a model for the class attribute as a function of the values of other attributes.
+            \item \scriptsize Learn a \textbf{model} that maps each \textbf{attribute set X} to one of the predefined \textbf{class labels y}.
+            \item \scriptsize Find a \textbf{model} for the \textbf{class attribute} as a \textbf{function} of the values of other attributes.
         \end{tugitemize}
     \end{coloredblockicon}
-
-    \vspace{0.1cm}
 
     \begin{coloredblockicon}[blue][Goal][\footnotesize][\faIcon{bullseye}]
         \vspace{.3cm}
         \begin{tugitemize}
-            \item \scriptsize Assign previously unseen records to a class as accurately as possible.
-            \item \scriptsize Use a test set to determine the accuracy of the model.
-            \item \scriptsize Typically, the dataset is divided into training and test sets:
-            \item \scriptsize Training set: Used to build the model
-            \item \scriptsize Test set: Used to validate the model
+            \item \scriptsize Assign \textbf{previously unseen records} to a \textbf{class} as \textbf{accurately} as possible.
+            \item \scriptsize Use a \textbf{test set} to determine the \textbf{accuracy} of the model.
+            \item \scriptsize Typically, the \textbf{dataset} is \textbf{divided} into \textbf{training} and \textbf{test sets}:
+            \vspace{-.3cm}
+            \begin{tugitemize}
+                \item \scriptsize \textbf{Training set}: Used to \textbf{build} the model
+                \item \scriptsize \textbf{Test set}: Used to \textbf{validate} the model
+            \end{tugitemize}
         \end{tugitemize}
     \end{coloredblockicon}
 
@@ -1322,17 +1324,17 @@
         
             \begin{coloredblock}[yellow][\faIcon[regular]{smile-beam}~~~Sentiment Analysis][\footnotesize\centering][][6.2cm]
                 \begin{itemize}
-                    \item \scriptsize Task: Determine the sentiment of a text (e.g., reviews, social media posts).
-                    \item \scriptsize Attributes: Text data (words, phrases).
-                    \item \scriptsize Class Labels: "Pos," "Neg," or "Neutr"
+                    \item \scriptsize \textbf{Task}: Determine the sentiment of a text (e.g., reviews, social media posts).
+                    \item \scriptsize \textbf{Attributes}: Text data (words, phrases).
+                    \item \scriptsize \textbf{Class Labels}: "Pos," "Neg," or "Neutr"
                 \end{itemize}
             \end{coloredblock}
             \vspace{0.1cm}
             \begin{coloredblock}[red][\faIcon{image}~~~Image Recognition][\footnotesize\centering][][6.2cm]
                     \begin{itemize}
-                        \item \scriptsize Task: Identify objects or people in images.
-                        \item \scriptsize Attributes: Pixel values, image features, etc.
-                        \item \scriptsize Class Labels: "Cat," "Dog," etc.
+                        \item \scriptsize \textbf{Task}: Identify objects or people in images.
+                        \item \scriptsize \textbf{Attributes}: Pixel values, image features, etc.
+                        \item \scriptsize \textbf{Class Labels}: "Cat," "Dog," etc.
                     \end{itemize}
             \end{coloredblock}
             
@@ -1340,17 +1342,17 @@
         \begin{column}{0.32\textwidth}
             \begin{coloredblock}[blue][\faIcon{stethoscope}~~~Disease Diagnosis][\footnotesize\centering][][6.2cm]
                 \begin{itemize}
-                    \item \scriptsize Task: Diagnose whether a patient has a particular disease.
-                    \item \scriptsize Attributes: Medical history, test results, symptoms.
-                    \item \scriptsize Class Labels: "Disease" / "No Disease"
+                    \item \scriptsize \textbf{Task}: Diagnose whether a patient has a particular disease.
+                    \item \scriptsize \textbf{Attributes}: Medical history, test results, symptoms.
+                    \item \scriptsize \textbf{Class Labels}: "Disease" / "No Disease"
                 \end{itemize}
             \end{coloredblock}
             \vspace{0.1cm}
             \begin{coloredblock}[turquoise][\faIcon{comments}~~~Language Detection][\footnotesize\centering][][6.2cm]
                 \begin{itemize}
-                    \item \scriptsize Task: Identify the language of a given text.
-                    \item \scriptsize Attributes: Text data (words, characters).
-                    \item \scriptsize Class Labels: "English," "Spanish," etc.
+                    \item \scriptsize \textbf{Task}: Identify the language of a given text.
+                    \item \scriptsize \textbf{Attributes}: Text data (words, characters).
+                    \item \scriptsize \textbf{Class Labels}: "English," "Spanish," etc.
                 \end{itemize}
             \end{coloredblock}
         
@@ -1359,17 +1361,17 @@
         
         \begin{coloredblock}[green][\faIcon{running}~~~Activity Recognition][\footnotesize\centering][][6.2cm]
             \begin{itemize}
-                \item \scriptsize Task: Determine the activity being performed based on sensor data.
-                \item \scriptsize Attributes: Sensor readings (e.g., from a smartphone or wearable device).
-                \item \scriptsize Class Labels: “Biking," "Running," etc.
+                \item \scriptsize \textbf{Task}: Determine the activity being performed based on sensor data.
+                \item \scriptsize \textbf{Attributes}: Sensor readings (e.g., from a smartphone or wearable device).
+                \item \scriptsize \textbf{Class Labels}: “Biking," "Running,"
             \end{itemize}
         \end{coloredblock}
         \vspace{0.1cm}
         \begin{coloredblock}[grey][\faIcon{envelope}~~~E-Mail Spam Detection][\footnotesize\centering][][6.2cm]
             \begin{itemize}
-                \item \scriptsize Task: Classify as "spam" or "not spam."
-                \item \scriptsize Attributes: Email content, sender, attachements etc.
-                \item \scriptsize Class Labels: "Spam" or "Not Spam"
+                \item \scriptsize \textbf{Task}: Classify as "spam" or "not spam."
+                \item \scriptsize \textbf{Attributes}: Email content, sender, attachements etc.
+                \item \scriptsize \textbf{Class Labels}: "Spam" or "Not Spam"
             \end{itemize}
         \end{coloredblock}
         
