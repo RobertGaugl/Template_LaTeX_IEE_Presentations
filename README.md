@@ -62,3 +62,7 @@ The template includes:
    - Add attribution for fontawesome icons.
 - **2025-05-18:**
    - First upload
+
+## Thank you notes
+
+I want to thank Felix (@FelixCAAuer) for his continued support, professionally but also (and more importantly) personally <3
