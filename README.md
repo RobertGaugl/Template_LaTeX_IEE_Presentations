@@ -1,6 +1,6 @@
 # IEE LaTeX Presentation Template
 
-This repository contains a **LaTeX Beamer presentation template** developed by the Institute of Electricity Economics and Energy Innovation (IEE). It provides a consistent and professional design style for presentations related to the institute's courses, lectures, and research activities.
+This repository contains a **LaTeX Beamer presentation template** developed by the Institute of Electricity Economics and Energy Innovation (IEE) at Graz University of Technology. It provides a consistent and professional design style for presentations related to the institute's courses, lectures, and research activities.
 
 <p align="center">
   <img src="figures/Slides.png" alt="Example Slides" width="80%" /></br>
