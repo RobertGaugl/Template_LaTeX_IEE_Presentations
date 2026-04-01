@@ -8,7 +8,8 @@
 %% -------------------------------------------------------------------
 %% Packages
 %% -------------------------------------------------------------------
-\usepackage{fontawesome5}
+
+\usepackage{fontawesome7}
 \usepackage{pgfplots}
 \usepackage{pgf-pie}
 \pgfplotsset{compat=1.18} % or your current pgfplots version
@@ -95,7 +96,7 @@
         detect-family = false,
     }
 }
-\DeclareSIUnit \watthour { Wh } %apparent power 
+\DeclareSIUnit \watthour { Wh } % apparent power 
 
 %% -------------------------------------------------------------------
 %% Document
@@ -780,7 +781,7 @@
     \begin{coloredblock}[iee][\faIcon{dog}~~~Icons][\centering]
         \begin{itemize}
             \item Incorporate \textbf{icons} to enhance \textbf{visual clarity and aid }quick \textbf{comprehension}
-            \item The \textbf{recommended option} in \LaTeX~is to use icons from the \textbf{fontawesome package}. You can find all \textbf{available icons} in the \href{https://mirror.easyname.at/ctan/fonts/fontawesome5/doc/fontawesome5.pdf}{\textbf{docs}}. Add an attribution on the \hyperlink{frame:closing_slide}{closing slide}.
+            \item The \textbf{recommended option} in \LaTeX~is to use icons from the \textbf{fontawesome package}. You can find all \textbf{available icons} in the \href{https://mirror.easyname.at/ctan/fonts/fontawesome7/doc/fontawesome7.pdf}{\textbf{docs}}. Add an attribution on the \hyperlink{frame:closing_slide}{closing slide}.
 
             \item When using \textbf{third-party icons}:
             \vspace{-0.5\topsep}
@@ -1032,7 +1033,7 @@
         \begin{coloredblockdark}[blue][][][][2.35cm][][0ex][0ex]
                 \begin{minipage}[c][2.35cm][c]{0.4\textwidth}
                     \centering
-                    \Large{\faIcon{balance-scale}}
+                    \Large{\faIcon{scale-balanced}}
                 \end{minipage}%
                 \hfill
                 \begin{minipage}[c][2.35cm][c]{0.55\textwidth}
@@ -1046,7 +1047,7 @@
         \begin{coloredblockdark}[blue][][][][2.35cm][][0ex][0ex]
                 \begin{minipage}[c][2.35cm][c]{0.4\textwidth}
                     \centering
-                    \Large{\faIcon{hand-paper}}
+                    \Large{\faIcon{hand}}
                 \end{minipage}%
                 \hfill
                 \begin{minipage}[c][2.35cm][c]{0.55\textwidth}
@@ -1060,7 +1061,7 @@
         \begin{coloredblockdark}[blue][][][][2.35cm][][0ex][0ex]
                 \begin{minipage}[c][2.35cm][c]{0.4\textwidth}
                     \centering
-                    \Large{\faIcon{arrows-alt-v}}
+                    \Large{\faIcon{arrows-up-down}}
                 \end{minipage}%
                 \hfill
                 \begin{minipage}[c][2.35cm][c]{0.55\textwidth}
@@ -1074,7 +1075,7 @@
         \begin{coloredblockdark}[blue][][][][2.35cm][][0ex][0ex]
                 \begin{minipage}[c][2.35cm][c]{0.4\textwidth}
                     \centering
-                    \Large{\faIcon{arrows-alt-h}}
+                    \Large{\faIcon{arrows-left-right}}
                 \end{minipage}%
                 \hfill
                 \begin{minipage}[c][2.35cm][c]{0.55\textwidth}
@@ -1182,7 +1183,7 @@
             \end{coloredblock}
         \end{column}
         \begin{column}{0.39\textwidth}
-            \begin{coloredblockicon}[grey][][][\large\faIcon{thermometer-half}][l][c][3.7cm]
+            \begin{coloredblockicon}[grey][][][\large\faIcon{temperature-half}][l][c][3.7cm]
                 \small The European Commission wants to achieve \textbf{climate neutrality until 2050}
             \end{coloredblockicon}
             \begin{coloredblockicon}[grey][][][\large\faIcon{industry}][l][c][5.7cm]
@@ -1358,7 +1359,7 @@
         \end{tugitemize}
     \end{coloredblockicon}
 
-    \begin{coloredblockicon}[green][Task][\footnotesize][\faIcon{tasks}]
+    \begin{coloredblockicon}[green][Task][\footnotesize][\faIcon{list-check}]
         \vspace{.3cm}
         \begin{tugitemize}
             \item \scriptsize Learn a \textbf{model} that maps each \textbf{attribute set X} to one of the predefined \textbf{class labels y}.
@@ -1390,7 +1391,7 @@
     \begin{columns}
         \begin{column}{0.32\textwidth}
         
-            \begin{coloredblock}[yellow][\faIcon[regular]{smile-beam}~~~Sentiment Analysis][\footnotesize\centering][][6.2cm]
+            \begin{coloredblock}[yellow][\faIcon[regular]{face-smile-beam}~~~Sentiment Analysis][\footnotesize\centering][][6.2cm]
                 \begin{itemize}
                     \item \scriptsize \textbf{Task}: Determine the sentiment of a text (e.g., reviews, social media posts).
                     \item \scriptsize \textbf{Attributes}: Text data (words, phrases).
@@ -1427,7 +1428,7 @@
         \end{column}
         \begin{column}{0.32\textwidth}
         
-        \begin{coloredblock}[green][\faIcon{running}~~~Activity Recognition][\footnotesize\centering][][6.2cm]
+        \begin{coloredblock}[green][\faIcon{person-running}~~~Activity Recognition][\footnotesize\centering][][6.2cm]
             \begin{itemize}
                 \item \scriptsize \textbf{Task}: Determine the activity being performed based on sensor data.
                 \item \scriptsize \textbf{Attributes}: Sensor readings (e.g., from a smartphone or wearable device).
